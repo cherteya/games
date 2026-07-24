@@ -295,7 +295,8 @@
             display: flex; flex-direction: column; align-items: center; gap: 8px;
             cursor: pointer; transition: transform 0.3s; margin: 0 auto;
         }
-        .requester-badge:hover { transform: translateY(-3px); }
+        /* Убрано увеличение/смещение аватарки при наведении */
+        /* .requester-badge:hover { transform: translateY(-3px); } */
         .requester-badge:hover .req-avatar { border-color: var(--mint-light); box-shadow: 0 0 15px rgba(92, 242, 138, 0.5); }
         .requester-badge:hover .req-name { color: #fff; text-shadow: 0 0 8px rgba(92, 242, 138, 0.6); }
         
@@ -352,7 +353,7 @@
         }
 
         tr.movie-row:has(.poster-wrapper:hover) .poster-wrapper { 
-            transform: scale(1.05) translateY(-5px);
+            /* Убрано увеличение постера */
             box-shadow: 0 12px 25px rgba(92, 242, 138, 0.3); 
             border-color: var(--mint-main);
         }
