@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "cherteya",
-    "lastUpdated": "25.07.2026"
+    "lastUpdated": "26.07.2026"
   },
   "MadMan1408": [
     {
@@ -195,7 +195,7 @@
       "dateRequested": "24.07.2026 17:38",
       "status": "Играем",
       "ourRating": "Без оценки",
-      "cried": true,
+      "cried": false,
       "isAuction": false,
       "burned": true
     }
