@@ -228,5 +228,34 @@
       "isAuction": false
     }
   ],
+  "cherteya": [
+    {
+      "title": "Cyberpunk 2077",
+      "year": "2020",
+      "type": "Игра",
+      "platforms": "Windows, Mac",
+      "genres": "Ролевые игры",
+      "studios": "CD PROJEKT RED (Изд: CD PROJEKT RED)",
+      "overview": "Cyberpunk 2077 — приключенческая ролевая игра с открытым миром, действие которой происходит в футуристическом мегаполисе Найт-Сити, где выше всего ценятся власть, роскошь и модификации тела.",
+      "detailedDesc": "Cyberpunk 2077: Ultimate EditionОб игре",
+      "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/library_600x900_2x.jpg",
+      "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/644eb087007768417a847e52c38eeaf34b57fd12/page_bg_raw.jpg?t=1784714077",
+      "steamAppId": "1091500",
+      "price": "17 999 KZT (~3 004 ₽ / ~1 704 ₴ / ~$38,3)",
+      "isFree": "false",
+      "metacriticScore": "86",
+      "metacriticUrl": "https://www.metacritic.com/game/pc/cyberpunk-2077?ftag=MCD-06-10aaa1f",
+      "website": "https://www.cyberpunk.net",
+      "dlcCount": "3",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
+      "id": 3,
+      "dateRequested": "26.07.2026",
+      "status": "В очереди",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "burned": false,
+      "isAuction": true
+    }
+  ],
   "Repo": []
 }
