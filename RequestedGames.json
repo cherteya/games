@@ -257,5 +257,34 @@
       "isAuction": true
     }
   ],
+  "neononly": [
+    {
+      "title": "ELDEN RING",
+      "year": "2022",
+      "type": "Игра",
+      "platforms": "Windows",
+      "genres": "Экшены, Ролевые игры",
+      "studios": "FromSoftware, Inc. (Изд: FromSoftware, Inc., Bandai Namco Entertainment)",
+      "overview": "НОВЫЙ ФЭНТЕЗИЙНЫЙ РОЛЕВОЙ БОЕВИК. Восстань, погасшая душа! Междуземье ждёт своего повелителя. Пусть благодать приведёт тебя к Кольцу Элден.",
+      "detailedDesc": "ELDEN RING Shadow of the Erdtree EditionКупите прямо сейчас и получите уникальный бонус:– Особый жест из дополнения ELDEN RING — Shadow of the ErdtreeЭтот жест можно будет использовать в игре после выхода дополнения Shadow of the Erdtree.*Бонусный материал будет доступен в игре после выхода дополнения.*Игроки также смогут открыть его во время прохождения дополнения.ELDEN RING Shadow of the Erdtree Deluxe EditionELDEN RING Shadow of the Erdtree Deluxe Edition включает:• игру ELDEN RING;• дополнение ELDEN RING — Shadow of the Erdtree.• цифровой артбук и оригинальный саундтрек ELDEN RING;• артбук и саундтрек ELDEN RING — Shadow of the Erdtree.Об игреНОВЫЙ ФЭНТЕЗИЙНЫЙ РОЛЕВОЙ БОЕВИК.Восстань, погасшая душа! Междуземье ждёт своего повелителя. Пусть благодать приведёт тебя к Кольцу Элден.• Огромный захватывающий мирОгромный мир с открытыми полями, множеством ситуаций и гигантскими подземельями, где сложные трёхмерные конструкции сочетаются воедино. Путешествуйте, преодолевайте смертельные опасности и радуйтесь успехам.• Создайте своего персонажаВы можете не только изменить внешность персонажа, но также комбинировать оружие, броню и предметы. Развивайте персонажа по своему вкусу. Наращивайте мышцы или постигайте таинства магии.• Эпическая драма, выросшая из мифаМногослойная история, разбитая на фрагменты. Эпическая драма, в которой мысли персонажей пересекаются в Междуземье.• Уникальный сетевой режим, приближающий вас к другим игрокамПомимо многопользовательского режима, в котором вы напрямую подключаетесь к другим игрокам и путешествуете вместе, есть асинхронный сетевой режим, позволяющий ощутить присутствие других игроков.",
+      "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_600x900_2x.jpg",
+      "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/page_bg_raw.jpg?t=1784684281",
+      "steamAppId": "1245620",
+      "price": "~$38,3 / ~3 004 ₽ / ~1 704 ₴ / ~17 999 ₸",
+      "isFree": "false",
+      "metacriticScore": "94",
+      "metacriticUrl": "https://www.metacritic.com/game/pc/elden-ring?ftag=MCD-06-10aaa1f",
+      "website": "",
+      "dlcCount": "0",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/854a7f36-b9ec-4e4a-b0a2-1e309e956ce9-profile_image-600x600.png",
+      "id": 4,
+      "dateRequested": "26.07.2026",
+      "status": "В очереди",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "burned": false,
+      "isAuction": true
+    }
+  ],
   "Repo": []
 }
