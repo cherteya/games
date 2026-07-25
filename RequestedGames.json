@@ -30,6 +30,33 @@
       "cried": false,
       "burned": false,
       "isAuction": false
+    },
+    {
+      "title": "Little Nightmares II",
+      "year": "2021",
+      "type": "Игра",
+      "platforms": "Windows",
+      "genres": "Приключенческие игры",
+      "studios": "Tarsier Studios (Изд: BANDAI NAMCO Entertainment)",
+      "overview": "Little Nightmares II — приключенческая игра с нагнетанием саспенса. Вы играете за мальчика Моно, попавшего в мир, деформированный злой Передачей. С новой подругой Шестой он пытается найти ее источник.",
+      "detailedDesc": "PC Enhanced EditionПогрузитесь в тревожное приключение, которое вы никогда не забудете, теперь в завораживающем формате 4K без ограничения FPS. Владельцы Little Nightmares II также получают бесплатный доступ к обновлениям улучшенного издания Little Nightmares II. Визуальные улучшения в рамках улучшенного издания включают отражения с трассировкой лучей, улучшенные объемные тени и повышенную детализацию игры, например интерактивные частицы. Новый иммерсивный 3D-микс звуковых ландшафтов также будет доступен в форматах 5.1 и 7.1, обеспечивая в игре Little Nightmares II еще больший эффект присутствия.Для оптимальной улучшенной игрыОПЕРАЦИОННАЯ СИСТЕМА: Windows 10ПРОЦЕССОР: Intel Core i5-8400 | AMD Ryzen 5 1600ПАМЯТЬ: 8 ГБ ОЗУВИДЕОКАРТА: Nvidia GeForce RTX 2080, 8 ГБ | AMD RX 6800Издание Digital Deluxe EditionКупите делюкс-издание и получите следующий цифровой контент:– Полная версия игры Little Nightmares II– Загружаемое дополнение Nome’s AtticСледуйте за номами, чтобы найти эту особую игровую головоломку и открыть шляпу номов в качестве награды за прохождение.– Полный цифровой саундтрекСлушайте полный саундтрек Little Nightmares II, сочиненный Тобиасом Лиля (Tobias Lilja) из Tarsier Studios.– Цифровая книга иллюстраций «The Art of Little Nightmares II»Погрузитесь в историю создания Little Nightmares II с этим 56-страничным альбомом, полным эскизов, художественных работ и дизайнов художественной команды Tarsier Studios.– Набор обоев- Mono &amp; Six avatarsОб игреВернитесь в мир очаровательных ужасов Little Nightmares II — приключенческой игры с нагнетанием саспенса. Вы играете за мальчика Моно, попавшего в мир, деформированный Передачей от далекой башни.Вместе с Шестой, девочкой в желтом плаще, ставшей его проводником, Моно пытается раскрыть темные тайны Маяка. В нелегком путешествии Моно и Шестая столкнутся со множеством новых угроз со стороны ужасных жителей этого мира.Осмелитесь ли вы противостоять этим новым маленьким кошмарам?",
+      "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/860510/library_600x900_2x.jpg",
+      "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/860510/page_bg_raw.jpg?t=1730127763",
+      "steamAppId": "860510",
+      "price": "~$31,6 / ~2 479 ₽ / ~1 406 ₴ / ~14 849 ₸",
+      "isFree": "false",
+      "metacriticScore": "83",
+      "metacriticUrl": "https://www.metacritic.com/game/pc/little-nightmares-ii?ftag=MCD-06-10aaa1f",
+      "website": "https://little-nightmares.com",
+      "dlcCount": "0",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/9516543b-5c76-45bf-9c93-4dc2a25939c8-profile_image-600x600.png",
+      "id": 2,
+      "dateRequested": "26.07.2026",
+      "status": "В очереди",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "burned": false,
+      "isAuction": false
     }
   ]
 }
