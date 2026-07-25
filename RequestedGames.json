@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "cherteya",
-    "lastUpdated": "25.07.2026 23:19"
+    "lastUpdated": "25.07.2026 23:22"
   },
   "MadMan1408": [
     {
@@ -191,11 +191,10 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
       "id": 8,
       "dateRequested": "24.07.2026 15:20",
-      "status": "Пройдено",
+      "status": "Играем",
       "ourRating": "Без оценки",
       "cried": false,
-      "isAuction": false,
-      "dateWatched": "25.07.2026 23:19"
+      "isAuction": false
     }
   ],
   "Repo": []
