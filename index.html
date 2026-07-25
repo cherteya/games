@@ -434,13 +434,13 @@
 
     function getInitials(name) { return (name || '??').replace('@', '').trim().substring(0, 1).toUpperCase(); }
 
+    // 🔥 ИЗМЕНЕННАЯ ФУНКЦИЯ ДЛЯ УБРАНИЯ ВРЕМЕНИ 🔥
     function parseDateObj(dateStr) {
         if (!dateStr || typeof dateStr !== 'string') return 0;
-        const parts = dateStr.split(' ');
-        if (parts.length !== 2) return 0;
-        const dmy = parts[0].split('.'); const hm = parts[1].split(':');
-        if (dmy.length !== 3 || hm.length !== 2) return 0;
-        return new Date(dmy[2], dmy[1]-1, dmy[0], hm[0], hm[1]).getTime();
+        const cleanDate = dateStr.split(' ')[0]; // Отсекаем время, оставляем только день.месяц.год
+        const dmy = cleanDate.split('.'); 
+        if (dmy.length !== 3) return 0;
+        return new Date(dmy[2], dmy[1]-1, dmy[0]).getTime();
     }
 
     async function loadMovies() {
@@ -450,12 +450,24 @@
             if (!response.ok) throw new Error();
             const data = await response.json();
             rawMoviesData = [];
+            
+            // 🔥 УБИРАЕМ ВРЕМЯ НА ЛЕТУ ПРИ ЗАГРУЗКЕ СТАРЫХ ДАННЫХ 🔥
             if (Array.isArray(data)) {
-                data.forEach(movie => rawMoviesData.push({ ...movie, requestedBy: movie.requestedBy || 'Аноним', parsedDate: parseDateObj(movie.dateRequested) }));
+                data.forEach(movie => {
+                    const cleanReq = movie.dateRequested ? movie.dateRequested.split(' ')[0] : '';
+                    const cleanWatch = movie.dateWatched ? movie.dateWatched.split(' ')[0] : '';
+                    rawMoviesData.push({ ...movie, requestedBy: movie.requestedBy || 'Аноним', dateRequested: cleanReq, dateWatched: cleanWatch, parsedDate: parseDateObj(movie.dateRequested) });
+                });
             } else if (typeof data === 'object' && data !== null) {
                 for (const user in data) {
                     if (user === "_metadata_") continue; 
-                    if (Array.isArray(data[user])) data[user].forEach(movie => rawMoviesData.push({ ...movie, requestedBy: user, parsedDate: parseDateObj(movie.dateRequested) }));
+                    if (Array.isArray(data[user])) {
+                        data[user].forEach(movie => {
+                            const cleanReq = movie.dateRequested ? movie.dateRequested.split(' ')[0] : '';
+                            const cleanWatch = movie.dateWatched ? movie.dateWatched.split(' ')[0] : '';
+                            rawMoviesData.push({ ...movie, requestedBy: user, dateRequested: cleanReq, dateWatched: cleanWatch, parsedDate: parseDateObj(movie.dateRequested) });
+                        });
+                    }
                 }
             }
             populateUserFilter(); applyFilters();
@@ -509,7 +521,6 @@
             
             const posterUrl = getSafePoster(movie.poster);
             
-            // 🔥 ОПРЕДЕЛЯЕМ НОВЫЕ СТАТУСЫ 🔥
             const isWatched = movie.status === "Пройдено";
             const isDropped = movie.status === "Бросила" || movie.status === "Брошено";
             const isPlaying = movie.status === "Играем";
@@ -540,7 +551,6 @@
                 }
             }
             
-            // 🔥 ДОБАВЛЯЕМ СЛЕЗЫ И ГОРЕНИЕ ДЛЯ ВСЕХ СТАТУСОВ 🔥
             let tagsDetails = '';
             if (movie.cried) {
                 tagsDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 13px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="var(--mint-light)" stroke="var(--mint-light)" stroke-width="1" style="margin-right:4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
@@ -681,7 +691,6 @@
         
         const dateWatchedEl = document.getElementById('modalDateWatched');
         
-        // 🔥 ПРОВЕРКИ НОВЫХ СТАТУСОВ ДЛЯ МОДАЛКИ 🔥
         const isWatched = movie.status === "Пройдено";
         const isDropped = movie.status === "Бросила" || movie.status === "Брошено";
         const isPlaying = movie.status === "Играем";
