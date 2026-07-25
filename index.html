@@ -229,132 +229,60 @@
         .poster-wrapper img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; } 
 
         .movie-info { display: flex; flex-direction: column; gap: 8px; padding-left: 10px; }
-        .movie-header { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
         
+        /* 🔥 ОБНОВЛЕННАЯ СТРОКА НАЗВАНИЯ И ГОДА В ТАБЛИЦЕ 🔥 */
+        .movie-header { 
+            display: flex; align-items: baseline; gap: 10px; 
+            flex-wrap: nowrap; /* Не разрешаем перенос! */
+            max-width: 100%; overflow: hidden; /* Держим всё в рамках колонки */
+        }
         .movie-title { 
             font-size: 24px; font-weight: 700; color: #fff; 
             font-family: var(--font-title); 
             text-shadow: 0 2px 5px rgba(0,0,0,0.6); 
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            flex-shrink: 1; min-width: 0; /* Разрешаем сжиматься, если не влезает */
         }
-
-        .movie-year { color: var(--mint-light); font-size: 18px; font-weight: 600; opacity: 0.8; } 
+        .movie-year { 
+            color: var(--mint-light); font-size: 18px; font-weight: 600; opacity: 0.8; 
+            white-space: nowrap; flex-shrink: 0; /* Год никогда не сжимается */
+        }
         
         .copy-btn {
             background: rgba(92, 242, 138, 0.1); border: 1px solid transparent; color: var(--mint-main); 
             cursor: pointer; padding: 4px; border-radius: 8px;
             display: flex; align-items: center; justify-content: center; transition: all 0.3s; 
             opacity: 0; transform: scale(0.8);
-            position: relative; top: 2px;
+            position: relative; top: 2px; flex-shrink: 0; /* Кнопка никогда не сжимается */
         }
         tr.movie-row:hover .copy-btn { opacity: 1; transform: scale(1); }
-        .copy-btn:hover { 
-            background: var(--mint-main); color: var(--bg-deep); 
-            box-shadow: 0 0 10px rgba(92, 242, 138, 0.5);
-        } 
+        .copy-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 10px rgba(92, 242, 138, 0.5); } 
 
         .badges-container { display: flex; align-items: center; gap: 8px; margin: 2px 0; flex-wrap: wrap; }
         
-        .content-type-badge { 
-            background: var(--mint-main); color: var(--bg-deep); 
-            padding: 3px 10px; font-size: 11px; font-weight: 800; 
-            text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-text); 
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(92, 242, 138, 0.3); 
-        }
-        
-        .outline-badge, .tmdb-badge { 
-            border: 1px solid rgba(92, 242, 138, 0.5); color: var(--mint-light); 
-            padding: 3px 10px; font-size: 11px; font-weight: 700; 
-            background: rgba(92, 242, 138, 0.05); border-radius: 12px;
-            font-family: var(--font-text); letter-spacing: 0.5px;
-        }
+        .content-type-badge { background: var(--mint-main); color: var(--bg-deep); padding: 3px 10px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-text); border-radius: 12px; box-shadow: 0 2px 8px rgba(92, 242, 138, 0.3); }
+        .outline-badge, .tmdb-badge { border: 1px solid rgba(92, 242, 138, 0.5); color: var(--mint-light); padding: 3px 10px; font-size: 11px; font-weight: 700; background: rgba(92, 242, 138, 0.05); border-radius: 12px; font-family: var(--font-text); letter-spacing: 0.5px; }
 
         .movie-genres { font-size: 14px; color: var(--mint-light); font-weight: 600; opacity: 0.9; }
         .movie-tagline { font-size: 14px; color: var(--text-muted); font-style: italic; border-left: 2px solid var(--cute-pink); padding-left: 8px; }
         .movie-studios-list { font-size: 12px; color: var(--warm-star); font-weight: 600; letter-spacing: 0.5px; margin-top: 2px; }
 
-        .movie-overview-wrapper { 
-            margin-top: 8px; 
-            max-height: 48px; 
-            overflow: hidden; 
-            transition: max-height 0.4s ease; 
-        }
-        .movie-overview-text { 
-            font-size: 15px; 
-            line-height: 1.6; 
-            color: var(--text-muted); 
-            
-            display: -webkit-box;
-            -webkit-line-clamp: 2; 
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
+        .movie-overview-wrapper { margin-top: 8px; max-height: 48px; overflow: hidden; transition: max-height 0.4s ease; }
+        .movie-overview-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-        /* Кто заказал */
-        .requester-badge {
-            display: flex; flex-direction: column; align-items: center; gap: 8px;
-            cursor: pointer; transition: transform 0.3s; margin: 0 auto;
-        }
+        .requester-badge { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: transform 0.3s; margin: 0 auto; }
         .requester-badge:hover .req-avatar { border-color: var(--mint-light); box-shadow: 0 0 15px rgba(92, 242, 138, 0.5); }
         .requester-badge:hover .req-name { color: #fff; text-shadow: 0 0 8px rgba(92, 242, 138, 0.6); }
-        
-        .req-avatar {
-            width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-title); font-size: 18px; color: var(--bg-deep); font-weight: 700;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.4); object-fit: cover; border: 2px solid var(--mint-main);
-            transition: all 0.3s; background: var(--mint-light);
-        }
+        .req-avatar { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-title); font-size: 18px; color: var(--bg-deep); font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.4); object-fit: cover; border: 2px solid var(--mint-main); transition: all 0.3s; background: var(--mint-light); }
         .req-name { font-family: var(--font-text); font-size: 14px; font-weight: 700; color: var(--mint-light); transition: all 0.3s; }
         
-        .date-badge, .time-box {
-            font-size: 14px; 
-            color: var(--mint-light); font-weight: 600; 
-            background: rgba(19, 15, 28, 0.8); 
-            border: 1px solid rgba(92, 242, 138, 0.2);
-            padding: 6px 14px; border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2); 
-            display: inline-flex; justify-content: center; align-items: center; gap: 6px;
-        }
-
+        .date-badge, .time-box { font-size: 14px; color: var(--mint-light); font-weight: 600; background: rgba(19, 15, 28, 0.8); border: 1px solid rgba(92, 242, 138, 0.2); padding: 6px 14px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); display: inline-flex; justify-content: center; align-items: center; gap: 6px; }
         .date-badge { margin-top: 10px; }
-
         .time-box svg { stroke: var(--mint-main); width: 16px; height: 16px; }
-        
-        .time-box.episodes {
-            font-size: 13px; 
-            flex-direction: column; gap: 3px; align-items: center; text-align: center;
-            background: rgba(19, 15, 28, 0.5); border-color: rgba(92, 242, 138, 0.1);
-            padding: 6px 12px; margin-top: 0;
-        }
 
-        .badge-status { 
-            font-size: 11px; font-weight: 800; text-align: center; 
-            display: inline-flex; justify-content: center; align-items: center;
-            text-transform: uppercase; letter-spacing: 1px; 
-            font-family: var(--font-text); color: var(--bg-deep);
-            border-radius: 10px;
-            padding: 4px 12px; 
-            margin-bottom: 8px; background: var(--mint-main); 
-            box-shadow: 0 2px 8px rgba(92, 242, 138, 0.4);
-            min-width: 85px; 
-        }
+        .badge-status { font-size: 11px; font-weight: 800; text-align: center; display: inline-flex; justify-content: center; align-items: center; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-text); color: var(--bg-deep); border-radius: 10px; padding: 4px 12px; margin-bottom: 8px; background: var(--mint-main); box-shadow: 0 2px 8px rgba(92, 242, 138, 0.4); min-width: 85px; }
 
-        .rating-badge {
-            font-size: 14px; 
-            font-weight: 800; 
-            background: rgba(19, 15, 28, 0.8); 
-            border: 1px solid rgba(92, 242, 138, 0.3);
-            padding: 6px 14px; border-radius: 12px; 
-            display: inline-flex; justify-content: center; align-items: center; gap: 6px;
-            margin-top: 8px;
-            font-family: var(--font-text);
-        }
-
-        tr.movie-row:has(.poster-wrapper:hover) .poster-wrapper { 
-            box-shadow: 0 12px 25px rgba(92, 242, 138, 0.3); 
-            border-color: var(--mint-main);
-        }
-        
+        tr.movie-row:has(.poster-wrapper:hover) .poster-wrapper { box-shadow: 0 12px 25px rgba(92, 242, 138, 0.3); border-color: var(--mint-main); }
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 250px; }
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-text { -webkit-line-clamp: 20; color: var(--text-main); }
 
@@ -362,112 +290,63 @@
         .modal-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at center, rgba(34, 24, 54, 0.9) 0%, rgba(19, 15, 28, 0.95) 100%);
-            backdrop-filter: blur(8px); z-index: 1000;
-            justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;
+            backdrop-filter: blur(8px); z-index: 1000; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;
         }
         .modal-overlay.active { display: flex; opacity: 1; }
 
-        .modal-girl-col {
-            width: 0; 
-            position: relative;
-            z-index: 1001;
-            pointer-events: none; 
-            display: flex;
-            align-items: center;
-        }
-        .modal-girl-img {
-            position: absolute;
-            height: 650px; 
-            filter: drop-shadow(0 8px 25px rgba(0,0,0,0.5)); 
-        }
+        .modal-girl-col { width: 0; position: relative; z-index: 1001; pointer-events: none; display: flex; align-items: center; }
+        .modal-girl-img { position: absolute; height: 650px; filter: drop-shadow(0 8px 25px rgba(0,0,0,0.5)); }
         .modal-left-img { right: -185px; }
         .modal-right-img { left: -176px; }
-
-        @media (max-width: 1550px) {
-            .modal-girl-col { display: none; }
-        }
+        @media (max-width: 1550px) { .modal-girl-col { display: none; } }
 
         .modal-content {
-            background: var(--bg-deep); width: 90%; max-width: 1000px; 
-            max-height: 85vh; 
-            overflow-y: auto; position: relative;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(92, 242, 138, 0.15); 
-            border: 2px solid var(--mint-main); padding: 5px; 
-            border-radius: 24px;
-            transform: scale(0.95) translateY(20px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            scroll-behavior: smooth; 
+            background: var(--bg-deep); width: 90%; max-width: 1000px; max-height: 85vh; overflow-y: auto; position: relative;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(92, 242, 138, 0.15); border: 2px solid var(--mint-main); padding: 5px; 
+            border-radius: 24px; transform: scale(0.95) translateY(20px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); scroll-behavior: smooth; 
         }
         .modal-overlay.active .modal-content { transform: scale(1) translateY(0); }
-        
         .modal-inner { background: url(background.png); border-radius: 18px; min-height: 100%; overflow: hidden; }
 
         .close-btn {
-            position: absolute; top: 15px; right: 20px; color: var(--text-main); cursor: pointer;
-            z-index: 10; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; 
+            position: absolute; top: 15px; right: 20px; color: var(--text-main); cursor: pointer; z-index: 10; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; 
             transition: all 0.3s; background: rgba(19, 15, 28, 0.5); border-radius: 50%;
         }
         .close-btn:hover { color: var(--cute-pink); background: rgba(19, 15, 28, 0.9); transform: rotate(90deg); }
 
         .modal-hero { 
-            width: 100%; 
-            height: 320px; 
-            background-color: rgba(34, 24, 54, 1); 
-            background-size: cover; 
-            background-position: top center; 
-            position: relative; 
-            z-index: 1; 
-            box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.7);
+            width: 100%; height: 320px; background-color: rgba(34, 24, 54, 1); background-size: cover; background-position: top center; 
+            position: relative; z-index: 1; box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.7);
         }
         .modal-hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, var(--bg-velvet) 0%, transparent 100%); }
 
         .modal-body { padding: 0 40px 40px 40px; position: relative; margin-top: -120px; z-index: 2; display: flex; gap: 35px; }
         .modal-poster { width: 200px; border-radius: 16px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); border: 2px solid var(--mint-main); align-self: flex-start; }
         
-        .modal-info-main { 
-            flex: 1; 
-            background: rgba(34, 24, 54, 0.98);
-            padding: 25px; border-radius: 20px;
-            border: 1px solid rgba(92, 242, 138, 0.1);
-        }
-        .modal-title-wrapper { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+        .modal-info-main { flex: 1; background: rgba(34, 24, 54, 0.98); padding: 25px; border-radius: 20px; border: 1px solid rgba(92, 242, 138, 0.1); overflow: hidden; }
         
+        /* 🔥 ОБНОВЛЕННАЯ СТРОКА НАЗВАНИЯ В МОДАЛКЕ 🔥 */
+        .modal-title-wrapper { 
+            display: flex; align-items: center; gap: 12px; margin-bottom: 12px; 
+            flex-wrap: nowrap; /* Не переносить бейджи вниз */
+            max-width: 100%; overflow: hidden; /* Держим в рамках блока */
+        }
         .modal-title { 
-            font-family: var(--font-title); font-weight: 700; margin: 0; 
-            color: #ffffff;
+            font-family: var(--font-title); font-weight: 700; margin: 0; color: #ffffff;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5), 0 0 15px rgba(92, 242, 138, 0.3);
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            flex-shrink: 1; min-width: 0; /* Разрешаем сжиматься, если не влезает */
         }
 
-        .modal-title-wrapper .copy-btn { 
-            opacity: 0.8; transform: scale(1); background: rgba(92, 242, 138, 0.15);
-            color: var(--mint-main); 
-            padding: 6px; display: flex; align-items: center; justify-content: center; 
-            transition: all 0.3s; border: none; cursor: pointer; border-radius: 8px;
-            position: relative; top: 2px; 
-        }
+        .modal-title-wrapper .copy-btn { opacity: 0.8; transform: scale(1); background: rgba(92, 242, 138, 0.15); color: var(--mint-main); padding: 6px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; border: none; cursor: pointer; border-radius: 8px; position: relative; top: 2px; flex-shrink: 0; }
         .modal-title-wrapper:hover .copy-btn { opacity: 1; }
         .modal-title-wrapper .copy-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 12px rgba(92, 242, 138, 0.5); }
 
         .modal-meta { color: var(--mint-light); font-size: 16px; font-weight: 600; margin-bottom: 20px; border-bottom: 1px dashed rgba(92, 242, 138, 0.2); padding-bottom: 15px; }
-        
         .modal-overview { color: var(--text-main); font-size: 16px; line-height: 1.7; margin-top: 30px; }
 
-        .modal-grid { 
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; 
-            background: rgba(19, 15, 28, 0.5); padding: 25px; border-radius: 16px;
-            border: 1px solid rgba(92, 242, 138, 0.15);
-        }
-        
-        .modal-grid-box {
-            font-size: 15px; 
-            color: var(--mint-light); font-weight: 700; 
-            background: rgba(34, 24, 54, 0.8); 
-            border: 1px solid rgba(92, 242, 138, 0.2);
-            padding: 8px 16px; border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2); 
-            display: inline-flex; justify-content: center; align-items: center; gap: 8px;
-            width: fit-content;
-        }
+        .modal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; background: rgba(19, 15, 28, 0.5); padding: 25px; border-radius: 16px; border: 1px solid rgba(92, 242, 138, 0.15); }
+        .modal-grid-box { font-size: 15px; color: var(--mint-light); font-weight: 700; background: rgba(34, 24, 54, 0.8); border: 1px solid rgba(92, 242, 138, 0.2); padding: 8px 16px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: inline-flex; justify-content: center; align-items: center; gap: 8px; width: fit-content; }
 
         .grid-item { font-size: 14px; display: flex; flex-direction: column; gap: 8px; }
         .grid-item.full-width { grid-column: 1 / -1; } 
@@ -479,43 +358,12 @@
         .modal-requester-link span { font-family: var(--font-text); font-size: 16px; color: var(--mint-main); transition: color 0.3s; font-weight: 700; }
         .modal-requester-link span:hover { color: #fff; text-shadow: 0 0 8px rgba(92, 242, 138, 0.6); }
 
-        /* Кнопка Steam на главной */
-        .steam-link-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            background: rgba(92, 242, 138, 0.15);
-            color: var(--mint-main);
-            border: 1px solid rgba(92, 242, 138, 0.3);
-            padding: 6px 12px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-family: var(--font-text);
-            font-size: 13px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-        }
-        .steam-link-btn:hover {
-            background: var(--mint-main);
-            color: var(--bg-deep);
-            box-shadow: 0 0 12px rgba(92, 242, 138, 0.5);
-            transform: translateY(-2px);
-        }
+        .steam-link-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: rgba(92, 242, 138, 0.15); color: var(--mint-main); border: 1px solid rgba(92, 242, 138, 0.3); padding: 6px 12px; border-radius: 12px; text-decoration: none; font-family: var(--font-text); font-size: 13px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
+        .steam-link-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 12px rgba(92, 242, 138, 0.5); transform: translateY(-2px); }
 
-        /* СТИЛЬ ДЛЯ НИЖНЕГО БЕЙДЖА CREATED BY */
-        .footer-badge {
-            display: flex; align-items: center; gap: 10px;
-            justify-content: center; margin-top: 30px; padding-bottom: 20px;
-            background: transparent; cursor: pointer;
-            transition: all 0.3s ease; opacity: 0.8;
-        }
+        .footer-badge { display: flex; align-items: center; gap: 10px; justify-content: center; margin-top: 30px; padding-bottom: 20px; background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.8; }
         .footer-badge:hover { opacity: 1; }
-        .footer-badge img { 
-            width: 36px; height: 36px; border-radius: 50%; object-fit: cover; 
-            border: 2px solid var(--text-muted); transition: all 0.3s ease;
-        }
+        .footer-badge img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 2px solid var(--text-muted); transition: all 0.3s ease; }
         .footer-badge:hover img { border-color: var(--mint-main); box-shadow: 0 0 12px rgba(92, 242, 138, 0.4); }
         .footer-badge:hover .creator-name { color: var(--mint-light); }
         .footer-badge .creator-label { display:block; font-size:10px; font-family: var(--font-text); color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 800; }
@@ -532,26 +380,17 @@
             .modal-grid { grid-template-columns: 1fr; }
             .header-top h1 { font-size: 32px; }
             .header-top h1::before, .header-top h1::after { display: none; }
-            .modal-title { white-space: normal; }
+            /* Удален белый пробел, чтобы мобилки тоже сжимали текст, а не переносили */
         }
         
-        /* 🔥 СТАТИЧНОЕ ЗОЛОТОЕ СВЕЧЕНИЕ НА САЙТЕ ДЛЯ 1000 🔥 */
-        .legendary-table-badge {
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2), inset 0 0 15px #ffd700, 0 0 20px rgba(255, 215, 0, 0.7) !important;
-            border-color: #ffd700 !important;
-            color: #fff !important;
-            text-shadow: 0 0 8px #ffd700 !important;
-            font-weight: 900 !important;
-        }
+        .legendary-table-badge { box-shadow: 0 2px 6px rgba(0,0,0,0.2), inset 0 0 15px #ffd700, 0 0 20px rgba(255, 215, 0, 0.7) !important; border-color: #ffd700 !important; color: #fff !important; text-shadow: 0 0 8px #ffd700 !important; font-weight: 900 !important; }
     </style>
 </head>
 <body>
 
 <div class="main-wrapper">
     <div class="girl-col">
-        <div class="sticky-box">
-            <img src="girl-left.png" class="girl-img left-img" alt="">
-        </div>
+        <div class="sticky-box"><img src="girl-left.png" class="girl-img left-img" alt=""></div>
     </div>
 
     <div class="container">
@@ -610,9 +449,7 @@
     </div>
 
     <div class="girl-col">
-        <div class="sticky-box">
-            <img src="girl-right.png" class="girl-img right-img" alt="">
-        </div>
+        <div class="sticky-box"><img src="girl-right.png" class="girl-img right-img" alt=""></div>
     </div>
 </div>
 
@@ -637,7 +474,7 @@
                             <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Скопировать имя">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                             </button>
-                            <div id="modalBadges" style="display: flex; gap: 8px; margin-left: 10px;"></div>
+                            <div id="modalBadges" style="display: flex; gap: 8px; margin-left: 10px; flex-shrink: 0;"></div>
                         </div>
                         <div class="modal-meta" id="modalMeta">2023 ✧ PC, PS5</div>
                         
@@ -741,11 +578,9 @@
         if (!rating) return 'var(--mint-main)';
         const r = parseFloat(rating);
         if (isNaN(r)) return 'var(--mint-main)';
-        
         let hue = ((r - 1) / 9) * 140; 
         if (hue < 0) hue = 0;
         if (hue > 140) hue = 140;
-        
         return `hsl(${hue}, 80%, 65%)`;
     }
 
@@ -753,7 +588,7 @@
 
     function parseDateObj(dateStr) {
         if (!dateStr || typeof dateStr !== 'string') return 0;
-        const cleanDate = dateStr.split(' ')[0]; // Отсекаем время, оставляем только день.месяц.год
+        const cleanDate = dateStr.split(' ')[0];
         const dmy = cleanDate.split('.'); 
         if (dmy.length !== 3) return 0;
         return new Date(dmy[2], dmy[1]-1, dmy[0]).getTime();
@@ -951,6 +786,18 @@
             `;
             tbody.appendChild(tr);
         });
+
+        // 🔥 АВТО-ПОДГОНКА ШРИФТОВ В ТАБЛИЦЕ ДЛЯ ДЛИННЫХ НАЗВАНИЙ 🔥
+        setTimeout(() => {
+            document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
+                let currentSize = 24;
+                titleEl.style.fontSize = currentSize + "px";
+                while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > 12) {
+                    currentSize -= 1;
+                    titleEl.style.fontSize = currentSize + "px";
+                }
+            });
+        }, 10);
     }
 
     function openModal(index) {
@@ -969,15 +816,17 @@
         const titleEl = document.getElementById('modalTitle');
         titleEl.textContent = movie.title || 'Безымянный';
         
+        // 🔥 АВТО-ПОДГОНКА ШРИФТОВ В МОДАЛКЕ 🔥
         titleEl.style.fontSize = "34px"; 
         setTimeout(() => {
             let currentSize = 34;
-            while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > 18) {
-                currentSize -= 2;
+            while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > 14) {
+                currentSize -= 1;
                 titleEl.style.fontSize = currentSize + "px";
             }
         }, 10);
         
+        // 🔥 УДАЛЕНЫ ЗНАЧОК DLC И ССЫЛКА НА STEAM В МОДАЛКЕ 🔥
         let badgesHtml = `<span class="outline-badge">ID №${movie.id || 0}</span>`;
         document.getElementById('modalBadges').innerHTML = badgesHtml;
         
