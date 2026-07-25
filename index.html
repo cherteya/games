@@ -412,18 +412,18 @@
         .close-btn:hover { color: var(--cute-pink); background: rgba(19, 15, 28, 0.9); transform: rotate(90deg); }
 
         .modal-hero { 
-			width: 100%; 
-			height: 320px; 
+            width: 100%; 
+            height: 320px; 
     
-			/* Добавляем цвет фона, как у блока с названием */
-			background-color: rgba(34, 24, 54, 1); 
+            /* Добавляем цвет фона, как у блока с названием */
+            background-color: rgba(34, 24, 54, 1); 
     
-			background-size: cover; 
-			background-position: top center; 
-			position: relative; 
-			z-index: 1; 
-			box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.7);
-		}
+            background-size: cover; 
+            background-position: top center; 
+            position: relative; 
+            z-index: 1; 
+            box-shadow: 0 20px 50px 10px rgba(0, 0, 0, 0.7);
+        }
         .modal-hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, var(--bg-velvet) 0%, transparent 100%); }
 
         .modal-body { padding: 0 40px 40px 40px; position: relative; margin-top: -120px; z-index: 2; display: flex; gap: 35px; }
@@ -540,6 +540,16 @@
             .header-top h1 { font-size: 32px; }
             .header-top h1::before, .header-top h1::after { display: none; }
             .modal-title { white-space: normal; } /* Отменяем обрезку на мобильных */
+        }
+        
+        /* 🔥 ЗОЛОТОЕ СВЕЧЕНИЕ НА САЙТЕ ДЛЯ 1000 🔥 */
+        @keyframes legendaryTablePulse {
+            0% { box-shadow: 0 2px 6px rgba(0,0,0,0.2), inset 0 0 8px #f5c285, 0 0 10px rgba(245, 194, 133, 0.4); border-color: #f5c285; color: #f5c285; }
+            100% { box-shadow: 0 2px 6px rgba(0,0,0,0.2), inset 0 0 15px #ffd700, 0 0 25px rgba(255, 215, 0, 0.8); border-color: #fff; color: #fff; text-shadow: 0 0 8px #ffd700; }
+        }
+        .legendary-table-badge {
+            animation: legendaryTablePulse 1.2s infinite alternate ease-in-out !important;
+            font-weight: 900 !important;
         }
     </style>
 </head>
@@ -832,10 +842,18 @@
             let watchedDetails = '';
             if (isWatched && movie.dateWatched) {
                 watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content;">${movie.dateWatched}</div>`;
+                
+                // 🔥 Измененная логика для оценки 1000 в таблице 🔥
                 if (movie.ourRating) {
-                    const rColor = getRatingColor(movie.ourRating);
-                    watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 10px rgba(0,0,0,0.5);">Наша Оценка: ${movie.ourRating}</div>`;
+                    const parsedRating = parseFloat(movie.ourRating);
+                    if (parsedRating === 1000) {
+                        watchedDetails += `<div class="date-badge legendary-table-badge" style="margin-top: 0; width: fit-content;">🏆 Оценка: 1000</div>`;
+                    } else {
+                        const rColor = getRatingColor(movie.ourRating);
+                        watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 10px rgba(0,0,0,0.5);">Наша Оценка: ${movie.ourRating}</div>`;
+                    }
                 }
+                
                 if (movie.cried) {
                     watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 13px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="var(--mint-light)" stroke="var(--mint-light)" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Пролиты слезы</div>`;
                 }
@@ -972,9 +990,15 @@
         if (movie.status === 'Пройдено' && movie.dateWatched) {
              let html = `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched}</div>`;
              
+             // 🔥 Измененная логика для оценки 1000 в модалке 🔥
              if (movie.ourRating) {
-                 const rColor = getRatingColor(movie.ourRating);
-                 html += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor};">Наша Оценка: ${movie.ourRating}</div>`;
+                 const parsedRating = parseFloat(movie.ourRating);
+                 if (parsedRating === 1000) {
+                     html += `<div class="modal-grid-box legendary-table-badge" style="margin-top: 0;">🏆 Оценка: 1000</div>`;
+                 } else {
+                     const rColor = getRatingColor(movie.ourRating);
+                     html += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor};">Наша Оценка: ${movie.ourRating}</div>`;
+                 }
              }
              
              if (movie.cried) {
