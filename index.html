@@ -232,17 +232,29 @@
         
         
         .movie-header { 
-            display: flex; align-items: baseline; gap: 10px; 
-            flex-wrap: nowrap; 
-            max-width: 100%; overflow: hidden; 
+            display: flex; 
+            align-items: flex-start; /* Изменено для лучшего выравнивания при переносе строк */
+            justify-content: space-between; /* Разделяет название и блок с годом/копированием */
+            gap: 15px; 
+            width: 100%; 
         }
         .movie-title { 
             font-size: 24px; font-weight: 700; color: #fff; 
             font-family: var(--font-title); 
             text-shadow: 0 3px 6px rgba(0,0,0,0.5), 0 0 15px rgba(92, 242, 138, 0.4); 
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-            flex-shrink: 1; min-width: 0; 
+            flex-grow: 1; 
+            min-width: 0; 
+            line-height: 1.2;
         }
+        
+        /* НОВЫЙ КЛАСС ДЛЯ ГОДА И КНОПКИ КОПИРОВАНИЯ */
+        .movie-meta-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0; /* Не позволяет блоку сжиматься, оставляя его там, где он есть */
+        }
+
         .movie-year { 
             color: var(--mint-light); font-size: 18px; font-weight: 600; opacity: 0.8; 
             white-space: nowrap; flex-shrink: 0; 
@@ -810,10 +822,12 @@
                     <div class="movie-info">
                         <div class="movie-header">
                             <span class="movie-title">${cleanTitle}</span>
-                            <span class="movie-year">${movie.year || '----'}</span>
-                            <button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
-                            </button>
+                            <div class="movie-meta-box">
+                                <span class="movie-year">${movie.year || '----'}</span>
+                                <button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                                </button>
+                            </div>
                         </div>
                         <div class="badges-container">
                             ${typeLabel} ${idBadge}
@@ -848,14 +862,31 @@
             tbody.appendChild(tr);
         });
 
-        
+        // НОВЫЙ СКРИПТ: Обновленная логика изменения размера и переноса строк
         setTimeout(() => {
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
                 let currentSize = 24;
                 titleEl.style.fontSize = currentSize + "px";
-                while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > 12) {
+                
+                // Временно делаем в одну строку, чтобы посчитать ширину
+                titleEl.style.whiteSpace = 'nowrap';
+                titleEl.style.display = 'block';
+
+                // Уменьшаем размер максимум до 18 пикселей
+                while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > 18) {
                     currentSize -= 1;
                     titleEl.style.fontSize = currentSize + "px";
+                }
+
+                // Если всё ещё не помещается (после того как сжали до 18), разрешаем перенос на 2 строчку
+                if (titleEl.scrollWidth > titleEl.clientWidth) {
+                    titleEl.style.whiteSpace = 'normal';
+                    titleEl.style.display = '-webkit-box';
+                    titleEl.style.webkitLineClamp = '2';
+                    titleEl.style.webkitBoxOrient = 'vertical';
+                } else {
+                    titleEl.style.whiteSpace = 'nowrap';
+                    titleEl.style.textOverflow = 'ellipsis';
                 }
             });
         }, 10);
