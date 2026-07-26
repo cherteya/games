@@ -749,12 +749,12 @@
             
             let watchedDetails = '';
             if ((isWatched || isDropped) && movie.dateWatched) {
-                watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content;">${movie.dateWatched.split(' ')[0]}</div>`;
+                watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content;">${movie.dateWatched}</div>`;
                 
                 if (movie.ourRating && movie.ourRating !== "Без оценки") {
                     const parsedRating = parseFloat(movie.ourRating);
                     if (parsedRating === 1000) {
-                        watchedDetails += `<div class="date-badge legendary-table-badge" style="margin-top: 0; width: fit-content; flex-direction: column; gap: 2px; padding: 4px 14px; line-height: 1.1;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9;">Наша Оценка:</span><span style="font-size: 16px;">1000</span></div>`;
+                        watchedDetails += `<div class="date-badge legendary-table-badge" style="margin-top: 0; width: fit-content;">🏆 Оценка: 1000</div>`;
                     } else {
                         const rColor = getRatingColor(movie.ourRating);
                         watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 10px rgba(0,0,0,0.5);">Наша Оценка: ${movie.ourRating}</div>`;
@@ -829,7 +829,7 @@
                             ${avatarMarkup}
                             <span class="req-name">${cleanNick}</span>
                         </div>
-                        ${movie.dateRequested ? `<div class="date-badge">${movie.dateRequested.split(' ')[0]}</div>` : ''}
+                        ${movie.dateRequested ? `<div class="date-badge">${movie.dateRequested}</div>` : ''}
                         ${auctionHTML}
                     </div>
                 </td>
@@ -898,7 +898,7 @@
         
         const dateReqEl = document.getElementById('modalDateReq');
         if (movie.dateRequested) {
-             dateReqEl.innerHTML = `<div class="modal-grid-box">${movie.dateRequested.split(' ')[0]}</div>`;
+             dateReqEl.innerHTML = `<div class="modal-grid-box">${movie.dateRequested}</div>`;
         } else {
              dateReqEl.innerHTML = `<div class="grid-value" style="color: var(--text-muted); font-weight: normal;">Нет данных</div>`;
         }
@@ -928,12 +928,12 @@
         // 🔥 ПЛАШКА ДАТЫ/ОЦЕНКИ В МОДАЛКЕ 🔥
         let dateHtml = '';
         if ((isWatched || isDropped) && movie.dateWatched) {
-             dateHtml += `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched.split(' ')[0]}</div>`;
+             dateHtml += `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched}</div>`;
              
              if (movie.ourRating && movie.ourRating !== "Без оценки") {
                  const parsedRating = parseFloat(movie.ourRating);
                  if (parsedRating === 1000) {
-                     dateHtml += `<div class="modal-grid-box legendary-table-badge" style="margin-top: 0; flex-direction: column; gap: 2px; padding: 6px 16px; line-height: 1.1;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9;">Наша Оценка:</span><span style="font-size: 18px;">1000</span></div>`;
+                     dateHtml += `<div class="modal-grid-box legendary-table-badge" style="margin-top: 0;">🏆 Оценка: 1000</div>`;
                  } else {
                      const rColor = getRatingColor(movie.ourRating);
                      dateHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor};">Наша Оценка: ${movie.ourRating}</div>`;
