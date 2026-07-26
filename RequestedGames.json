@@ -52,11 +52,12 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
       "id": 16,
       "dateRequested": "27.07.2026",
-      "status": "В очереди",
-      "ourRating": "Без оценки",
+      "status": "Бросила",
+      "ourRating": "2",
       "cried": false,
-      "burned": false,
-      "isAuction": true
+      "burned": true,
+      "isAuction": true,
+      "dateWatched": "27.07.2026"
     }
   ],
   "cherteya": [
