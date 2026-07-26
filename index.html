@@ -339,25 +339,36 @@
         
         .modal-info-main { flex: 1; background: rgba(34, 24, 54, 0.98); padding: 25px; border-radius: 20px; border: 1px solid rgba(92, 242, 138, 0.1); overflow: hidden; }
         
-        
+        /* === ИЗМЕНЕНЫ СТИЛИ ДЛЯ ЗАГОЛОВКА В МОДАЛЬНОМ ОКНЕ === */
         .modal-title-wrapper { 
-            display: flex; align-items: center; gap: 12px; margin-bottom: 12px; 
+            display: flex; 
+            align-items: flex-start; /* Чтобы иконка копирования оставалась вверху при переносе текста */
+            gap: 12px; margin-bottom: 12px; 
             flex-wrap: nowrap; 
             max-width: 100%; overflow: hidden; 
         }
         .modal-title { 
             font-family: var(--font-title); font-weight: 700; margin: 0; color: #ffffff;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5), 0 0 15px rgba(92, 242, 138, 0.3);
-            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
             flex-shrink: 1; min-width: 0; 
+            line-height: 1.2;
         }
 
-        .modal-title-wrapper .copy-btn { opacity: 0.8; transform: scale(1); background: rgba(92, 242, 138, 0.15); color: var(--mint-main); padding: 6px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; border: none; cursor: pointer; border-radius: 8px; position: relative; top: 2px; flex-shrink: 0; }
+        .modal-title-wrapper .copy-btn { opacity: 0.8; transform: scale(1); background: rgba(92, 242, 138, 0.15); color: var(--mint-main); padding: 6px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; border: none; cursor: pointer; border-radius: 8px; position: relative; top: 2px; flex-shrink: 0; margin-top: 2px; }
         .modal-title-wrapper:hover .copy-btn { opacity: 1; }
         .modal-title-wrapper .copy-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 12px rgba(92, 242, 138, 0.5); }
 
-        .modal-meta { color: var(--mint-light); font-size: 16px; font-weight: 600; margin-bottom: 20px; border-bottom: 1px dashed rgba(92, 242, 138, 0.2); padding-bottom: 15px; }
-        .modal-overview { color: var(--text-main); font-size: 16px; line-height: 1.7; margin-top: 30px; }
+        /* === ИЗМЕНЕНЫ СТИЛИ ДЛЯ ВЫРАВНИВАНИЯ ДАТЫ И ID === */
+        .modal-meta-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed rgba(92, 242, 138, 0.2);
+            padding-bottom: 15px;
+        }
+        .modal-meta { color: var(--mint-light); font-size: 16px; font-weight: 600; }
+        .modal-overview { color: var(--text-main); font-size: 16px; line-height: 1.7; margin-top: 20px; }
 
         .modal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; background: rgba(19, 15, 28, 0.5); padding: 25px; border-radius: 16px; border: 1px solid rgba(92, 242, 138, 0.15); }
         .modal-grid-box { font-size: 15px; color: var(--mint-light); font-weight: 700; background: rgba(34, 24, 54, 0.8); border: 1px solid rgba(92, 242, 138, 0.2); padding: 8px 16px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: inline-flex; justify-content: center; align-items: center; gap: 8px; width: fit-content; }
@@ -497,14 +508,20 @@
                 <div class="modal-body">
                     <div><img id="modalPoster" class="modal-poster" src="" alt="Постер"></div>
                     <div class="modal-info-main">
+                        <!-- ИЗМЕНЕННЫЙ БЛОК НАЗВАНИЯ И ID -->
                         <div class="modal-title-wrapper">
                             <h2 class="modal-title" id="modalTitle">Название</h2>
                             <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Скопировать имя">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
                             </button>
-                            <div id="modalBadges" style="display: flex; gap: 8px; margin-left: 10px;"></div>
                         </div>
-                        <div class="modal-meta" id="modalMeta">2023 ✧ PC, PS5</div>
+                        
+                        <!-- ID ТЕПЕРЬ РЯДОМ С ДАТОЙ -->
+                        <div class="modal-meta-wrapper">
+                            <div class="modal-meta" id="modalMeta">2023 ✧ PC, PS5</div>
+                            <div id="modalBadges" style="display: flex; gap: 8px;"></div>
+                        </div>
+                        <!-- =============================== -->
                         
                         <div class="modal-grid">
                             <div class="grid-item">
@@ -864,23 +881,19 @@
             tbody.appendChild(tr);
         });
 
-        // НОВЫЙ СКРИПТ: Обновленная логика изменения размера и переноса строк
         setTimeout(() => {
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
                 let currentSize = 24;
                 titleEl.style.fontSize = currentSize + "px";
                 
-                // Временно делаем в одну строку, чтобы посчитать ширину
                 titleEl.style.whiteSpace = 'nowrap';
                 titleEl.style.display = 'block';
 
-                // Уменьшаем размер максимум до 18 пикселей
                 while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > 18) {
                     currentSize -= 1;
                     titleEl.style.fontSize = currentSize + "px";
                 }
 
-                // Если всё ещё не помещается (после того как сжали до 18), разрешаем перенос на 2 строчку
                 if (titleEl.scrollWidth > titleEl.clientWidth) {
                     titleEl.style.whiteSpace = 'normal';
                     titleEl.style.display = '-webkit-box';
@@ -910,13 +923,30 @@
         const titleEl = document.getElementById('modalTitle');
         titleEl.textContent = movie.title || 'Безымянный';
         
-        
+        // НОВАЯ ЛОГИКА АВТОМАСШТАБИРОВАНИЯ И ПЕРЕНОСА ТЕКСТА
         titleEl.style.fontSize = "34px"; 
+        titleEl.style.whiteSpace = 'nowrap';
+        titleEl.style.display = 'block';
+
         setTimeout(() => {
             let currentSize = 34;
-            while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > 14) {
+            // Уменьшаем до 18 пикселей
+            while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > 18) {
                 currentSize -= 1;
                 titleEl.style.fontSize = currentSize + "px";
+            }
+            
+            // Если и 18px не помогло, разрешаем перенос на 2 строки
+            if (titleEl.scrollWidth > titleEl.clientWidth) {
+                titleEl.style.whiteSpace = 'normal';
+                titleEl.style.display = '-webkit-box';
+                titleEl.style.webkitLineClamp = '2';
+                titleEl.style.webkitBoxOrient = 'vertical';
+                titleEl.style.overflow = 'hidden';
+            } else {
+                titleEl.style.whiteSpace = 'nowrap';
+                titleEl.style.textOverflow = 'ellipsis';
+                titleEl.style.overflow = 'hidden';
             }
         }, 10);
         
