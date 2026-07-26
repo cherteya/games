@@ -423,13 +423,14 @@
                     </select>
                     <!-- 🔥 ИЗМЕНЕННЫЙ БЛОК СОРТИРОВКИ 🔥 -->
                     <select id="sortSelect" class="sort-select" onchange="applyFilters()">
-                        <option value="oldest">По порядку (По дате заказов)</option>
+                        <option value="order">По порядку</option>
+                        <option value="date_asc">По дате заказов</option>
                         <option value="newest">Новые заказы</option>
                         <option value="waiting">В очереди</option>
                         <option value="playing">Играем сейчас</option>
                         <option value="watched">Пройдено</option>
                         <option value="auction">Аукцион</option>
-                        <option value="emotions">Слёзы/Горение</option>
+                        <option value="emotions">Слёзы/Сгорела</option>
                     </select>
                 </div>
             </div>
@@ -495,6 +496,11 @@
                             <div class="grid-item">
                                 <div class="grid-label">Заказал</div>
                                 <div class="grid-value modal-requester-link" id="modalRequester" title="Перейти на канал"></div>
+                            </div>
+                            <!-- 🔥 ДОБАВЛЕН БЛОК "СТАТУС" В МОДАЛКУ 🔥 -->
+                            <div class="grid-item">
+                                <div class="grid-label">Статус</div>
+                                <div id="modalStatusLabel" style="margin-top: 4px;"></div>
                             </div>
                             <div class="grid-item">
                                 <div class="grid-label">День заказа</div>
@@ -654,21 +660,58 @@
     // 🔥 ОБНОВЛЕННАЯ ЛОГИКА ФИЛЬТРАЦИИ И СОРТИРОВКИ 🔥
     function applyFilters() {
         const searchQuery = document.getElementById('searchInput').value.toLowerCase();
-        const sortMode = document.getElementById('sortSelect').value;
+        let sortMode = document.getElementById('sortSelect').value;
         const userFilterVal = document.getElementById('userFilter').value;
         localStorage.setItem('gameSortMode', sortMode);
         
+        // Для обратной совместимости, если у кого-то сохранен oldest (а его мы переименовали)
+        if (sortMode === 'oldest') sortMode = 'order';
+
         let filtered = [...rawMoviesData];
         if (userFilterVal !== 'all') filtered = filtered.filter(m => m.requestedBy.toLowerCase() === userFilterVal);
         if (searchQuery.trim() !== '') filtered = filtered.filter(m => (m.title && m.title.toLowerCase().includes(searchQuery)) || (m.requestedBy && m.requestedBy.toLowerCase().includes(searchQuery)));
 
-        if (sortMode === 'waiting') { filtered = filtered.filter(m => m.status === 'В очереди').sort((a, b) => a.parsedDate - b.parsedDate); } 
-        else if (sortMode === 'playing') { filtered = filtered.filter(m => m.status === 'Играем').sort((a, b) => a.parsedDate - b.parsedDate); }
-        else if (sortMode === 'watched') { filtered = filtered.filter(m => m.status === 'Пройдено').sort((a, b) => a.parsedDate - b.parsedDate); }
-        else if (sortMode === 'auction') { filtered = filtered.filter(m => m.isAuction === true).sort((a, b) => a.parsedDate - b.parsedDate); }
-        else if (sortMode === 'emotions') { filtered = filtered.filter(m => m.cried === true || m.burned === true).sort((a, b) => a.parsedDate - b.parsedDate); }
-        else if (sortMode === 'newest') { filtered.sort((a, b) => b.parsedDate - a.parsedDate); }
-        else if (sortMode === 'oldest') { filtered.sort((a, b) => a.parsedDate - b.parsedDate); }
+        if (sortMode === 'waiting') { 
+            filtered = filtered.filter(m => m.status === 'В очереди').sort((a, b) => a.parsedDate - b.parsedDate); 
+        } 
+        else if (sortMode === 'playing') { 
+            filtered = filtered.filter(m => m.status === 'Играем').sort((a, b) => a.parsedDate - b.parsedDate); 
+        }
+        else if (sortMode === 'watched') { 
+            filtered = filtered.filter(m => m.status === 'Пройдено').sort((a, b) => a.parsedDate - b.parsedDate); 
+        }
+        else if (sortMode === 'auction') { 
+            filtered = filtered.filter(m => m.isAuction === true).sort((a, b) => a.parsedDate - b.parsedDate); 
+        }
+        else if (sortMode === 'emotions') { 
+            filtered = filtered.filter(m => m.cried === true || m.burned === true).sort((a, b) => a.parsedDate - b.parsedDate); 
+        }
+        else if (sortMode === 'newest') { 
+            filtered.sort((a, b) => b.parsedDate - a.parsedDate); 
+        }
+        else if (sortMode === 'date_asc') { 
+            filtered.sort((a, b) => a.parsedDate - b.parsedDate); 
+        }
+        else { 
+            // Это sortMode === 'order' (По порядку)
+            filtered.sort((a, b) => {
+                const getPriority = (status) => {
+                    if (status === 'Играем') return 1;
+                    if (status === 'В очереди') return 2;
+                    return 3; // Пройдено, Бросила, и т.д.
+                };
+                const priorityA = getPriority(a.status);
+                const priorityB = getPriority(b.status);
+                
+                // Сначала сортируем по приоритету статуса
+                if (priorityA !== priorityB) {
+                    return priorityA - priorityB;
+                }
+                // Если статусы в одной группе (приоритеты равны) - сортируем по дате (старые первыми)
+                return a.parsedDate - b.parsedDate;
+            });
+        }
+        
         currentViewData = filtered; renderTable(currentViewData);
     }
 
@@ -723,7 +766,7 @@
                 tagsDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 13px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="var(--mint-light)" stroke="var(--mint-light)" stroke-width="1" style="margin-right:4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
             }
             if (movie.burned) {
-                tagsDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 13px; color: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 8px rgba(255,107,107,0.3);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg> Горение</div>`;
+                tagsDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 13px; color: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 8px rgba(255,107,107,0.3);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg> Сгорела</div>`;
             }
             
             if (tagsDetails) {
@@ -758,7 +801,7 @@
                 ? `<img src="${movie.userAvatar}" class="req-avatar" alt="">` 
                 : `<div class="req-avatar" style="background-color: ${userColor}; border-color: ${userColor};">${getInitials(cleanNick)}</div>`;
 
-            const auctionHTML = movie.isAuction ? `<div style="color: var(--warm-star); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-top: 8px;">✦ Дар Аукциона ✦</div>` : '';
+            const auctionHTML = movie.isAuction ? `<div style="color: var(--warm-star); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-top: 8px;">✦ Аукцион ✦</div>` : '';
 
             tr.innerHTML = `
                 <td><div class="poster-wrapper"><img src="${posterUrl}" alt=""></div></td>
@@ -865,7 +908,20 @@
         const isDropped = movie.status === "Бросила" || movie.status === "Брошено";
         const isPlaying = movie.status === "Играем";
         
-        // 🔥 ПЛАШКА ДАТЫ/ОЦЕНКИ 🔥
+        // 🔥 ДОБАВЛЕН СТАТУС ДЛЯ МОДАЛКИ 🔥
+        let statusTextHTML = '';
+        if (isWatched) {
+            statusTextHTML = `<span class="badge-status" style="margin:0; padding:6px 12px; font-size: 13px;">ПРОЙДЕНО</span>`;
+        } else if (isDropped) {
+            statusTextHTML = `<span class="badge-status" style="background: #ff4a4a; color: #fff; box-shadow: 0 2px 8px rgba(255, 74, 74, 0.4); margin:0; padding:6px 12px; font-size: 13px;">БРОСИЛА</span>`;
+        } else if (isPlaying) {
+            statusTextHTML = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 2px 8px rgba(255, 219, 88, 0.4); margin:0; padding:6px 12px; font-size: 13px;">ИГРАЕМ</span>`;
+        } else {
+            statusTextHTML = `<span class="badge-status" style="background: rgba(92,242,138,0.2); color: var(--mint-light); box-shadow: none; margin:0; padding:6px 12px; font-size: 13px;">В ОЧЕРЕДИ</span>`;
+        }
+        document.getElementById('modalStatusLabel').innerHTML = statusTextHTML;
+        
+        // 🔥 ПЛАШКА ДАТЫ/ОЦЕНКИ В МОДАЛКЕ 🔥
         let dateHtml = '';
         if ((isWatched || isDropped) && movie.dateWatched) {
              dateHtml += `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched}</div>`;
@@ -890,7 +946,7 @@
             dateHtml += `<div class="modal-grid-box" style="margin-top: 0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="var(--mint-light)" stroke="var(--mint-light)" stroke-width="1" style="margin-right:4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
         }
         if (movie.burned) {
-            dateHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 8px rgba(255,107,107,0.3);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg> Горение</div>`;
+            dateHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 8px rgba(255,107,107,0.3);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg> Сгорела</div>`;
         }
 
         dateWatchedEl.innerHTML = `<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">${dateHtml}</div>`;
@@ -906,7 +962,7 @@
         // 🔥 МЕТКА АУКЦИОНА В МОДАЛКЕ ПОД НИКОМ 🔥
         let reqInner = `<div style="display:flex; align-items:center;">${avatarMarkup}<span>${cleanNick}</span></div>`;
         if (movie.isAuction) {
-            reqInner += `<div style="color: var(--warm-star); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-top: 4px; text-shadow: 0 0 5px rgba(0,0,0,0.8);">✦ Дар Аукциона ✦</div>`;
+            reqInner += `<div style="color: var(--warm-star); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-top: 4px; text-shadow: 0 0 5px rgba(0,0,0,0.8);">✦ Аукцион ✦</div>`;
         }
         
         requesterEl.innerHTML = `<div style="display:flex; flex-direction:column; align-items:flex-start;">${reqInner}</div>`;
