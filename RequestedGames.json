@@ -25,11 +25,12 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
       "id": 15,
       "dateRequested": "27.07.2026",
-      "status": "Играем",
-      "ourRating": "Без оценки",
-      "cried": true,
-      "burned": false,
-      "isAuction": true
+      "status": "Бросила",
+      "ourRating": "3",
+      "cried": false,
+      "burned": true,
+      "isAuction": false,
+      "dateWatched": "27.07.2026"
     }
   ],
   "The": [],
