@@ -7,21 +7,21 @@
     <!-- Подключаем новые сказочные и милые шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <style>
-        /* --- ВОЛШЕБНАЯ СКАЗОЧНАЯ ПАЛИТРА --- */
+        
         :root {
-            --bg-deep: #130f1c;         /* Глубокий ночной цвет */
-            --bg-sunset: #38255c;       /* Магический фиолетовый */
-            --bg-velvet: #221836;       /* Мягкий фон панелей */
+            --bg-deep: #130f1c;         
+            --bg-sunset: #38255c;       
+            --bg-velvet: #221836;       
             
-            --mint-light: #d1fce0;      /* Светло-мятный */
-            --mint-main: #5cf28a;       /* Основной цвет рожек и глаз */
-            --mint-dark: #278c47;       /* Темно-зеленый для теней */
+            --mint-light: #d1fce0;      
+            --mint-main: #5cf28a;       
+            --mint-dark: #278c47;       
             
-            --warm-star: #fce8a1;       /* Теплый свет (как от гирлянды или лампы) */
-            --cute-pink: #ff8fa3;       /* Нежный акцент */
+            --warm-star: #fce8a1;      
+            --cute-pink: #ff8fa3;       
             
-            --text-main: #f0edf5;       /* Основной текст */
-            --text-muted: #b5adc4;      /* Приглушенный текст */
+            --text-main: #f0edf5;       
+            --text-muted: #b5adc4;      
             
             --font-title: 'Comfortaa', cursive;
             --font-text: 'Nunito', sans-serif;
@@ -76,7 +76,7 @@
             .girl-col { display: none; }
         }
 
-        /* --- ГЛАВНЫЙ КОНТЕЙНЕР --- */
+        
         .container {
             width: 100%;
             max-width: 1150px;
@@ -106,7 +106,7 @@
             border-radius: 18px;
         }
 
-        /* --- ШАПКА --- */
+        
         .header {
             padding: 35px 30px 25px;
             text-align: center;
@@ -144,7 +144,7 @@
             filter: drop-shadow(0 0 8px rgba(92, 242, 138, 0.6)); 
         }
 
-        /* Плашка Владельца */
+        
         .creator-badge {
             position: absolute; top: 20px; left: 30px;
             display: flex; align-items: center; gap: 10px;
@@ -170,7 +170,7 @@
         .creator-name { font-size: 16px; font-weight: 700; color: #fff; font-family: var(--font-text); transition: text-shadow 0.3s ease;}
         .creator-badge:hover .creator-name { text-shadow: 0 0 8px rgba(92, 242, 138, 0.8); color: var(--mint-light); }
 
-        /* --- ПАНЕЛЬ УПРАВЛЕНИЯ --- */
+       
         .controls-panel { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; justify-content: center; margin-top: 5px; }
         
         .search-box, .sort-select {
@@ -190,7 +190,7 @@
         .sort-select { cursor: pointer; appearance: none; padding-right: 30px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%235cf28a' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; }
         .sort-select option { background: var(--bg-deep); color: var(--mint-light); }
 
-        /* --- ТАБЛИЦА --- */
+       
         table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; table-layout: fixed; }
         
         th { 
@@ -216,7 +216,7 @@
         }
         tr.movie-row:hover td:nth-child(2)::before { opacity: 1; }
 
-        /* Постеры */
+        
         .poster-wrapper { 
             width: 140px; 
             height: 210px; 
@@ -230,7 +230,7 @@
 
         .movie-info { display: flex; flex-direction: column; gap: 8px; padding-left: 10px; overflow: hidden; }
         
-        /* 🔥 ОБНОВЛЕННАЯ СТРОКА НАЗВАНИЯ И ГОДА В ТАБЛИЦЕ 🔥 */
+        
         .movie-header { 
             display: flex; align-items: baseline; gap: 10px; 
             flex-wrap: nowrap; 
@@ -286,7 +286,7 @@
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 250px; }
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-text { -webkit-line-clamp: 20; color: var(--text-main); }
 
-        /* --- МОДАЛЬНОЕ ОКНО --- */
+        
         .modal-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at center, rgba(34, 24, 54, 0.9) 0%, rgba(19, 15, 28, 0.95) 100%);
@@ -325,7 +325,7 @@
         
         .modal-info-main { flex: 1; background: rgba(34, 24, 54, 0.98); padding: 25px; border-radius: 20px; border: 1px solid rgba(92, 242, 138, 0.1); overflow: hidden; }
         
-        /* 🔥 ОБНОВЛЕННАЯ СТРОКА НАЗВАНИЯ В МОДАЛКЕ 🔥 */
+        
         .modal-title-wrapper { 
             display: flex; align-items: center; gap: 12px; margin-bottom: 12px; 
             flex-wrap: nowrap; 
@@ -383,7 +383,7 @@
             .modal-title { white-space: normal; }
         }
         
-        /* 🔥 ЗОЛОТОЕ СВЕЧЕНИЕ НА САЙТЕ ДЛЯ 1000 🔥 */
+        
         .legendary-table-badge {
             box-shadow: 0 2px 4px rgba(0,0,0,0.2), inset 0 0 9px #ffd700, 0 0 5px rgba(255, 215, 0, 0.5) !important;
             border-color: #ffd700 !important;
@@ -421,7 +421,7 @@
                     <select id="userFilter" class="sort-select" onchange="applyFilters()">
                         <option value="all">Все заказчики</option>
                     </select>
-                    <!-- 🔥 ИЗМЕНЕННЫЙ БЛОК СОРТИРОВКИ 🔥 -->
+                   
                     <select id="sortSelect" class="sort-select" onchange="applyFilters()">
                         <option value="order">По порядку</option>
                         <option value="date_asc">По дате заказов</option>
@@ -497,7 +497,7 @@
                                 <div class="grid-label">Заказал</div>
                                 <div class="grid-value modal-requester-link" id="modalRequester" title="Перейти на канал"></div>
                             </div>
-                            <!-- 🔥 ДОБАВЛЕН БЛОК "СТАТУС" В МОДАЛКУ 🔥 -->
+                            
                             <div class="grid-item">
                                 <div class="grid-label">Статус</div>
                                 <div id="modalStatusLabel" style="margin-top: 4px;"></div>
@@ -507,7 +507,7 @@
                                 <div id="modalDateReq"></div>
                             </div>
                             <div class="grid-item">
-                                <!-- 🔥 ДОБАВЛЕН ID ДЛЯ ЗАГОЛОВКА ДАТЫ ПРОХОЖДЕНИЯ 🔥 -->
+                                
                                 <div class="grid-label" id="modalWatchedLabel">День прохождения</div>
                                 <div id="modalDateWatched"></div>
                             </div>
@@ -658,14 +658,14 @@
         });
     }
 
-    // 🔥 ОБНОВЛЕННАЯ ЛОГИКА ФИЛЬТРАЦИИ И СОРТИРОВКИ 🔥
+    
     function applyFilters() {
         const searchQuery = document.getElementById('searchInput').value.toLowerCase();
         let sortMode = document.getElementById('sortSelect').value;
         const userFilterVal = document.getElementById('userFilter').value;
         localStorage.setItem('gameSortMode', sortMode);
         
-        // Для обратной совместимости, если у кого-то сохранен oldest (а его мы переименовали)
+        
         if (sortMode === 'oldest') sortMode = 'order';
 
         let filtered = [...rawMoviesData];
@@ -694,21 +694,21 @@
             filtered.sort((a, b) => a.parsedDate - b.parsedDate); 
         }
         else { 
-            // Это sortMode === 'order' (По порядку)
+            
             filtered.sort((a, b) => {
                 const getPriority = (status) => {
                     if (status === 'Играем') return 1;
                     if (status === 'В очереди') return 2;
-                    return 3; // Пройдено, Бросила, и т.д.
+                    return 3; 
                 };
                 const priorityA = getPriority(a.status);
                 const priorityB = getPriority(b.status);
                 
-                // Сначала сортируем по приоритету статуса
+                
                 if (priorityA !== priorityB) {
                     return priorityA - priorityB;
                 }
-                // Если статусы в одной группе (приоритеты равны) - сортируем по дате (старые первыми)
+                
                 return a.parsedDate - b.parsedDate;
             });
         }
@@ -848,7 +848,7 @@
             tbody.appendChild(tr);
         });
 
-        // 🔥 АВТО-ПОДГОНКА ШРИФТОВ В ТАБЛИЦЕ ДЛЯ ДЛИННЫХ НАЗВАНИЙ 🔥
+        
         setTimeout(() => {
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
                 let currentSize = 24;
@@ -877,7 +877,7 @@
         const titleEl = document.getElementById('modalTitle');
         titleEl.textContent = movie.title || 'Безымянный';
         
-        // 🔥 АВТО-ПОДГОНКА ШРИФТОВ В МОДАЛКЕ 🔥
+        
         titleEl.style.fontSize = "34px"; 
         setTimeout(() => {
             let currentSize = 34;
@@ -909,10 +909,10 @@
         const isDropped = movie.status === "Бросила" || movie.status === "Брошено";
         const isPlaying = movie.status === "Играем";
         
-        // 🔥 ДИНАМИЧЕСКИЙ ЗАГОЛОВОК ДЛЯ ДАТЫ ПРОХОЖДЕНИЯ 🔥
+        
         document.getElementById('modalWatchedLabel').innerText = isDropped ? 'День когда бросила' : 'День прохождения';
         
-        // 🔥 ДОБАВЛЕН СТАТУС ДЛЯ МОДАЛКИ 🔥
+        
         let statusTextHTML = '';
         if (isWatched) {
             statusTextHTML = `<span class="badge-status" style="margin:0; padding:6px 12px; font-size: 13px;">ПРОЙДЕНО</span>`;
@@ -925,7 +925,7 @@
         }
         document.getElementById('modalStatusLabel').innerHTML = statusTextHTML;
         
-        // 🔥 ПЛАШКА ДАТЫ/ОЦЕНКИ В МОДАЛКЕ 🔥
+        
         let dateHtml = '';
         if ((isWatched || isDropped) && movie.dateWatched) {
              dateHtml += `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched.split(' ')[0]}</div>`;
@@ -945,7 +945,7 @@
              dateHtml += `<div class="modal-grid-box" style="background: rgba(92,242,138,0.1); border-color: transparent; margin-top: 0;">Еще в очереди</div>`;
         }
 
-        // 🔥 МЕТКИ СЛЕЗ И ГОРЕНИЯ В МОДАЛКЕ ВНЕ ЗАВИСИМОСТИ ОТ СТАТУСА 🔥
+        
         if (movie.cried) {
             dateHtml += `<div class="modal-grid-box" style="margin-top: 0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="var(--mint-light)" stroke="var(--mint-light)" stroke-width="1" style="margin-right:4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
         }
@@ -963,7 +963,7 @@
             ? `<img src="${movie.userAvatar}" class="req-avatar" style="width:32px; height:32px; border-width:2px; border-radius:50%; object-fit:cover; margin-right:10px;" alt="">` 
             : `<div class="req-avatar" style="width:32px; height:32px; font-size:14px; border-width:2px; background-color: ${userColor}; border-color: ${userColor}; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:10px; color:var(--bg-deep); font-weight:800;">${getInitials(cleanNick)}</div>`;
             
-        // 🔥 МЕТКА АУКЦИОНА В МОДАЛКЕ ПОД НИКОМ 🔥
+        
         let reqInner = `<div style="display:flex; align-items:center;">${avatarMarkup}<span>${cleanNick}</span></div>`;
         if (movie.isAuction) {
             reqInner += `<div style="color: var(--warm-star); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-top: 4px; text-shadow: 0 0 5px rgba(0,0,0,0.8);">✦ Аукцион ✦</div>`;
