@@ -3,7 +3,35 @@
     "streamer": "cherteya",
     "lastUpdated": "26.07.2026"
   },
-  "MadMan1408": [],
+  "MadMan1408": [
+    {
+      "title": "The Wolf Among Us",
+      "year": "2013",
+      "type": "Игра",
+      "platforms": "Windows",
+      "genres": "Экшены, Приключенческие игры, Казуальные игры",
+      "studios": "Telltale (Изд: Telltale)",
+      "overview": "From the makers of the 2012 Game of the Year: The Walking Dead, comes a thriller based on the award-winning Fables comic books. As Bigby Wolf you will discover that a brutal, bloody murder is just a taste of things to come in a game series where your every decision can have enormous consequences.",
+      "detailedDesc": "From the makers of the 2012 Game of the Year: The Walking Dead, comes a gritty, violent and mature thriller based on the award-winning Fables comic books (DC Comics/Vertigo). As Bigby Wolf - THE big bad wolf - you will discover that a brutal, bloody murder is just a taste of things to come in a game series where your every decision can have enormous consequences.  An evolution of Telltale's ground-breaking choice and consequence game mechanics will ensure the player learns that even as Bigby Wolf, Sheriff of Fabletown, life in the big bad city is bloody, terrifying and dangerous.Over a season of content spanning across 5 episodes:Episode 1: Faith - Available Now Episode 2: Smoke and Mirrors - Available NowEpisode 3: A Crooked Mile - Available NowEpisode 4: In Sheep's Clothing - Available NowEpisode 5: Cry Wolf - Available NowKey FeaturesFrom the team that brought you 2012 Game of the Year, The Walking DeadBased on the Eisner Award-winning Fables comic book seriesNow, it’s not only WHAT you choose to do that will affect your story, but WHEN you choose to do itA mature and gritty take on characters from fairytales, legends and folklore who have escaped into our world A perfect place to begin your Fables journey, even if you’ve not read the comics; this game is set before the events seen in the first issue",
+      "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/250320/library_600x900_2x.jpg",
+      "backdrop": "https://store.akamai.steamstatic.com/images/storepagebackground/app/250320?t=1734104991",
+      "steamAppId": "250320",
+      "price": "~$6,7 / ~523 ₽ / ~299 ₴ / ~3 156 ₸",
+      "isFree": "false",
+      "metacriticScore": "85",
+      "metacriticUrl": "https://www.metacritic.com/game/pc/the-wolf-among-us-episode-1---faith?ftag=MCD-06-10aaa1f",
+      "website": "https://www.telltale.com/",
+      "dlcCount": "0",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "id": 15,
+      "dateRequested": "26.07.2026",
+      "status": "В очереди",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "burned": false,
+      "isAuction": false
+    }
+  ],
   "The": [],
   "cherteya": [
     {
