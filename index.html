@@ -507,7 +507,8 @@
                                 <div id="modalDateReq"></div>
                             </div>
                             <div class="grid-item">
-                                <div class="grid-label">День прохождения</div>
+                                <!-- 🔥 ДОБАВЛЕН ID ДЛЯ ЗАГОЛОВКА ДАТЫ ПРОХОЖДЕНИЯ 🔥 -->
+                                <div class="grid-label" id="modalWatchedLabel">День прохождения</div>
                                 <div id="modalDateWatched"></div>
                             </div>
                             <div class="grid-item full-width">
@@ -907,6 +908,9 @@
         const isWatched = movie.status === "Пройдено";
         const isDropped = movie.status === "Бросила" || movie.status === "Брошено";
         const isPlaying = movie.status === "Играем";
+        
+        // 🔥 ДИНАМИЧЕСКИЙ ЗАГОЛОВОК ДЛЯ ДАТЫ ПРОХОЖДЕНИЯ 🔥
+        document.getElementById('modalWatchedLabel').innerText = isDropped ? 'День когда бросила' : 'День прохождения';
         
         // 🔥 ДОБАВЛЕН СТАТУС ДЛЯ МОДАЛКИ 🔥
         let statusTextHTML = '';
