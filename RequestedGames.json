@@ -3,7 +3,35 @@
     "streamer": "cherteya",
     "lastUpdated": "26.07.2026"
   },
-  "MadMan1408": [],
+  "MadMan1408": [
+    {
+      "title": "METAL GEAR & METAL GEAR 2: Solid Snake",
+      "year": "2023",
+      "type": "Игра",
+      "platforms": "Windows",
+      "genres": "Экшены",
+      "studios": "KONAMI (Изд: KONAMI)",
+      "overview": "Первая и вторая игры из серии METAL GEAR, которые сформировали новый игровой жанр — стелс-экшен, — а также основные механики всех последующих игр серии.",
+      "detailedDesc": "Past UpdatesFixed an issue where the character moves at a high speedAdded Steam Deck™ supportAdded Steam Input supportAdded an audio settings featureAdded a &quot;Window Mode“Об игреMetal GearПервая игра из серии METAL GEAR , выпущенная в 1987 году. Концепция игры родилась из идеи, что игрок должен избегать боевых столкновений и вместо этого пробираться на вражескую территорию незамеченным. Эта задумка привела к созданию принципиально нового геймплея, а впоследствии и нового игрового жанра — стелс-экшена.Обратите внимание, что некоторые части игры отличаются от оригинальной версии — это было сделано с целью изменить уровни сложности и улучшить игровой процесс. При этом геймплей остался без изменений.Metal Gear 2: Solid SnakeВторая игра серии METAL GEAR, которая задает все основные механики для последующих частей, такие как избегание обнаружения, привлечение внимания врагов стуками по стене, реагирование врагов на шаги персонажа Snake, радар, определяющий положение, действия и перемещение врагов.В этой части также раскрывается мотивация всех действий BIG BOSS и показана судьба солдат, которые лишились родины. Это первая игра серии с сильным и продуманным сюжетом, что впоследствии стало главной особенностью всей серии.",
+      "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/2131680/library_600x900_2x.jpg",
+      "backdrop": "https://store.akamai.steamstatic.com/images/storepagebackground/app/2131680?t=1724876235",
+      "steamAppId": "2131680",
+      "price": "~$7,2 / ~566 ₽ / ~324 ₴ / ~3 420 ₸",
+      "isFree": "false",
+      "metacriticScore": "Нет оценок",
+      "metacriticUrl": "",
+      "website": "",
+      "dlcCount": "0",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "id": 15,
+      "dateRequested": "26.07.2026",
+      "status": "В очереди",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "burned": false,
+      "isAuction": false
+    }
+  ],
   "cherteya": [
     {
       "title": "Little Nightmares",
