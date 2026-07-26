@@ -230,30 +230,32 @@
 
         .movie-info { display: flex; flex-direction: column; gap: 8px; padding-left: 10px; overflow: hidden; }
         
-        
+        /* === ИЗМЕНЕННЫЙ БЛОК: ВЫРАВНИВАНИЕ ЗАГОЛОВКА === */
         .movie-header { 
             display: flex; 
-            align-items: flex-start; /* Изменено для лучшего выравнивания при переносе строк */
-            justify-content: space-between; /* Разделяет название и блок с годом/копированием */
-            gap: 15px; 
+            align-items: flex-start; /* Оставляет блок с годом прижатым к верхнему краю (к первой строчке) */
+            justify-content: flex-start; /* Заставляет год притягиваться к названию, если оно короткое */
+            gap: 12px; /* Расстояние между названием и блоком с годом */
             width: 100%; 
         }
+
         .movie-title { 
             font-size: 24px; font-weight: 700; color: #fff; 
             font-family: var(--font-title); 
             text-shadow: 0 3px 6px rgba(0,0,0,0.5), 0 0 15px rgba(92, 242, 138, 0.4); 
-            flex-grow: 1; 
+            flex: 0 1 auto; /* Не растягивается, если текст короткий, но сжимается при нехватке места */
             min-width: 0; 
             line-height: 1.2;
         }
         
-        /* НОВЫЙ КЛАСС ДЛЯ ГОДА И КНОПКИ КОПИРОВАНИЯ */
         .movie-meta-box {
             display: flex;
             align-items: center;
             gap: 10px;
-            flex-shrink: 0; /* Не позволяет блоку сжиматься, оставляя его там, где он есть */
+            flex-shrink: 0; /* Не позволяет блоку уменьшаться, защищает кнопку копирования */
+            margin-top: 3px; /* Выравнивает год визуально по центру первой строчки */
         }
+        /* ============================================== */
 
         .movie-year { 
             color: var(--mint-light); font-size: 18px; font-weight: 600; opacity: 0.8; 
