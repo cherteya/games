@@ -52,11 +52,12 @@
       "userAvatar": "https://static-cdn.jtvnw.net/user-default-pictures-uv/13e5fa74-defa-11e9-809c-784f43822e80-profile_image-600x600.png",
       "id": 17,
       "dateRequested": "28.07.2026",
-      "status": "Играем",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "burned": false,
-      "isAuction": false
+      "status": "Бросила",
+      "ourRating": "8",
+      "cried": true,
+      "burned": true,
+      "isAuction": false,
+      "dateWatched": "28.07.2026"
     }
   ],
   "MadMan1408": [
