@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Игровая</title>
-    <!-- Подключаем новые сказочные и милые шрифты -->
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,900;1,400&display=swap" rel="stylesheet">
     <style>
         
@@ -17,7 +16,7 @@
             --mint-main: #5cf28a;       
             --mint-dark: #278c47;       
             
-            --warm-star: #fce8a1;      
+            --warm-star: #fce8a1;       
             --cute-pink: #ff8fa3;       
             
             --text-main: #f0edf5;       
@@ -144,15 +143,27 @@
             filter: drop-shadow(0 0 8px rgba(92, 242, 138, 0.6)); 
         }
 
-        
-        .creator-badge {
+        /* === КНОПКА В АРХИВЫ === */
+        .back-btn {
             position: absolute; top: 20px; left: 30px;
+            display: inline-flex; align-items: center; gap: 10px;
+            background: rgba(92, 242, 138, 0.1); color: var(--mint-main);
+            text-decoration: none; padding: 10px 20px; border-radius: 20px;
+            border: 1px solid rgba(92, 242, 138, 0.3); font-family: var(--font-title);
+            font-weight: 700; font-size: 15px; transition: all 0.3s ease; z-index: 10;
+        }
+        .back-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(92, 242, 138, 0.5); }
+
+        /* === ИЗМЕНЕНО: Кнопка cherteya смещена вправо (right: 30px) === */
+        .creator-badge {
+            position: absolute; top: 20px; right: 30px;
             display: flex; align-items: center; gap: 10px;
             background: rgba(34, 24, 54, 0.6); 
             padding: 6px 12px 6px 6px; cursor: pointer;
             transition: all 0.3s ease; opacity: 0.9;
             border-radius: 30px;
             border: 1px solid rgba(92, 242, 138, 0.2);
+            z-index: 10;
         }
         .creator-badge:hover { 
             opacity: 1; 
@@ -430,6 +441,13 @@
     <div class="container">
         <div class="content-wrapper">
             <div class="header">
+                <!-- === КНОПКА В АРХИВЫ === -->
+                <a href="https://cherteya.github.io/lists/" class="back-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    В Архивы
+                </a>
+
+                <!-- === КНОПКА КАНАЛА (теперь справа) === -->
                 <div class="creator-badge" onclick="window.open('https://twitch.tv/cherteya', '_blank')">
                     <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="cherteyaAvatar" alt="cherteya">
                     <div class="creator-info">
