@@ -418,8 +418,8 @@
                     
                     <select id="sortSelect" class="sort-select" onchange="applyFilters()">
                         <option value="order">По порядку</option>
-                        <option value="date_asc">По дате заказов</option>
-                        <option value="newest">Новые заказы</option>
+                        <option value="date_asc">По дате заказов (Старые)</option>
+                        <option value="newest">По дате заказов (Новые)</option>
                         <option value="waiting">В очереди / Играем</option>
                         <option value="watched">Пройдено/Брошено</option>
                         <option value="auction">Аукцион</option>
@@ -694,30 +694,62 @@
         if (userFilterVal !== 'all') filtered = filtered.filter(m => m.requestedBy.toLowerCase() === userFilterVal);
         if (searchQuery.trim() !== '') filtered = filtered.filter(m => (m.title && m.title.toLowerCase().includes(searchQuery)) || (m.requestedBy && m.requestedBy.toLowerCase().includes(searchQuery)));
 
-        if (sortMode === 'waiting') { filtered = filtered.filter(m => m.status === 'В очереди' || m.status === 'Играем').sort((a, b) => {
-            if (a.status === 'Играем' && b.status !== 'Играем') return -1;
-            if (a.status !== 'Играем' && b.status === 'Играем') return 1;
-            return a.parsedDate - b.parsedDate;
-        }); } 
-        else if (sortMode === 'playing') { filtered = filtered.filter(m => m.status === 'Играем').sort((a, b) => a.parsedDate - b.parsedDate); }
-        else if (sortMode === 'watched') { filtered = filtered.filter(m => m.status === 'Пройдено' || m.status === 'Брошено' || m.status === 'Бросила').sort((a, b) => a.parsedDate - b.parsedDate); }
-        else if (sortMode === 'auction') { filtered = filtered.filter(m => m.isAuction === true).sort((a, b) => a.parsedDate - b.parsedDate); }
-        else if (sortMode === 'emotions') { filtered = filtered.filter(m => m.cried === true || m.burned === true).sort((a, b) => a.parsedDate - b.parsedDate); }
-        else if (sortMode === 'newest') { filtered.sort((a, b) => b.parsedDate - a.parsedDate); }
-        else if (sortMode === 'date_asc') { filtered.sort((a, b) => a.parsedDate - b.parsedDate); }
-        else { 
-            filtered.sort((a, b) => {
-                const getPriority = (status) => {
-                    if (status === 'Играем') return 1;
-                    if (status === 'В очереди') return 2;
-                    return 3; 
-                };
-                const priorityA = getPriority(a.status);
-                const priorityB = getPriority(b.status);
-                
-                if (priorityA !== priorityB) return priorityA - priorityB;
+        // Общая логика для "По порядку", "В очереди/Играем", "Аукцион"
+        const orderSortFn = (a, b) => {
+            const getPriority = (status) => {
+                if (status === 'Играем') return 1;
+                if (status === 'В очереди') return 2;
+                return 3; 
+            };
+            const priorityA = getPriority(a.status);
+            const priorityB = getPriority(b.status);
+            
+            // 1. Сортируем по приоритету статуса (Играем -> В очереди -> Пройдено/Брошено)
+            if (priorityA !== priorityB) return priorityA - priorityB;
+            
+            // 2. Если статусы "Играем" или "В очереди" -> старые заказы первее
+            if (priorityA === 1 || priorityA === 2) {
                 return a.parsedDate - b.parsedDate;
-            });
+            }
+            
+            // 3. Если статусы "Пройдено" или "Брошено" -> пройденные позже всех первее
+            if (priorityA === 3) {
+                const parsedWatchA = parseDateObj(a.dateWatched);
+                const parsedWatchB = parseDateObj(b.dateWatched);
+                if (parsedWatchA !== parsedWatchB) return parsedWatchB - parsedWatchA;
+                return b.parsedDate - a.parsedDate; 
+            }
+            return 0;
+        };
+
+        // Общая логика для сортировки по дате прохождения (новые прохождения сверху)
+        const watchedDescSortFn = (a, b) => {
+            const watchA = parseDateObj(a.dateWatched);
+            const watchB = parseDateObj(b.dateWatched);
+            if (watchA !== watchB) return watchB - watchA;
+            return b.parsedDate - a.parsedDate; // резерв
+        };
+
+        if (sortMode === 'waiting') { 
+            filtered = filtered.filter(m => m.status === 'В очереди' || m.status === 'Играем').sort(orderSortFn); 
+        } 
+        else if (sortMode === 'watched') { 
+            filtered = filtered.filter(m => m.status === 'Пройдено' || m.status === 'Брошено' || m.status === 'Бросила').sort(watchedDescSortFn); 
+        }
+        else if (sortMode === 'auction') { 
+            filtered = filtered.filter(m => m.isAuction === true).sort(orderSortFn); 
+        }
+        else if (sortMode === 'emotions') { 
+            filtered = filtered.filter(m => m.cried === true || m.burned === true).sort(watchedDescSortFn); 
+        }
+        else if (sortMode === 'newest') { 
+            filtered.sort((a, b) => b.parsedDate - a.parsedDate); 
+        }
+        else if (sortMode === 'date_asc') { 
+            filtered.sort((a, b) => a.parsedDate - b.parsedDate); 
+        }
+        else { 
+            filtered.sort(orderSortFn);
         }
         
         currentViewData = filtered; 
