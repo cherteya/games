@@ -130,7 +130,7 @@
         }
         .view-toggle-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(92, 242, 138, 0.4); }
 
-        /* ================= ТАБЛИЧНЫЙ ВИД (СПИСОК) ================= */
+        
         table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; table-layout: fixed; }
         th { text-align: center; color: var(--mint-main); font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 25px 12px 15px; border-bottom: 1px solid rgba(92, 242, 138, 0.2); font-family: var(--font-title); letter-spacing: 1px; }
         td { padding: 20px 15px; vertical-align: top; border-bottom: 1px dashed rgba(92, 242, 138, 0.15); }
@@ -182,7 +182,7 @@
         .steam-link-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: rgba(92, 242, 138, 0.15); color: var(--mint-main); border: 1px solid rgba(92, 242, 138, 0.3); padding: 6px 12px; border-radius: 12px; text-decoration: none; font-family: var(--font-text); font-size: 13px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
         .steam-link-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 12px rgba(92, 242, 138, 0.5); transform: translateY(-2px); }
 
-        /* ================= КАРТОЧНЫЙ ВИД (СЕТКА 6 В РЯД) ================= */
+        
         .movies-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; padding: 20px; }
         
         .card-view-item {
@@ -271,7 +271,7 @@
         .card-copy-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 10px rgba(92, 242, 138, 0.5); }
         .card-copy-btn.shifted { bottom: 32px; }
 
-        /* ================= МОДАЛЬНОЕ ОКНО ================= */
+        
         .modal-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: radial-gradient(circle at center, rgba(34, 24, 54, 0.9) 0%, rgba(19, 15, 28, 0.95) 100%);
@@ -339,7 +339,7 @@
         .grid-label { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-text); font-weight: 800; }
         .grid-value { color: var(--mint-main); font-weight: 700; font-size: 16px; }
 
-        /* ДОБАВЛЕННЫЙ СТИЛЬ ЗАГОЛОВКА И КОНТЕЙНЕРА */
+        
         .modal-overview-container { background: rgba(19, 15, 28, 0.5); padding: 25px; border-radius: 16px; border: 1px solid rgba(92, 242, 138, 0.15); margin-top: 15px; margin-bottom: 10px; }
         .modal-overview-label { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-text); font-weight: 800; margin-top: 0; margin-bottom: 8px; }
         .modal-overview { color: var(--text-main); font-size: 16px; line-height: 1.7; margin-top: 0; margin-bottom: 0; }
@@ -512,7 +512,7 @@
                             </div>
                         </div>
 
-                        <!-- КОНТЕЙНЕР ДЛЯ ОПИСАНИЯ -->
+                        
                         <div class="modal-overview-container">
                             <div class="modal-overview-label">Описание</div>
                             <div class="modal-overview" id="modalOverview">Описание игры...</div>
@@ -693,7 +693,7 @@
         if (userFilterVal !== 'all') filtered = filtered.filter(m => m.requestedBy.toLowerCase() === userFilterVal);
         if (searchQuery.trim() !== '') filtered = filtered.filter(m => (m.title && m.title.toLowerCase().includes(searchQuery)) || (m.requestedBy && m.requestedBy.toLowerCase().includes(searchQuery)));
 
-        // Общая логика для "По порядку", "В очереди/Играем", "Аукцион"
+        
         const orderSortFn = (a, b) => {
             const getPriority = (status) => {
                 if (status === 'Играем') return 1;
@@ -703,15 +703,15 @@
             const priorityA = getPriority(a.status);
             const priorityB = getPriority(b.status);
             
-            // 1. Сортируем по приоритету статуса (Играем -> В очереди -> Пройдено/Брошено)
+            
             if (priorityA !== priorityB) return priorityA - priorityB;
             
-            // 2. Если статусы "Играем" или "В очереди" -> старые заказы первее
+            
             if (priorityA === 1 || priorityA === 2) {
                 return a.parsedDate - b.parsedDate;
             }
             
-            // 3. Если статусы "Пройдено" или "Брошено" -> пройденные позже всех первее
+            
             if (priorityA === 3) {
                 const parsedWatchA = parseDateObj(a.dateWatched);
                 const parsedWatchB = parseDateObj(b.dateWatched);
@@ -721,12 +721,12 @@
             return 0;
         };
 
-        // Общая логика для сортировки по дате прохождения (новые прохождения сверху)
+        
         const watchedDescSortFn = (a, b) => {
             const watchA = parseDateObj(a.dateWatched);
             const watchB = parseDateObj(b.dateWatched);
             if (watchA !== watchB) return watchB - watchA;
-            return b.parsedDate - a.parsedDate; // резерв
+            return b.parsedDate - a.parsedDate; 
         };
 
         if (sortMode === 'waiting') { 
@@ -768,9 +768,7 @@
         else renderGridMode(renderArea);
     }
 
-    // ==========================================
-    // ЛОГИКА РЕНДЕРА ТАБЛИЦЫ (СПИСКОМ)
-    // ==========================================
+    
     function renderTableMode(renderArea) {
         let tableHTML = `
             <table>
@@ -1018,9 +1016,7 @@
         autoResizeTitles(); 
     }
 
-    // ==========================================
-    // УМНАЯ АВТО-ПОДСТРОЙКА ШРИФТОВ
-    // ==========================================
+    
     function autoResizeTitles() {
         setTimeout(() => {
             // Для списка
@@ -1048,7 +1044,7 @@
                 }
             });
 
-            // Для карточек
+            
             document.querySelectorAll('.card-title-container').forEach(container => {
                 let titleEl = container.querySelector('.resize-title');
                 if (!titleEl) return;
@@ -1072,7 +1068,7 @@
                 }
             });
 
-            // Для ников заказчиков
+            
             document.querySelectorAll('.resize-username').forEach(nameEl => {
                 let currentSize = 13;
                 nameEl.style.fontSize = currentSize + "px";
@@ -1087,9 +1083,7 @@
 
     window.addEventListener('resize', autoResizeTitles);
 
-    // ==========================================
-    // ЛОГИКА МОДАЛЬНОГО ОКНА 
-    // ==========================================
+    
     function openModal(index) {
         const movie = currentViewData[index]; currentModalMovie = movie; 
         const modal = document.getElementById('movieModal');
@@ -1114,7 +1108,7 @@
         posterEl.src = getSafePoster(movie.poster);
         posterEl.onerror = function() { handlePosterError(this); };
         
-        // 1. ЗАГОЛОВОК И ГОД
+        
         const titleEl = document.getElementById('modalTitle');
         titleEl.textContent = movie.title || 'Безымянный';
         document.getElementById('modalYear').textContent = movie.year || '----';
@@ -1142,7 +1136,7 @@
             }
         }, 10);
         
-        // 2. ВЕРХНИЕ ПЛАШКИ (НАД ПУНКТИРОМ)
+        
         let badgesHtml = '';
         let displayType = escapeHTML(movie.type || 'Игра');
         badgesHtml += `<span class="outline-badge">${displayType}</span>`;
@@ -1159,7 +1153,7 @@
 
         document.getElementById('modalBadges').innerHTML = badgesHtml;
         
-        // 3. ЖАНРЫ (ПОД ПУНКТИРОМ)
+        
         let genresHtml = '';
         if (movie.genres && movie.genres !== "Нет данных") {
             const genresList = movie.genres.split(',').map(g => g.trim()).filter(g => g);
