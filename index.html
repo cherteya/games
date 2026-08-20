@@ -130,7 +130,6 @@
         }
         .view-toggle-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(92, 242, 138, 0.4); }
 
-        
         table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; table-layout: fixed; }
         th { text-align: center; color: var(--mint-main); font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 25px 12px 15px; border-bottom: 1px solid rgba(92, 242, 138, 0.2); font-family: var(--font-title); letter-spacing: 1px; }
         td { padding: 20px 15px; vertical-align: top; border-bottom: 1px dashed rgba(92, 242, 138, 0.15); }
@@ -182,7 +181,6 @@
         .steam-link-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: rgba(92, 242, 138, 0.15); color: var(--mint-main); border: 1px solid rgba(92, 242, 138, 0.3); padding: 6px 12px; border-radius: 12px; text-decoration: none; font-family: var(--font-text); font-size: 13px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 2px 6px rgba(0,0,0,0.2); }
         .steam-link-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 12px rgba(92, 242, 138, 0.5); transform: translateY(-2px); }
 
-        
         .movies-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; padding: 20px; }
         
         .card-view-item {
@@ -331,23 +329,30 @@
         .steam-modal-badge { display: inline-flex; align-items: center; gap: 4px; text-decoration: none; cursor: pointer; transition: all 0.3s ease; }
         .steam-modal-badge:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 10px rgba(92, 242, 138, 0.5); }
 
-        .modal-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; background: rgba(19, 15, 28, 0.5); padding: 25px; border-radius: 16px; border: 1px solid rgba(92, 242, 138, 0.15); }
-        .modal-grid-box { font-size: 15px; color: var(--mint-light); font-weight: 700; background: rgba(34, 24, 54, 0.8); border: 1px solid rgba(92, 242, 138, 0.2); padding: 8px 16px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: inline-flex; justify-content: center; align-items: center; gap: 8px; width: fit-content; }
-
-        .grid-item { font-size: 14px; display: flex; flex-direction: column; gap: 8px; }
+        /* ИДЕАЛЬНАЯ СЕТКА (ВЗЯТА ИЗ ПЕРВОГО КОДА) */
+        .modal-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            background: rgba(19, 15, 28, 0.5); 
+            border-radius: 16px; 
+            border: 1px solid rgba(92, 242, 138, 0.15); 
+            overflow: hidden; 
+        }
+        .modal-grid.has-tags { grid-template-columns: repeat(3, 1fr); }
+        .modal-grid-box { font-size: 15px; color: var(--mint-light); font-weight: 700; background: rgba(34, 24, 54, 0.8); border: 1px solid rgba(92, 242, 138, 0.2); padding: 8px 16px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2); display: inline-flex; justify-content: center; align-items: center; gap: 8px; width: fit-content; margin-top: 4px; }
+        .grid-item { font-size: 14px; display: flex; flex-direction: column; gap: 4px; padding: 20px 25px; box-sizing: border-box; }
+        .grid-item.border-right { border-right: 1px dashed rgba(92, 242, 138, 0.3); }
+        .grid-item.border-bottom { border-bottom: 1px dashed rgba(92, 242, 138, 0.3); }
         .grid-item.full-width { grid-column: 1 / -1; } 
-        .grid-label { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-text); font-weight: 800; }
+        .grid-label { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-text); font-weight: 800; margin-bottom: 4px; }
         .grid-value { color: var(--mint-main); font-weight: 700; font-size: 16px; }
 
+        .modal-overview { color: var(--text-main); font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
         
-        .modal-overview-container { background: rgba(19, 15, 28, 0.5); padding: 25px; border-radius: 16px; border: 1px solid rgba(92, 242, 138, 0.15); margin-top: 15px; margin-bottom: 10px; }
-        .modal-overview-label { color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-text); font-weight: 800; margin-top: 0; margin-bottom: 8px; }
-        .modal-overview { color: var(--text-main); font-size: 16px; line-height: 1.7; margin-top: 0; margin-bottom: 0; }
-        
-        .modal-requester-link { cursor: pointer; transition: transform 0.3s; display: inline-flex; align-items: center; gap: 10px; }
+        .modal-requester-link { cursor: pointer; transition: transform 0.3s; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 8px; }
         .modal-requester-link:hover { transform: translateX(5px); }
-        .modal-requester-link span { font-family: var(--font-text); font-size: 16px; color: var(--mint-main); transition: color 0.3s; font-weight: 700; }
-        .modal-requester-link span:hover { color: #fff; text-shadow: 0 0 8px rgba(92, 242, 138, 0.6); }
+        .modal-requester-link span.name-text { font-family: var(--font-text); font-size: 16px; color: var(--mint-main); transition: color 0.3s; font-weight: 700; }
+        .modal-requester-link:hover span.name-text { color: #fff; text-shadow: 0 0 8px rgba(92, 242, 138, 0.6); }
 
         .footer-badge { display: flex; align-items: center; gap: 10px; justify-content: center; margin-top: 30px; padding-bottom: 20px; background: transparent; cursor: pointer; transition: all 0.3s ease; opacity: 0.8; }
         .footer-badge:hover { opacity: 1; }
@@ -365,45 +370,46 @@
             .movies-grid { grid-template-columns: repeat(4, 1fr); }
         }
         @media (max-width: 768px) {
-			#viewToggleBtn { display: none !important; }
-		
+            #viewToggleBtn { display: none !important; }
+        
             th:nth-child(4), td:nth-child(4) { display: none; }
             .movies-grid { grid-template-columns: repeat(2, 1fr); padding: 10px; gap: 10px; }
             .modal-body { flex-direction: column; margin-top: -60px; padding: 20px; }
             .modal-poster { width: 140px; margin: 0 auto; }
-            .modal-grid { grid-template-columns: 1fr; }
             
-			
-			.header {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: 15px; 
-				padding: 20px 10px; 
-			}
+            .modal-grid { grid-template-columns: 1fr !important; }
+            .grid-item.border-right { border-right: none !important; }
+            .grid-item { border-bottom: 1px dashed rgba(92, 242, 138, 0.3); }
+            #modalTagsColumn { grid-row: auto !important; grid-column: 1 / -1 !important; border-bottom: 1px dashed rgba(92, 242, 138, 0.3); padding-left: 25px !important;}
+            .grid-item.full-width { border-bottom: none; }
+            
+            .header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px; 
+                padding: 20px 10px; 
+            }
 
-			.back-btn {
-				position: relative;
-				top: 0;
-				left: 0;
-			}
+            .back-btn {
+                position: relative;
+                top: 0;
+                left: 0;
+            }
 
-			.creator-badge {
-				position: relative;
-				top: 0;
-				right: 0;
-			}
+            .creator-badge {
+                position: relative;
+                top: 0;
+                right: 0;
+            }
 
-			.header-top h1 { 
-				font-size: 28px; 
-				margin: 5px 0 10px 0;
-			}
-			.header-top h1::before, .header-top h1::after { 
-				display: none; 
-			}
-			
-			
-			
+            .header-top h1 { 
+                font-size: 28px; 
+                margin: 5px 0 10px 0;
+            }
+            .header-top h1::before, .header-top h1::after { 
+                display: none; 
+            }
         }
         
         .legendary-table-badge, .legendary-badge {
@@ -520,36 +526,45 @@
                         
                         <div id="modalGenres" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;"></div>
                         
-                        <div class="modal-grid">
-                            <div class="grid-item">
+                        <!-- ОПИСАНИЕ ТЕПЕРЬ ТУТ, ПЕРЕД СЕТКОЙ -->
+                        <div class="modal-overview" id="modalOverview"></div>
+                        
+                        <!-- НОВАЯ СЕТКА -->
+                        <div class="modal-grid" id="modalMainGrid" style="gap: 0; padding: 0;">
+                            
+                            <div class="grid-item border-bottom border-right" id="modalRequesterCol">
                                 <div class="grid-label">Заказал</div>
-                                <div class="grid-value modal-requester-link" id="modalRequester" title="Перейти на канал"></div>
+                                <div class="grid-value" id="modalRequesterBlock" style="display: flex; flex-direction: column; align-items: flex-start;"></div>
                             </div>
                             
-                            <div class="grid-item">
+                            <div class="grid-item border-bottom" id="modalStatusCol">
                                 <div class="grid-label">Статус</div>
-                                <div id="modalStatusLabel" style="margin-top: 4px;"></div>
+                                <div id="modalStatusLabel"></div>
                             </div>
-                            <div class="grid-item">
+                            
+                            <!-- КОЛОНКА ОТМЕТОК -->
+                            <div class="grid-item border-bottom" id="modalTagsColumn" style="grid-row: span 2; display: none; padding-left: 25px;">
+                                <div class="grid-label">Отметки</div>
+                                <div id="modalTagsBlock" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;"></div>
+                            </div>
+
+                            <div class="grid-item border-bottom border-right" id="modalDateReqCol">
                                 <div class="grid-label">День заказа</div>
                                 <div id="modalDateReq"></div>
                             </div>
-                            <div class="grid-item">
+                            
+                            <div class="grid-item border-bottom" id="modalDateWatchedCol">
                                 <div class="grid-label" id="modalWatchedLabel">День прохождения</div>
                                 <div id="modalDateWatched"></div>
                             </div>
-                            <div class="grid-item full-width">
+
+                            <div class="grid-item full-width" style="border-bottom: none;">
                                 <div class="grid-label">Разработчик / Издатель</div>
-                                <div class="grid-value" id="modalStudios" style="color: var(--text-muted); font-weight: normal;">Архив скрыт</div>
+                                <div class="grid-value" id="modalStudios" style="color: var(--text-muted); font-weight: normal; margin-top: 4px;">Архив скрыт</div>
                             </div>
+                            
                         </div>
 
-                        
-                        <div class="modal-overview-container">
-                            <div class="modal-overview-label">Описание</div>
-                            <div class="modal-overview" id="modalOverview">Описание игры...</div>
-                        </div>
-                        
                     </div>
                 </div>
             </div>
@@ -724,7 +739,6 @@
         let filtered = [...rawMoviesData];
         if (userFilterVal !== 'all') filtered = filtered.filter(m => m.requestedBy.toLowerCase() === userFilterVal);
         if (searchQuery.trim() !== '') filtered = filtered.filter(m => (m.title && m.title.toLowerCase().includes(searchQuery)) || (m.requestedBy && m.requestedBy.toLowerCase().includes(searchQuery)));
-
         
         const orderSortFn = (a, b) => {
             const getPriority = (status) => {
@@ -735,14 +749,11 @@
             const priorityA = getPriority(a.status);
             const priorityB = getPriority(b.status);
             
-            
             if (priorityA !== priorityB) return priorityA - priorityB;
-            
             
             if (priorityA === 1 || priorityA === 2) {
                 return a.parsedDate - b.parsedDate;
             }
-            
             
             if (priorityA === 3) {
                 const parsedWatchA = parseDateObj(a.dateWatched);
@@ -752,7 +763,6 @@
             }
             return 0;
         };
-
         
         const watchedDescSortFn = (a, b) => {
             const watchA = parseDateObj(a.dateWatched);
@@ -787,28 +797,22 @@
         renderView();
     }
 
-
-
-	function renderView() {
-		const renderArea = document.getElementById('render-area');
-		renderArea.innerHTML = '';
+    function renderView() {
+        const renderArea = document.getElementById('render-area');
+        renderArea.innerHTML = '';
     
-		if (currentViewData.length === 0) {
-			renderArea.innerHTML = '<div style="text-align: center; padding: 60px; font-size: 20px; color: var(--text-muted); font-family: var(--font-text); font-weight: 700;">✨ В архивах пусто ✨</div>';
-			return;
-		}
+        if (currentViewData.length === 0) {
+            renderArea.innerHTML = '<div style="text-align: center; padding: 60px; font-size: 20px; color: var(--text-muted); font-family: var(--font-text); font-weight: 700;">✨ В архивах пусто ✨</div>';
+            return;
+        }
 
-		
-		if (window.innerWidth <= 768) {
-			renderGridMode(renderArea);
-		} else {
-			
-			if (viewMode === 'list') renderTableMode(renderArea);
-			else renderGridMode(renderArea);
-		}
-	}
-
-
+        if (window.innerWidth <= 768) {
+            renderGridMode(renderArea);
+        } else {
+            if (viewMode === 'list') renderTableMode(renderArea);
+            else renderGridMode(renderArea);
+        }
+    }
     
     function renderTableMode(renderArea) {
         let tableHTML = `
@@ -829,7 +833,6 @@
         const sortMode = document.getElementById('sortSelect').value;
 
         currentViewData.forEach((movie, index) => {
-            
             if (sortMode === 'order' && index > 0) {
                 const prevStatus = currentViewData[index - 1].status;
                 const currStatus = movie.status;
@@ -931,9 +934,6 @@
         autoResizeTitles();
     }
 
-    // ==========================================
-    // ЛОГИКА РЕНДЕРА КАРТОЧЕК (ПЛИТКОЙ)
-    // ==========================================
     function renderGridMode(renderArea) {
         const gridContainer = document.createElement('div');
         gridContainer.className = 'movies-grid';
@@ -943,7 +943,6 @@
         const showDivider = activeCount >= 4;
 
         currentViewData.forEach((movie, index) => {
-            
             if (sortMode === 'order' && index > 0 && showDivider) {
                 const prevStatus = currentViewData[index - 1].status;
                 const currStatus = movie.status;
@@ -1057,10 +1056,8 @@
         autoResizeTitles(); 
     }
 
-    
     function autoResizeTitles() {
         setTimeout(() => {
-            // Для списка
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
                 let currentSize = 24; 
                 titleEl.style.fontSize = currentSize + "px"; 
@@ -1085,7 +1082,6 @@
                 }
             });
 
-            
             document.querySelectorAll('.card-title-container').forEach(container => {
                 let titleEl = container.querySelector('.resize-title');
                 if (!titleEl) return;
@@ -1108,7 +1104,6 @@
                     titleEl.style.overflow = 'hidden';
                 }
             });
-
             
             document.querySelectorAll('.resize-username').forEach(nameEl => {
                 let currentSize = 13;
@@ -1123,10 +1118,9 @@
     }
 
     window.addEventListener('resize', () => {
-		autoResizeTitles();
-		renderView(); 
-	});
-
+        autoResizeTitles();
+        renderView(); 
+    });
     
     function openModal(index) {
         const movie = currentViewData[index]; currentModalMovie = movie; 
@@ -1151,7 +1145,6 @@
         const posterEl = document.getElementById('modalPoster');
         posterEl.src = getSafePoster(movie.poster);
         posterEl.onerror = function() { handlePosterError(this); };
-        
         
         const titleEl = document.getElementById('modalTitle');
         titleEl.textContent = movie.title || 'Безымянный';
@@ -1180,11 +1173,9 @@
             }
         }, 10);
         
-        
         let badgesHtml = '';
         let displayType = escapeHTML(movie.type || 'Игра');
         badgesHtml += `<span class="outline-badge">${displayType}</span>`;
-
         badgesHtml += `<span class="outline-badge">ID №${movie.id || 0}</span>`;
         
         if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
@@ -1197,7 +1188,6 @@
 
         document.getElementById('modalBadges').innerHTML = badgesHtml;
         
-        
         let genresHtml = '';
         if (movie.genres && movie.genres !== "Нет данных") {
             const genresList = movie.genres.split(',').map(g => g.trim()).filter(g => g);
@@ -1209,8 +1199,7 @@
         }
         document.getElementById('modalGenres').innerHTML = genresHtml;
 
-		
-		document.getElementById('modalOverview').textContent = movie.overview || 'Данные об игре утеряны...';
+        document.getElementById('modalOverview').textContent = movie.overview || 'Данные об игре утеряны...';
         
         const dateReqEl = document.getElementById('modalDateReq');
         if (movie.dateRequested) {
@@ -1231,57 +1220,71 @@
         if (isWatched) {
             statusTextHTML = `<span class="badge-status" style="margin:0; padding:6px 12px; font-size: 13px;">ПРОЙДЕНО</span>`;
         } else if (isDropped) {
-            statusTextHTML = `<span class="badge-status" style="background: #ff4a4a; color: #fff; box-shadow: 0 2px 8px rgba(255, 74, 74, 0.4); margin:0; padding:6px 12px; font-size: 13px;">БРОСИЛА</span>`;
+            statusTextHTML = `<span class="badge-status" style="background: #ff4a4a; color: #fff; box-shadow: 0 4px 10px rgba(255, 74, 74, 0.4); margin:0; padding:6px 12px; font-size: 13px;">БРОСИЛА</span>`;
         } else if (isPlaying) {
-            statusTextHTML = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 2px 8px rgba(255, 219, 88, 0.4); margin:0; padding:6px 12px; font-size: 13px;">ИГРАЕМ</span>`;
+            statusTextHTML = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 4px 10px rgba(255, 215, 0, 0.4); margin:0; padding:6px 12px; font-size: 13px;">ИГРАЕМ</span>`;
         } else {
             statusTextHTML = `<span class="badge-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.4); margin:0; padding:6px 12px; font-size: 13px;">В ОЧЕРЕДИ</span>`;
         }
         document.getElementById('modalStatusLabel').innerHTML = statusTextHTML;
         
         let dateHtml = '';
-        if ((isWatched || isDropped) && movie.dateWatched) {
+        if (isPlaying) {
+             dateHtml += `<div class="modal-grid-box" style="background: rgba(34, 24, 54, 0.9); border-color: rgba(92, 242, 138, 0.2); color: #ffd700; margin-top: 0;">В процессе...</div>`;
+        } else if ((isWatched || isDropped) && movie.dateWatched) {
              dateHtml += `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched.split(' ')[0]}</div>`;
-             
-             if (movie.ourRating && movie.ourRating !== "Без оценки") {
-                 const parsedRating = parseFloat(movie.ourRating);
-                 if (parsedRating === 1000) {
-                     dateHtml += `<div class="modal-grid-box legendary-table-badge" style="margin-top: 0; flex-direction: column; gap: 2px; padding: 6px 16px; line-height: 1.1;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9;">Наша Оценка:</span><span style="font-size: 18px;">1000</span></div>`;
-                 } else {
-                     const rColor = getRatingColor(movie.ourRating);
-                     dateHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor};">Наша Оценка: ${movie.ourRating}</div>`;
-                 }
-             }
-        } else if (isPlaying) {
-             dateHtml += `<div class="modal-grid-box" style="background: rgba(255,219,88,0.1); border-color: transparent; color: #ffdb58; margin-top: 0;">В процессе...</div>`;
         } else {
              dateHtml += `<div class="modal-grid-box" style="background: rgba(92,242,138,0.1); border-color: transparent; margin-top: 0;">Еще в очереди</div>`;
         }
 
-        if (movie.cried) {
-            dateHtml += `<div class="modal-grid-box" style="margin-top: 0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="var(--mint-light)" stroke="var(--mint-light)" stroke-width="1" style="margin-right:4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
-        }
-        if (movie.burned) {
-            dateHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 8px rgba(255,107,107,0.3);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg> Сгорела</div>`;
-        }
-
         dateWatchedEl.innerHTML = `<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">${dateHtml}</div>`;
 
+        const tagsBlock = document.getElementById('modalTagsBlock');
+        const modalMainGrid = document.getElementById('modalMainGrid');
+        const statusCol = document.getElementById('modalStatusCol');
+        const dateWatchedCol = document.getElementById('modalDateWatchedCol');
+        let tagsHtml = '';
+
+        if ((isWatched || isDropped) && movie.ourRating && movie.ourRating !== "Без оценки") {
+            const parsedRating = parseFloat(movie.ourRating);
+            if (parsedRating === 1000) {
+                tagsHtml += `<div class="modal-grid-box legendary-badge" style="margin-top: 0; padding: 4px 16px;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9; margin-right: 4px;">Оценка:</span><span style="font-size: 16px;">1000</span></div>`;
+            } else {
+                const rColor = getRatingColor(movie.ourRating); 
+                tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor};">Наша Оценка: ${movie.ourRating}</div>`; 
+            }
+        }
+        if (movie.cried) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="var(--mint-light)" stroke="var(--mint-light)" stroke-width="1" style="margin-right: 4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
+        if (movie.burned) tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 8px rgba(255,107,107,0.3);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg> Сгорела</div>`;
+
+        const tagsCol = document.getElementById('modalTagsColumn');
+        if (tagsHtml === '') {
+            tagsCol.style.display = 'none';
+            modalMainGrid.classList.remove('has-tags');
+            statusCol.classList.remove('border-right');
+            dateWatchedCol.classList.remove('border-right');
+        } else {
+            tagsCol.style.display = 'flex';
+            tagsBlock.innerHTML = tagsHtml;
+            modalMainGrid.classList.add('has-tags');
+            statusCol.classList.add('border-right');
+            dateWatchedCol.classList.add('border-right');
+        }
+
         const cleanNick = movie.requestedBy.replace('@', '').trim();
-        const requesterEl = document.getElementById('modalRequester');
+        const requesterEl = document.getElementById('modalRequesterBlock');
         
         const userColor = stringToColor(cleanNick);
         let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') 
             ? `<img src="${movie.userAvatar}" class="req-avatar" style="width:32px; height:32px; border-width:2px; border-radius:50%; object-fit:cover; margin-right:10px;" alt="">` 
             : `<div class="req-avatar" style="width:32px; height:32px; font-size:14px; border-width:2px; background-color: ${userColor}; border-color: ${userColor}; border-radius:50%; display:flex; align-items:center; justify-content:center; margin-right:10px; color:var(--bg-deep); font-weight:800;">${getInitials(cleanNick)}</div>`;
             
-        let reqInner = `<div style="display:flex; align-items:center;">${avatarMarkup}<span>${cleanNick}</span></div>`;
+        let reqInner = `<div class="modal-requester-link" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank')">${avatarMarkup}<span class="name-text">${cleanNick}</span></div>`;
         if (movie.isAuction) {
-            reqInner += `<div style="color: var(--warm-star); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-top: 4px; text-shadow: 0 0 5px rgba(0,0,0,0.8);">✦ Аукцион ✦</div>`;
+            reqInner += `<div class="modal-grid-box" style="margin-top: 0; margin-bottom: 6px; color: var(--warm-star); border-color: var(--warm-star); background: rgba(34, 24, 54, 0.9); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800;">✦ Аукцион ✦</div>`;
         }
         
-        requesterEl.innerHTML = `<div style="display:flex; flex-direction:column; align-items:flex-start;">${reqInner}</div>`;
-        requesterEl.onclick = () => window.open(`https://twitch.tv/${cleanNick}`, '_blank');
+        requesterEl.innerHTML = reqInner;
 
         document.getElementById('modalStudios').textContent = movie.studios === "Нет данных" || !movie.studios ? "Архив скрыт" : movie.studios;
 
