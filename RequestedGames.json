@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "cherteya",
-    "lastUpdated": "20.08.2026"
+    "lastUpdated": "21.08.2026"
   },
   "cherteya": [
     {
@@ -421,7 +421,9 @@
       "cried": false,
       "burned": false,
       "isAuction": false,
-      "dateWatched": "20.08.2026"
+      "dateWatched": "20.08.2026",
+      "postUrl": "https://t.me/cherteyart/132",
+      "altPoster": "https://play-lh.googleusercontent.com/2D7as_GPnphdSx49EpX7i0rB1Aeb138cmmySF586axkCz3UKoKhGO_60UknJQT2EUrU"
     }
   ],
   "MadMan1408": [],
