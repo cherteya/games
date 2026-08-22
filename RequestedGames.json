@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "cherteya",
-    "lastUpdated": "21.08.2026"
+    "lastUpdated": "22.08.2026"
   },
   "cherteya": [
     {
@@ -380,7 +380,7 @@
       "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/library_600x900_2x.jpg",
       "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/page_bg_raw.jpg?t=1759502961",
       "steamAppId": "1174180",
-      "price": "~$63,8 / ~5 004 ₽ / ~2 843 ₴ / ~29 999 ₸",
+      "price": "$59,99 / ~5 007 ₽ / 2 599 ₴ / 29 999 ₸",
       "isFree": "false",
       "metacriticScore": "93",
       "metacriticUrl": "https://www.metacritic.com/game/pc/red-dead-redemption-2?ftag=MCD-06-10aaa1f",
@@ -393,7 +393,8 @@
       "ourRating": "Без оценки",
       "cried": false,
       "burned": false,
-      "isAuction": false
+      "isAuction": false,
+      "datePriceUpdated": "22.08.2026"
     },
     {
       "title": "Photomaly",
