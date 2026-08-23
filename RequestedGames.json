@@ -61,6 +61,35 @@
       "burned": false,
       "isAuction": false,
       "difficulty": ""
+    },
+    {
+      "id": 3,
+      "title": "Ведьмак 3: Дикая Охота",
+      "year": "2015",
+      "type": "Игра",
+      "platforms": "Windows",
+      "genres": "Ролевые игры",
+      "studios": "CD PROJEKT RED (Изд: CD PROJEKT RED)",
+      "overview": "Вы — Геральт из Ривии, наемный убийца чудовищ. Вы путешествуете по миру, в котором бушует война и на каждом шагу подстерегают чудовища. Вам предстоит выполнить заказ и найти Цири — Дитя Предназначения, живое оружие, способное изменить облик этого мира.",
+      "detailedDesc": "УЗНАЙТЕ, ЧТО БЫЛО ДО «ВЕДЬМАКА 4»Об игре",
+      "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/library_600x900_2x.jpg",
+      "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/94a3c7f9db82538b752312f6e17f912f0899ca30/page_bg_raw.jpg?t=1768303991",
+      "steamAppId": "292030",
+      "price": "$19,99 / ~1 664 ₽ / 949 ₴ / 11 999 ₸",
+      "datePriceUpdated": "23.08.2026",
+      "isFree": "false",
+      "metacriticScore": "93",
+      "metacriticUrl": "https://www.metacritic.com/game/pc/the-witcher-3-wild-hunt?ftag=MCD-06-10aaa1f",
+      "website": "https://www.thewitcher.com/witcher3",
+      "dlcCount": "0",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "dateRequested": "23.08.2026",
+      "status": "В очереди",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "burned": false,
+      "isAuction": false,
+      "difficulty": ""
     }
   ]
 }
