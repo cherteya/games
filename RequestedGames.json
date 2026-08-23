@@ -61,6 +61,35 @@
       "burned": false,
       "isAuction": true,
       "difficulty": ""
+    },
+    {
+      "id": 3,
+      "title": "Indiana Boy Steam Edition",
+      "year": "2018",
+      "type": "Игра",
+      "platforms": "Windows",
+      "genres": "Приключенческие игры, Казуальные игры, Инди",
+      "studios": "One Man (Изд: Conglomerate 5)",
+      "overview": "Immerse yourself in a fantastic adventure with Indiana Boy. Help Indiana recover all the treasures and keys, but watch out for every move you make.",
+      "detailedDesc": "Immerse yourself in a fantastic adventure with Indiana Boy. Help Indiana recover all the treasures and keys, but watch out for every move you make, in this puzzle game you can relive the graphics and emotions of the legendary Game Boy. Indiana Boy is strongly inspired by the Game Boy era, if you're a nostalgic this is the game for you.\r\n\r\nKey Features : \r\n\r\n* This version contains 10 levels of pure puzzle game\r\n\r\n* the game has been designed to keep you entertained for a long time\r\n\r\n* Help Indiana recover the keys and the treasures\r\n\r\n* Face Dungeon mummies and snakes\r\n\r\n* Take advantage of the environment around you\r\n\r\n* Relive the era of the legendary Game Boy",
+      "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/990950/library_600x900_2x.jpg",
+      "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/990950/page_bg_raw.jpg?t=1782158255",
+      "steamAppId": "990950",
+      "price": "$3,29 / 200 ₽ / 124 ₴ / 1 500 ₸",
+      "datePriceUpdated": "23.08.2026",
+      "isFree": "false",
+      "metacriticScore": "Нет оценок",
+      "metacriticUrl": "",
+      "website": "",
+      "dlcCount": "0",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "dateRequested": "23.08.2026",
+      "status": "В очереди",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "burned": false,
+      "isAuction": false,
+      "difficulty": ""
     }
   ]
 }
