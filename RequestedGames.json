@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "cherteya",
-    "lastUpdated": "03.09.2026 17:17",
+    "lastUpdated": "03.09.2026 17:18",
     "isOnlineBtnVisible": true
   },
   "cherteya": [
@@ -470,12 +470,13 @@
       "dlcCount": "0",
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/11f87f17-1439-4079-af5d-d3d778a76800-profile_image-600x600.jpeg",
       "dateRequested": "03.09.2026",
-      "status": "В очереди",
-      "ourRating": "Без оценки",
+      "status": "Пройдено",
+      "ourRating": "8",
       "cried": false,
       "burned": false,
       "isAuction": false,
-      "difficulty": ""
+      "difficulty": "",
+      "dateWatched": "03.09.2026"
     }
   ],
   "MadMan1408": [],
