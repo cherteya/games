@@ -44,7 +44,7 @@
         .left-img { right: -185px; }
         .right-img { left: -175px; top: -365px;}
 
-        @media (max-width: 1550px) { .girl-col { display: none; } }
+       
 
         .container {
             width: 100%; max-width: 1150px; min-height: 80vh; 
@@ -65,12 +65,14 @@
             border-bottom: 2px solid rgba(92, 242, 138, 0.2); 
             background: radial-gradient(circle at 50% 0%, rgba(92, 242, 138, 0.05) 0%, transparent 80%);
             border-top-left-radius: 18px; border-top-right-radius: 18px;
+            z-index: 30; 
         }
         
         .header::after {
             content: '✨'; position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%);
             color: var(--mint-main); font-size: 20px; background: var(--bg-deep); padding: 0 15px;
             border-radius: 20px; border: 1px solid rgba(92, 242, 138, 0.3); text-shadow: 0 0 10px var(--mint-main);
+            z-index: 31; 
         }
 
         .header-top h1 { 
@@ -129,44 +131,43 @@
             box-sizing: border-box; height: 40px;
         }
         .view-toggle-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(92, 242, 138, 0.4); }
-		
-		
-		
-		.wishlist-link-btn {
-			background: rgba(255, 143, 163, 0.1); 
-			border: 1px solid var(--cute-pink);
-			border-radius: 20px;
-			padding: 0 20px 0 18px;
-			color: var(--cute-pink);
-			font-size: 15px;
-			font-family: var(--font-title);
-			font-weight: 700;
-			text-decoration: none; 
-			cursor: pointer;
-			transition: all 0.3s ease;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			gap: 6px;
-			box-sizing: border-box;
-			height: 40px;
-		}
+        
+        .wishlist-link-btn {
+            background: rgba(255, 143, 163, 0.1); 
+            border: 1px solid var(--cute-pink);
+            border-radius: 20px;
+            padding: 0 20px 0 18px;
+            color: var(--cute-pink);
+            font-size: 15px;
+            font-family: var(--font-title);
+            font-weight: 700;
+            text-decoration: none; 
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            box-sizing: border-box;
+            height: 40px;
+        }
 
-		.wishlist-link-btn:hover {
-			background: var(--cute-pink);
-			color: var(--bg-deep); 
-			box-shadow: 0 0 15px rgba(255, 143, 163, 0.4);
-		}
-		
-		
-		
-		
+        .wishlist-link-btn:hover {
+            background: var(--cute-pink);
+            color: var(--bg-deep); 
+            box-shadow: 0 0 15px rgba(255, 143, 163, 0.4);
+        }
         
         table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; table-layout: fixed; }
-        th { text-align: center; color: var(--mint-main); font-weight: 700; font-size: 13px; text-transform: uppercase; padding: 25px 12px 15px; border-bottom: 1px solid rgba(92, 242, 138, 0.2); font-family: var(--font-title); letter-spacing: 1px; }
+        th { 
+            text-align: center; color: var(--mint-main); font-weight: 700; font-size: 13px; text-transform: uppercase; 
+            padding: 25px 12px 15px; border-bottom: 1px solid rgba(92, 242, 138, 0.2); font-family: var(--font-title); letter-spacing: 1px; 
+            position: sticky; top: 0; z-index: 20; background: rgba(34, 24, 54, 0.95); backdrop-filter: blur(10px);
+        }
         td { padding: 20px 15px; vertical-align: top; border-bottom: 1px dashed rgba(92, 242, 138, 0.15); }
+		
         tr:last-child td { border-bottom: none; }
-        td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
+        td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6) { text-align: center; }
         tr.movie-row { cursor: pointer; transition: all 0.3s ease; position: relative; }
         tr.movie-row:hover { background-color: rgba(92, 242, 138, 0.04); } 
         td:nth-child(2) { text-align: left; position: relative; z-index: 1; overflow: hidden; }
@@ -194,10 +195,10 @@
         .movie-genres { font-size: 14px; color: var(--mint-light); font-weight: 600; opacity: 0.9; }
         .movie-studios-list { font-size: 12px; color: var(--warm-star); font-weight: 600; letter-spacing: 0.5px; margin-top: 2px; }
 
-        .movie-overview-wrapper { margin-top: 8px; max-height: 48px; overflow: hidden; transition: max-height 0.4s ease; }
-        .movie-overview-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 250px; }
-        tr.movie-row:has(.poster-wrapper:hover) .movie-overview-text { -webkit-line-clamp: 20; color: var(--text-main); }
+        
+        
+        
+       
 
         .requester-badge { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: transform 0.3s; margin: 0 auto; }
         .requester-badge:hover .req-avatar { border-color: var(--mint-light); box-shadow: 0 0 15px rgba(92, 242, 138, 0.5); }
@@ -208,9 +209,9 @@
         .date-badge, .time-box { font-size: 14px; color: var(--mint-light); font-weight: 600; background: rgba(19, 15, 28, 0.8); border: 1px solid rgba(92, 242, 138, 0.2); padding: 6px 14px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.2); display: inline-flex; justify-content: center; align-items: center; gap: 6px; }
         .date-badge { margin-top: 10px; }
         
-        .badge-status { font-size: 11px; font-weight: 800; text-align: center; display: inline-flex; justify-content: center; align-items: center; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-text); color: var(--bg-deep); border-radius: 10px; padding: 4px 12px; margin-bottom: 8px; background: var(--mint-main); box-shadow: 0 2px 8px rgba(92, 242, 138, 0.4); min-width: 85px; }
+        .badge-status { font-size: 11px; font-weight: 800; text-align: center; display: inline-flex; justify-content: center; align-items: center; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-text); color: var(--bg-deep); border-radius: 12px; padding: 4px 12px; margin-bottom: 8px; background: var(--mint-main); box-shadow: 0 2px 8px rgba(92, 242, 138, 0.4); min-width: 85px; }
 
-        .steam-link-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: rgba(92, 242, 138, 0.15); color: var(--mint-main); border: 1px solid rgba(92, 242, 138, 0.3); padding: 6px 12px; border-radius: 12px; text-decoration: none; font-family: var(--font-text); font-size: 13px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 2px 6px rgba(0,0,0,0.2); width: 100%; box-sizing: border-box; }
+        .steam-link-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; background: rgba(92, 242, 138, 0.15); color: var(--mint-main); border: 1px solid rgba(92, 242, 138, 0.3); padding: 3px 12px 2px 11px; border-radius: 12px; text-decoration: none; font-family: var(--font-text); font-size: 13px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 2px 6px rgba(0,0,0,0.2); width: 85%; box-sizing: border-box; }
         .steam-link-btn:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 12px rgba(92, 242, 138, 0.5); transform: translateY(-2px); }
 
         .movies-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; padding: 20px; }
@@ -390,9 +391,9 @@
         .tg-link-btn {
             display: inline-flex; align-items: center; justify-content: center; gap: 6px;
             background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3);
-            padding: 6px 12px; border-radius: 12px; text-decoration: none; font-family: var(--font-text);
+            padding: 3px 12px 2px 10px; border-radius: 12px; text-decoration: none; font-family: var(--font-text);
             font-size: 13px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-            width: 100%; box-sizing: border-box;
+            width: 85%; box-sizing: border-box;
         }
         .tg-link-btn:hover { background: #38bdf8; color: var(--bg-deep); box-shadow: 0 0 12px rgba(56, 189, 248, 0.5); transform: translateY(-2px); }
 
@@ -424,8 +425,8 @@
         .modal-girl-img { position: absolute; height: 650px; filter: drop-shadow(0 8px 25px rgba(0,0,0,0.5)); }
         .modal-left-img { right: -185px; }
         .modal-right-img { left: -176px; }
-        @media (max-width: 1550px) { .modal-girl-col { display: none; } }
-
+		
+		
         .modal-content {
             background: var(--bg-deep); width: 90%; max-width: 1000px; max-height: 85vh; overflow-y: auto; position: relative;
             box-shadow: 0 0 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(92, 242, 138, 0.15); border: 2px solid var(--mint-main); padding: 5px; 
@@ -509,58 +510,325 @@
         ::-webkit-scrollbar-thumb { background: var(--mint-dark); border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--mint-main); }
 
-        @media (max-width: 1024px) {
+     
+
+        .movie-overview-wrapper { margin-top: 8px; max-height: 48px; overflow: hidden; transition: max-height 0.3s ease; cursor: pointer; user-select: none; -webkit-user-select: none; }
+        .movie-overview-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s; }
+        tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 250px; }
+        tr.movie-row:has(.poster-wrapper:hover) .movie-overview-text { -webkit-line-clamp: 20; color: var(--text-main); }
+
+        .movie-overview-wrapper.expanded { max-height: 1500px !important; }
+        .movie-overview-wrapper.expanded .movie-overview-text { -webkit-line-clamp: unset !important; color: var(--text-main); }
+
+
+        .list-tabs-container { display: flex; gap: 8px; margin-top: 8px; margin-bottom: 4px; }
+        .list-tab-btn { background: rgba(19, 15, 28, 0.6); border: 1px dashed rgba(92, 242, 138, 0.3); color: var(--text-muted); padding: 2px 10px 2px 8px; border-radius: 12px; font-size: 10px; font-family: var(--font-title); font-weight: 700; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; }
+        .list-tab-btn:hover { border-color: var(--mint-main); color: var(--mint-light); }
+        .list-tab-btn.active { background: rgba(92, 242, 138, 0.15); border-color: var(--mint-main); border-style: solid; color: var(--mint-main); box-shadow: 0 0 10px rgba(92, 242, 138, 0.3); }
+
+
+        .movie-review-wrapper { margin-top: 4px; max-height: 50px; overflow: hidden; transition: max-height 0.3s ease; cursor: pointer; user-select: none; -webkit-user-select: none; }
+        
+        .movie-review-text { font-size: 14px; line-height: 1.5; color: var(--mint-light); font-style: italic; border-left: 2px solid var(--mint-main); padding: 4px 10px; background: rgba(92, 242, 138, 0.05); border-radius: 0 8px 8px 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s, background-color 0.3s; }
+        
+
+        tr.movie-row:has(.poster-wrapper:hover) .movie-review-wrapper { max-height: 250px; }
+        tr.movie-row:has(.poster-wrapper:hover) .movie-review-text { -webkit-line-clamp: 20; color: #fff; background: rgba(92, 242, 138, 0.1); }
+        
+        .movie-review-wrapper.expanded { max-height: 1500px !important; }
+        .movie-review-wrapper.expanded .movie-review-text { -webkit-line-clamp: unset !important; color: #fff; background: rgba(92, 242, 138, 0.15); }
+		
+		
+
+        .media-grid { display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 5px; }
+        .media-thumb {
+            width: 110px; height: 65px; border-radius: 8px; object-fit: cover;
+            border: 2px solid rgba(92, 242, 138, 0.3); cursor: pointer;
+            transition: all 0.3s; background: var(--bg-velvet);
+            background-size: cover; background-position: center; position: relative;
+        }
+        .media-thumb:hover { border-color: var(--mint-main); transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 2; }
+        
+        .video-thumb::after {
+            content: '▶'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 14px; color: var(--bg-deep); background: rgba(92, 242, 138, 0.9); 
+            width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding-left: 2px; box-sizing: border-box; box-shadow: 0 2px 8px rgba(0,0,0,0.6); transition: all 0.3s;
+        }
+        .video-thumb:hover::after { background: #fff; transform: translate(-50%, -50%) scale(1.15); box-shadow: 0 0 15px rgba(92, 242, 138, 0.8); }
+
+        .lightbox-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(19, 15, 28, 0.95); backdrop-filter: blur(10px); z-index: 2000; 
+            justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;
+        }
+        .lightbox-overlay.active { display: flex; opacity: 1; }
+        .lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; display: flex; justify-content: center; align-items: center; }
+        .lightbox-img { max-width: 100%; max-height: 90vh; border-radius: 12px; border: 2px solid var(--mint-main); box-shadow: 0 15px 40px rgba(0,0,0,0.8); display: none; }
+        .lightbox-video { width: 80vw; max-width: 1200px; aspect-ratio: 16/9; border-radius: 12px; border: 2px solid var(--mint-main); box-shadow: 0 15px 40px rgba(0,0,0,0.8); display: none; outline: none; background: #000; }
+        
+        .lightbox-close {
+            position: absolute; top: -45px; right: 0px; color: var(--text-main); cursor: pointer;
+            background: rgba(19, 15, 28, 0.8); border: 1px solid var(--mint-main); width: 36px; height: 36px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; transition: all 0.3s; z-index: 2005;
+        }
+        .lightbox-close:hover { color: var(--bg-deep); background: var(--mint-main); transform: rotate(90deg); box-shadow: 0 0 15px rgba(92, 242, 138, 0.5); }
+        
+        .lightbox-nav {
+            position: absolute; top: 50%; transform: translateY(-50%); color: var(--mint-main); font-size: 30px; cursor: pointer;
+            background: rgba(19, 15, 28, 0.6); border: 1px solid var(--mint-main); width: 50px; height: 50px; border-radius: 50%;
+            display: flex; justify-content: center; align-items: center; transition: all 0.3s; z-index: 2001; user-select: none; -webkit-user-select: none;
+        }
+        .lightbox-nav:hover { background: var(--mint-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(92, 242, 138, 0.5); }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+        @media (max-width: 768px) { .lightbox-nav { display: none; } }
+		
+        #partsModalOverlay { z-index: 3000; }
+        .parts-modal-content {
+            background: var(--bg-deep); padding: 25px 20px 20px; border-radius: 20px;
+            border: 2px solid var(--mint-main); box-shadow: 0 15px 50px rgba(0,0,0,0.9);
+            width: 320px; max-width: 90vw; position: relative;
+        }
+        .part-item-btn {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 15px; background: rgba(92, 242, 138, 0.05);
+            border: 1px dashed rgba(92, 242, 138, 0.3); border-radius: 12px;
+            color: var(--mint-light); text-decoration: none; font-family: var(--font-text);
+            font-weight: 800; font-size: 15px; transition: all 0.3s;
+        }
+        .part-item-btn:hover {
+            background: var(--mint-main); color: var(--bg-deep);
+            box-shadow: 0 0 15px rgba(92, 242, 138, 0.4); transform: translateX(4px); border-color: transparent;
+        }
+        #partsContainer::-webkit-scrollbar { width: 6px; }
+        #partsContainer::-webkit-scrollbar-track { background: rgba(19, 15, 28, 0.5); border-radius: 4px; }
+        #partsContainer::-webkit-scrollbar-thumb { background: var(--mint-dark); border-radius: 4px; }
+		
+        .modal-prices-wrapper { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; margin-top: 4px; }
+		
+        #modalRequesterBlock, #modalTagsBlock { align-items: flex-start; }
+
+        @media (min-width: 1920px) {
+            .container { max-width: 1450px; }
+            .movies-grid { grid-template-columns: repeat(7, 1fr); gap: 20px; }
+            .modal-content { max-width: 1150px; }
+            .modal-poster { width: 250px; }
+            .header-top h1 { font-size: 54px; }
+        }
+		
+		
+        #starsCanvas { display: none !important; }
+
+
+        @media (min-width: 2560px) {
+            .container { max-width: 1900px; }
+            .movies-grid { grid-template-columns: repeat(9, 1fr); }
+            .modal-content { max-width: 1500px; }
+            .modal-poster { width: 300px; }
+            
+            #starsCanvas { display: block !important; }
+            
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0; left: 0;
+                width: 100%; height: 100%;
+                background: rgba(19, 15, 28, 0); 
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                z-index: -2;
+                pointer-events: none;
+            }
+
+            th:nth-child(1), td:nth-child(1) { width: 200px !important; min-width: 200px !important; }
+            .poster-wrapper { width: 170px !important; height: 255px !important; } 
+            
+            th:nth-child(3), td:nth-child(3) { width: 220px !important; min-width: 220px !important; }
+            th:nth-child(4), td:nth-child(4) { width: 220px !important; min-width: 220px !important; }
+            th:nth-child(5), td:nth-child(5) { width: 220px !important; min-width: 220px !important; }
+            th:nth-child(6), td:nth-child(6) { width: 220px !important; min-width: 220px !important; }
+            
+            .movie-overview-text { font-size: 16px; line-height: 1.6; }
+            
+            .steam-link-btn, .play-link-btn, .tg-link-btn { 
+                width: 140px !important; 
+            }
+            
+            .date-badge { 
+                white-space: nowrap !important; 
+            }
+				
+        }
+
+        @media (max-width: 1550px) {
+            .girl-col, .modal-girl-col { display: none; }
+        }
+		
+        @media (max-width: 1400px) {
+
+            th:nth-child(1), td:nth-child(1) { width: 120px !important; min-width: 120px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            .poster-wrapper { width: 105px !important; height: 160px !important; } 
+            
+            th:nth-child(3), td:nth-child(3) { width: 110px !important; min-width: 110px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            th:nth-child(4), td:nth-child(4) { width: 120px !important; min-width: 120px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            
+
+            th:nth-child(5), td:nth-child(5) { width: 140px !important; min-width: 140px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            th:nth-child(6), td:nth-child(6) { width: 135px !important; min-width: 135px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            
+            .steam-link-btn, .play-link-btn, .tg-link-btn { 
+                width: 90% !important; 
+                font-size: 11px !important; 
+                padding: 4px !important; 
+                box-sizing: border-box !important; 
+            }
+            
+            .date-badge { 
+                width: 100% !important; 
+                max-width: 125px !important; 
+                font-size: 11px !important; 
+                padding: 4px 6px !important; 
+                box-sizing: border-box !important; 
+                white-space: normal !important; 
+                text-align: center !important; 
+                line-height: 1.1 !important; 
+            }
+            
+            .badge-status { 
+                font-size: 11px !important; 
+                padding: 4px 10px !important; 
+                width: 100% !important; 
+                max-width: 125px !important; 
+                box-sizing: border-box !important; 
+            }
+        }
+		
+
+        @media (max-width: 1150px) {
+            #viewToggleBtn { display: none !important; }
             .movies-grid { grid-template-columns: repeat(4, 1fr); }
         }
+
+        @media (max-width: 1024px) {
+            .header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 25px 20px 20px; }
+            .back-btn, .creator-badge { position: relative; top: auto; left: auto; right: auto; order: 1; }
+            .header-top { width: 100%; order: 2; margin-top: 15px; }
+            .header-top h1 { font-size: 38px; }
+            .controls-panel { width: 100%; order: 3; margin-top: 10px; }
+
+            .modal-body { padding: 0 20px 30px 20px; gap: 20px; }
+            .modal-poster { width: 180px; }
+        }
+
+        @media (max-width: 1023px) {
+            .modal-body { flex-direction: column; margin-top: -80px; padding: 20px; }
+            .modal-poster { display: block; width: 160px; margin: 0 auto; }
+            #modalTagsColumn { padding-left: 25px !important; }
+        }
+
         @media (max-width: 768px) {
-            #viewToggleBtn { display: none !important; }
-        
             th:nth-child(4), td:nth-child(4) { display: none; }
             .movies-grid { grid-template-columns: repeat(2, 1fr); padding: 10px; gap: 10px; }
-            .modal-body { flex-direction: column; margin-top: -60px; padding: 20px; }
-            .modal-poster { width: 140px; margin: 0 auto; }
+            .modal-poster { width: 140px; } 
             
+            .header { flex-direction: column; justify-content: center; align-items: center; gap: 15px; padding: 20px 15px; box-sizing: border-box; }
+            .back-btn { width: auto; margin: 0; order: 1; justify-content: center; }
+            .creator-badge { order: 2; margin: 0; }
+            .header-top { order: 3; width: 100%; margin-top: 5px; text-align: center;}
+            .header-top h1 { font-size: 28px; margin: 0 0 10px 0; text-align: center; }
+            .header-top h1::before, .header-top h1::after { display: none; }
+            .controls-panel { order: 4; flex-direction: column; align-items: center; width: 100%; gap: 10px; margin-top: 0; box-sizing: border-box; }
+            .search-box, .sort-select { width: 100%; max-width: 100%; margin: 0; box-sizing: border-box; }
+        }
+
+        @media (max-width: 767px) {
             .modal-grid { grid-template-columns: 1fr !important; }
             .grid-item.border-right { border-right: none !important; }
             .grid-item { border-bottom: 1px dashed rgba(92, 242, 138, 0.3); }
-            #modalTagsColumn { grid-row: auto !important; grid-column: 1 / -1 !important; border-bottom: 1px dashed rgba(92, 242, 138, 0.3); padding-left: 25px !important;}
-            .grid-item.full-width { border-bottom: none; }
             
-            .header {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 15px; 
-                padding: 20px 10px; 
+            #modalTagsColumn { grid-row: auto !important; grid-column: 1 / -1 !important; border-bottom: 1px dashed rgba(92, 242, 138, 0.3); padding: 20px 25px !important;}
+            .grid-item.full-width { border-bottom: none; }
+
+            .grid-item { align-items: center !important; text-align: center; }
+            
+            #modalRequesterBlock, #modalTagsBlock, #modalDateWatched > div, #modalPriceCol > div > div { 
+                align-items: center !important; 
+                justify-content: center !important; 
+                width: 100% !important; 
+            }
+            
+            #modalTagsBlock .modal-grid-box, #modalRequesterBlock .modal-requester-link { 
+                align-self: center !important; 
+                margin-left: auto !important; 
+                margin-right: auto !important; 
             }
 
-            .back-btn {
-                position: relative;
-                top: 0;
-                left: 0;
-            }
-
-            .creator-badge {
-                position: relative;
-                top: 0;
-                right: 0;
-            }
-
-            .header-top h1 { 
-                font-size: 28px; 
-                margin: 5px 0 10px 0;
-            }
-            .header-top h1::before, .header-top h1::after { 
-                display: none; 
-            }
+            .modal-title-wrapper { flex-direction: column; align-items: center; text-align: center; }
+            .modal-title { font-size: 26px !important; white-space: normal !important; text-align: center; }
+            .modal-title-extras { justify-content: center; margin-top: 8px; }
+            .modal-meta-wrapper { justify-content: center; }
+            
+            #modalGenres { justify-content: center !important; }
+            #modalScreenshotsWrapper .grid-label, #modalTrailersWrapper .grid-label { text-align: center !important; margin-bottom: 12px !important; }
+            .media-grid { justify-content: center !important; }
+            
+            .modal-prices-wrapper { display: flex !important; flex-direction: column !important; align-items: center !important; }
+            .modal-prices-wrapper .price-badge { width: 100% !important; max-width: 250px !important; margin: 0 0 6px 0 !important; }
         }
+
+        @media (max-width: 480px) {
+            .movies-grid { grid-template-columns: 1fr; } 
+            .header-top h1 { font-size: 24px; line-height: 1.2; }
+            .modal-title { font-size: 24px !important; }
+            .modal-poster { width: 120px; }
+        }
+		
         
         .legendary-table-badge, .legendary-badge {
             box-shadow: 0 2px 4px rgba(0,0,0,0.2), inset 0 0 9px #ffd700, 0 0 5px rgba(255, 215, 0, 0.5) !important;
             border-color: #ffd700 !important; color: #fff !important;
             text-shadow: 0 0 8px #ffd700 !important; font-weight: 900 !important;
         }
+
+        .play-link-btn {
+            display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+            padding: 3px 12px 2px 10px; border-radius: 12px; text-decoration: none; font-family: var(--font-text);
+            font-size: 13px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            width: 85%; box-sizing: border-box; margin-top: 4px;
+        }
+        .play-link-btn.tg-rec { background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+        .play-link-btn.tg-rec:hover { background: #38bdf8; color: var(--bg-deep); box-shadow: 0 0 12px rgba(56, 189, 248, 0.5); transform: translateY(-2px); }
+
+        .play-link-btn.boosty { background: rgba(245, 130, 32, 0.1); color: #f58220; border: 1px solid rgba(245, 130, 32, 0.3); }
+        .play-link-btn.boosty:hover { background: #f58220; color: var(--bg-deep); box-shadow: 0 0 12px rgba(245, 130, 32, 0.5); transform: translateY(-2px); }
+
+        .play-link-btn.yt { background: rgba(255, 74, 74, 0.1); color: #ff4a4a; border: 1px solid rgba(255, 74, 74, 0.3); }
+        .play-link-btn.yt:hover { background: #ff4a4a; color: var(--bg-deep); box-shadow: 0 0 12px rgba(255, 74, 74, 0.5); transform: translateY(-2px); }
+
+        .play-modal-badge { display: inline-flex; align-items: center; gap: 4px; text-decoration: none; cursor: pointer; transition: all 0.3s ease; }
+        .play-modal-badge.tg-rec { color: #38bdf8; border-color: rgba(56, 189, 248, 0.5); background: rgba(56, 189, 248, 0.05); }
+        .play-modal-badge.tg-rec:hover { background: #38bdf8; color: var(--bg-deep); box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
+        .play-modal-badge.boosty { color: #f58220; border-color: rgba(245, 130, 32, 0.5); background: rgba(245, 130, 32, 0.05); }
+        .play-modal-badge.boosty:hover { background: #f58220; color: var(--bg-deep); box-shadow: 0 0 10px rgba(245, 130, 32, 0.5); }
+        .play-modal-badge.yt { color: #ff4a4a; border-color: rgba(255, 74, 74, 0.5); background: rgba(255, 74, 74, 0.05); }
+        .play-modal-badge.yt:hover { background: #ff4a4a; color: var(--bg-deep); box-shadow: 0 0 10px rgba(255, 74, 74, 0.5); }
+
+        .card-actions-col { position: absolute; right: 8px; bottom: 8px; z-index: 16; display: flex; flex-direction: column; gap: 6px; align-items: center; }
+        
+        .card-actions-col .card-copy-btn, .card-actions-col .card-tg-btn, .card-actions-col .card-play-btn { position: relative; right: auto; bottom: auto; margin: 0; }
+        .card-actions-col .shifted { bottom: auto !important; }
+
+        .card-play-btn { background: rgba(19, 15, 28, 0.85); cursor: pointer; padding: 6px; border-radius: 8px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; text-decoration: none; position: relative; }
+        .card-play-btn.yt { border: 1px solid rgba(255, 74, 74, 0.4); color: #ff4a4a; }
+        .card-play-btn.yt:hover { background: #ff4a4a; color: var(--bg-deep); box-shadow: 0 0 10px rgba(255, 74, 74, 0.5); }
+        .card-play-btn.boosty { border: 1px solid rgba(245, 130, 32, 0.4); color: #f58220; }
+        .card-play-btn.boosty:hover { background: #f58220; color: var(--bg-deep); box-shadow: 0 0 10px rgba(245, 130, 32, 0.5); }
+        .card-play-btn.tg { border: 1px solid rgba(56, 189, 248, 0.4); color: #38bdf8; }
+        .card-play-btn.tg:hover { background: #38bdf8; color: var(--bg-deep); box-shadow: 0 0 10px rgba(56, 189, 248, 0.5); }
     </style>
+	
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+	
 </head>
 <body>
 
@@ -668,7 +936,7 @@
                             <div class="modal-title-extras">
                                 <span class="modal-year" id="modalYear"></span>
                                 <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Скопировать название">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 12.9V17.1C16 20.6 14.6 22 11.1 22H6.9C3.4 22 2 20.6 2 17.1V12.9C2 9.4 3.4 8 6.9 8H11.1C14.6 8 16 9.4 16 12.9Z"/><path d="M22 6.9V11.1C22 14.6 20.6 16 17.1 16H16V12.9C16 9.4 14.6 8 11.1 8H8V6.9C8 3.4 9.4 2 12.9 2H17.1C20.6 2 22 3.4 22 6.9Z"/></svg>
                                 </button>
                             </div>
                         </div>
@@ -677,15 +945,20 @@
                         
                         <div id="modalGenres" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;"></div>
                         
-                       
-                        <div class="modal-overview" id="modalOverview"></div>
+                        <div id="modalReviewBlock" style="display: none; margin-bottom: 25px;">
+                            <div style="font-size: 11px; color: var(--warm-star); text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-bottom: 8px;">✨ Отзыв от стримера</div>
+                            <div class="modal-review-text" style="font-size: 15px; line-height: 1.6; color: #fff; font-style: italic; border-left: 3px solid var(--warm-star); padding: 12px 16px; background: rgba(252, 232, 161, 0.05); border-radius: 0 12px 12px 0;"></div>
+                        </div>
+
+                        <div style="font-size: 11px; color: var(--mint-main); text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-bottom: 8px;" id="modalOverviewLabel">📖 Описание</div>
+                        <div class="modal-overview" id="modalOverview" style="margin-bottom: 30px;"></div>
                         
                         
                         <div class="modal-grid" id="modalMainGrid" style="gap: 0; padding: 0;">
                             
                             <div class="grid-item border-bottom border-right" id="modalRequesterCol">
                                 <div class="grid-label">Заказал</div>
-                                <div class="grid-value" id="modalRequesterBlock" style="display: flex; flex-direction: column; align-items: flex-start;"></div>
+                                <div class="grid-value" id="modalRequesterBlock" style="display: flex; flex-direction: column; gap: 4px; width: 100%;"></div>
                             </div>
                             
                             <div class="grid-item border-bottom" id="modalStatusCol">
@@ -696,7 +969,7 @@
                             
                             <div class="grid-item border-bottom" id="modalTagsColumn" style="grid-row: span 2; display: none; padding-left: 25px;">
                                 <div class="grid-label">Отметки</div>
-                                <div id="modalTagsBlock" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;"></div>
+                                <div id="modalTagsBlock" style="display: flex; flex-direction: column; gap: 8px; width: 100%;"></div>
                             </div>
 
                             <div class="grid-item border-bottom border-right" id="modalDateReqCol">
@@ -736,12 +1009,24 @@
                                             <code id="modalUpdateCmd" style="font-family: monospace; font-size: 13px; color: var(--mint-main); font-weight: bold;"></code>
                                         </div>
                                         <button class="copy-btn" id="modalPriceCopyBtn" onclick="copyUpdateCmdFromModal(this)" style="padding: 8px; margin: 0; position: static; opacity: 1; transform: scale(1); border-radius: 8px;" title="Скопировать команду">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 12.9V17.1C16 20.6 14.6 22 11.1 22H6.9C3.4 22 2 20.6 2 17.1V12.9C2 9.4 3.4 8 6.9 8H11.1C14.6 8 16 9.4 16 12.9Z"/><path d="M22 6.9V11.1C22 14.6 20.6 16 17.1 16H16V12.9C16 9.4 14.6 8 11.1 8H8V6.9C8 3.4 9.4 2 12.9 2H17.1C20.6 2 22 3.4 22 6.9Z"/></svg>
                                         </button>
                                     </div>
                                 </div>
                             </div>
                             
+                            <div class="grid-item full-width border-bottom" id="modalMediaCol" style="display: none; padding: 20px 25px;">
+                                <div id="modalScreenshotsWrapper" style="display: none; margin-bottom: 20px;">
+                                    <div class="grid-label" style="margin-bottom: 12px;">Скриншоты</div>
+                                    <div id="modalScreenshots" class="media-grid"></div>
+                                </div>
+                                <div id="modalTrailersWrapper" style="display: none;">
+                                    <div class="grid-label" style="margin-bottom: 12px;">Видео / Трейлеры</div>
+                                    <div id="modalTrailers" class="media-grid"></div>
+                                </div>
+                            </div>
+							
+							
                             <div class="grid-item full-width" style="border-bottom: none;">
                                 <div class="grid-label">Разработчик / Издатель</div>
                                 <div class="grid-value" id="modalStudios" style="color: var(--text-muted); font-weight: normal; margin-top: 4px;">Архив скрыт</div>
@@ -761,11 +1046,191 @@
     </div>
 </div>
 
+
+
+<div class="lightbox-overlay" id="lightboxModal" onclick="closeLightbox(event)">
+    <div class="lightbox-nav lightbox-prev" onclick="changeLightboxMedia(-1, event)">&#10094;</div>
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+        <div class="lightbox-close" onclick="closeLightbox(event)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </div>
+        <img id="lightboxImg" class="lightbox-img" src="" alt="">
+        <video id="lightboxVideo" class="lightbox-video" controls playsinline preload="metadata"></video>
+    </div>
+    <div class="lightbox-nav lightbox-next" onclick="changeLightboxMedia(1, event)">&#10095;</div>
+</div>
+
+
+
+<div class="lightbox-overlay" id="partsModalOverlay" onclick="closePartsModal(event)">
+    <div class="parts-modal-content" onclick="event.stopPropagation()">
+        <div class="close-btn" onclick="closePartsModal(event)" style="top: -15px; right: -15px; width: 34px; height: 34px; background: var(--mint-main); color: var(--bg-deep); border-color: transparent;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </div>
+        <div style="font-family: var(--font-title); font-size: 18px; font-weight: 900; color: #fff; text-align: center; margin-bottom: 5px; line-height: 1.2;" id="partsModalTitle">Название</div>
+        <div style="font-size: 11px; color: var(--text-muted); text-align: center; margin-bottom: 15px; text-transform: uppercase; font-weight: 800; letter-spacing: 1px;" id="partsModalPlatform">ПЛАТФОРМА</div>
+        
+        <div id="partsContainer" style="display: flex; flex-direction: column; gap: 8px; max-height: 50vh; overflow-y: auto; padding-right: 5px;"></div>
+    </div>
+</div>
+
+
+
 <script>
     let rawMoviesData = []; 
     let currentViewData = []; 
     let currentModalMovie = null; 
     let viewMode = localStorage.getItem('siteViewModeGames') || 'list'; 
+    let modalMediaItems = []; 
+    let currentLightboxIndex = 0; 
+    let hlsInstance = null; 
+
+    window.switchListTab = function(event, btn, tabName) {
+        event.stopPropagation(); 
+        const container = btn.closest('.movie-info');
+        
+        container.querySelectorAll('.list-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        container.querySelectorAll('.movie-content-block').forEach(c => c.style.display = 'none');
+        container.querySelector(`.content-${tabName}`).style.display = 'block';
+    };
+
+
+    window.toggleTextExpand = function(event, element) {
+        event.stopPropagation(); 
+        element.classList.toggle('expanded'); 
+    };
+	
+    window.getMediaButtonHtml = function(movie, baseKey, label, cssClass, svgIcon, styleType) {
+        let parts = [];
+        if (movie[baseKey]) parts.push({ part: 1, url: movie[baseKey] });
+        let i = 2;
+        while (movie[baseKey + i]) { parts.push({ part: i, url: movie[baseKey + i] }); i++; }
+        
+        if (parts.length === 0) return '';
+        
+        const safeTitle = escapeHTML(movie.title || 'Игра').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        const partsJson = encodeURIComponent(JSON.stringify(parts));
+        
+        if (styleType === 'table') {
+            if (parts.length === 1) return `<a href="${parts[0].url}" target="_blank" class="play-link-btn ${cssClass}" onclick="event.stopPropagation();">${svgIcon} ${label}</a>`;
+            return `<div class="play-link-btn ${cssClass}" onclick="openPartsModal(event, '${label}', '${safeTitle}', '${partsJson}', '${cssClass}')" style="border-style: dashed; cursor: pointer;">${svgIcon} ${label}</div>`;
+        }
+        if (styleType === 'grid') {
+            if (parts.length === 1) return `<a href="${parts[0].url}" target="_blank" class="card-play-btn ${cssClass}" onclick="event.stopPropagation();" title="${label}">${svgIcon}</a>`;
+            return `<div class="card-play-btn ${cssClass}" onclick="openPartsModal(event, '${label}', '${safeTitle}', '${partsJson}', '${cssClass}')" title="${label} (Несколько частей)" style="cursor: pointer; border-style: dashed;">${svgIcon}</div>`;
+        }
+        if (styleType === 'modal') {
+            if (parts.length === 1) return `<a href="${parts[0].url}" target="_blank" class="outline-badge play-modal-badge ${cssClass}" onclick="event.stopPropagation();">${svgIcon} ${label}</a>`;
+            return `<div class="outline-badge play-modal-badge ${cssClass}" onclick="openPartsModal(event, '${label}', '${safeTitle}', '${partsJson}', '${cssClass}')" style="cursor: pointer; border-style: dashed;">${svgIcon} ${label}</div>`;
+        }
+        return '';
+    };
+
+    window.openPartsModal = function(event, platform, title, partsJson, cssClass) {
+        event.stopPropagation();
+        const parts = JSON.parse(decodeURIComponent(partsJson));
+        
+        let color = 'var(--mint-main)';
+        let beautifulPlatformName = 'ЗАПИСИ ПРОХОЖДЕНИЯ'; 
+        
+        if (cssClass === 'yt') {
+            color = '#ff4a4a';
+            beautifulPlatformName = 'ЗАПИСИ НА YOUTUBE';
+        } else if (cssClass === 'boosty') {
+            color = '#f58220';
+            beautifulPlatformName = 'ЗАПИСИ НА BOOSTY';
+        } else if (cssClass === 'tg' || cssClass === 'tg-rec') {
+            color = '#38bdf8';
+            beautifulPlatformName = 'ЗАПИСИ В TELEGRAM';
+        }
+        
+        document.getElementById('partsModalTitle').textContent = title;
+        document.getElementById('partsModalPlatform').textContent = beautifulPlatformName;
+        document.getElementById('partsModalPlatform').style.color = color;
+        
+        document.getElementById('partsContainer').innerHTML = parts.map(p => `
+            <a href="${p.url}" target="_blank" class="part-item-btn" onclick="event.stopPropagation()">
+                <span style="color: ${color};">ЧАСТЬ ${p.part}</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+            </a>
+        `).join('');
+        
+        document.getElementById('partsModalOverlay').classList.add('active');
+    };
+
+    window.closePartsModal = function(event) {
+        if (event && event.stopPropagation) event.stopPropagation();
+        document.getElementById('partsModalOverlay').classList.remove('active');
+    };
+	
+    window.openLightbox = function(index) {
+        currentLightboxIndex = index;
+        const item = modalMediaItems[index];
+        const lightbox = document.getElementById('lightboxModal');
+        const imgEl = document.getElementById('lightboxImg');
+        const videoEl = document.getElementById('lightboxVideo');
+
+        imgEl.style.display = 'none';
+        videoEl.style.display = 'none';
+        videoEl.pause();
+        if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
+
+        if (item.type === 'image') {
+            imgEl.src = item.src;
+            imgEl.style.display = 'block';
+        } else if (item.type === 'video') {
+            videoEl.style.display = 'block';
+            if (item.src.includes('.m3u8')) {
+                if (typeof Hls !== 'undefined' && Hls.isSupported()) {
+                    hlsInstance = new Hls();
+                    hlsInstance.loadSource(item.src);
+                    hlsInstance.attachMedia(videoEl);
+                    hlsInstance.on(Hls.Events.MANIFEST_PARSED, function() { videoEl.play().catch(e => console.log(e)); });
+                } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+                    videoEl.src = item.src;
+                    videoEl.play().catch(e => console.log(e));
+                }
+            } else {
+                videoEl.src = item.src;
+                videoEl.play().catch(e => console.log(e));
+            }
+        }
+        lightbox.classList.add('active');
+    };
+
+
+    window.closeLightbox = function(event) {
+        if (event && event.stopPropagation) event.stopPropagation();
+        document.getElementById('lightboxModal').classList.remove('active');
+        const videoEl = document.getElementById('lightboxVideo');
+        videoEl.pause(); videoEl.removeAttribute('src'); videoEl.load();
+        if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
+    };
+
+
+    window.changeLightboxMedia = function(dir, event) {
+        if (event && event.stopPropagation) event.stopPropagation();
+        let newIndex = currentLightboxIndex + dir;
+        if (newIndex < 0) newIndex = modalMediaItems.length - 1;
+        if (newIndex >= modalMediaItems.length) newIndex = 0;
+        openLightbox(newIndex);
+    };
+
+
+    window.switchListTab = function(event, btn, tabName) {
+        event.stopPropagation(); 
+        const container = btn.closest('.movie-info');
+        
+        container.querySelectorAll('.list-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        container.querySelectorAll('.movie-content-block').forEach(c => c.style.display = 'none');
+        container.querySelector(`.content-${tabName}`).style.display = 'block';
+    };
+
+
 
     const fallbackPosterUrl = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23221836'/%3E%3Cstop offset='100%25' stop-color='%23130f1c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='750' fill='url(%23bg)'/%3E%3Cg transform='translate(0, -30)'%3E%3Cpath d='M150 400 c0-50 40-90 90-90 h20 c50 0 90 40 90 90 v20 c0 30 15 50 30 70 l10 15 c15 20 0 45-20 45 h-30 c-20 0-30-10-35-30 l-5-20 h-100 l-5 20 c-5 20-15 30-35 30 h-30 c-20 0-35-25-20-45 l10-15 c15-20 30-40 30-70 v-20 z' fill='%2338255c' stroke='%235cf28a' stroke-width='6' stroke-linejoin='round'/%3E%3Cpath d='M180 390 h20 v-20 h20 v20 h20 v20 h-20 v20 h-20 v-20 h-20 z' fill='%23221836'/%3E%3Ccircle cx='210' cy='400' r='3' fill='%235cf28a'/%3E%3Ccircle cx='330' cy='380' r='14' fill='%23ff8fa3'/%3E%3Ccircle cx='360' cy='410' r='14' fill='%23fce8a1'/%3E%3Crect x='235' y='395' width='30' height='10' rx='5' fill='%23221836'/%3E%3C/g%3E%3C/svg%3E";
     const fallbackBackdropUrl = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='320' viewBox='0 0 1000 320'%3E%3Cdefs%3E%3ClinearGradient id='bgH' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23221836'/%3E%3Cstop offset='100%25' stop-color='%23130f1c'/%3E%3C/linearGradient%3E%3Cpattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%235cf28a' stroke-width='1' opacity='0.05'/%3E%3C/pattern%3E%3Cpattern id='dots' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23fce8a1' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='1000' height='320' fill='url(%23bgH)'/%3E%3Crect width='1000' height='320' fill='url(%23grid)'/%3E%3Crect width='1000' height='320' fill='url(%23dots)'/%3E%3Cg transform='translate(500, 160) scale(1.5)'%3E%3Cpath d='M-50,0 C-50,-20 -30,-40 0,-40 C30,-40 50,-20 50,0 C50,20 40,30 25,30 C15,30 10,20 0,20 C-10,20 -15,30 -25,30 C-40,30 -50,20 -50,0 Z' fill='%2338255c' stroke='%235cf28a' stroke-width='3' opacity='0.8'/%3E%3Cpath d='M-30,-5 h5 v-5 h5 v5 h5 v5 h-5 v5 h-5 v-5 h-5 z' fill='%23221836' opacity='0.9'/%3E%3Ccircle cx='20' cy='-5' r='3' fill='%235cf28a' opacity='0.9'/%3E%3Ccircle cx='30' cy='5' r='3' fill='%23fce8a1' opacity='0.9'/%3E%3C/g%3E%3C/svg%3E";
@@ -812,7 +1277,6 @@
         });
     }
 
-
     function copyMovieNameFromTable(event, title, year, btnElement) {
         event.stopPropagation();
         copyTextToClipboard(title, btnElement);
@@ -821,7 +1285,6 @@
         if (currentModalMovie) copyTextToClipboard(currentModalMovie.title || '', document.getElementById('modalCopyBtn'));
     }
 
-	
     function copyUpdateCmdFromModal(btnElement) {
         if (currentModalMovie) {
             const title = (currentModalMovie.title || '').trim();
@@ -829,7 +1292,6 @@
             copyTextToClipboard(cmd, btnElement);
         }
     }
-
 
     async function loadCreatorAvatars() {
         try {
@@ -1001,7 +1463,7 @@
             return;
         }
 
-        if (window.innerWidth <= 768) {
+        if (window.innerWidth <= 1150) {
             renderGridMode(renderArea);
         } else {
             if (viewMode === 'list') renderTableMode(renderArea);
@@ -1016,9 +1478,10 @@
                     <tr>
                         <th style="width: 160px; min-width: 160px;">Постер</th>
                         <th style="width: 100%;">Описание</th>
-                        <th style="width: 145px; min-width: 145px;">Заказал</th>
-                        <th style="width: 130px; min-width: 130px;">Ссылки</th>
-                        <th style="width: 135px; min-width: 135px;">Статус</th>
+                        <th style="width: 170px; min-width: 170px;">Заказал</th>
+                        <th style="width: 160px; min-width: 160px;">Цена</th>
+                        <th style="width: 150px; min-width: 150px;">Ссылки</th>
+                        <th style="width: 145px; min-width: 145px;">Статус</th>
                     </tr>
                 </thead>
                 <tbody id="table-body"></tbody>
@@ -1036,7 +1499,7 @@
                 if (getGroup(prevStatus) !== getGroup(currStatus)) {
                     const dividerTr = document.createElement('tr');
                     dividerTr.innerHTML = `
-                        <td colspan="5" style="padding: 30px 15px; cursor: default; border-bottom: 1px dashed rgba(92, 242, 138, 0.15);">
+                        <td colspan="6" style="padding: 30px 15px; cursor: default; border-bottom: 1px dashed rgba(92, 242, 138, 0.15);">
                             <div style="display: flex; align-items: center; justify-content: center;">
                                 <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--mint-main)); opacity: 0.3;"></div>
                                 <span style="padding: 0 20px; font-family: var(--font-title); font-size: 18px; font-weight: 700; color: var(--mint-main); text-shadow: 0 0 10px rgba(92, 242, 138, 0.5); text-transform: uppercase; letter-spacing: 2px;">✨ Пройдено / Брошено ✨</span>
@@ -1063,18 +1526,26 @@
             else if (isPlaying) statusText = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 2px 8px rgba(255, 219, 88, 0.4);">ИГРАЕМ</span>`;
             else statusText = `<span class="badge-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 4px 10px rgba(0,0,0,0.4);">В ОЧЕРЕДИ</span>`;
             
+			
+			
+			
+			
             let watchedDetails = '';
             if ((isWatched || isDropped) && movie.dateWatched) {
                 watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content;">${movie.dateWatched.split(' ')[0]}</div>`;
                 if (movie.ourRating && movie.ourRating !== "Без оценки") {
                     const parsedRating = parseFloat(movie.ourRating);
-                    if (parsedRating === 1000) watchedDetails += `<div class="date-badge legendary-table-badge" style="margin-top: 0; width: fit-content; flex-direction: column; gap: 2px; padding: 4px 14px; line-height: 1.1;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9;">Наша Оценка:</span><span style="font-size: 16px;">1000</span></div>`;
-                    else { const rColor = getRatingColor(movie.ourRating); watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 10px rgba(0,0,0,0.5); padding: 4px 9px 3px;">Наша Оценка: <br> ${movie.ourRating}</div>`; }
+                    if (parsedRating === 1000) {
+                        watchedDetails += `<div class="date-badge legendary-table-badge" style="margin-top: 0; width: fit-content; flex-direction: column; gap: 2px; padding: 4px 14px; line-height: 1.1;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9;">Наша Оценка:</span><span style="font-size: 16px;">1000</span></div>`;
+                    } else { 
+                        const rColor = getRatingColor(movie.ourRating); 
+                        
+                        watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 10px rgba(0,0,0,0.5); padding: 5px 12px; flex-direction: column; align-items: center; gap: 3px; line-height: 1.1;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.8;">Наша Оценка:</span><span style="font-size: 15px; font-weight: 900;">${movie.ourRating}</span></div>`; 
+                    }
                 }
             }
             
             let tagsDetails = '';
-            
             
             if (movie.difficulty) {
                 let diffColor = ''; let diffIcon = '<circle cx="12" cy="12" r="8" fill="currentColor"/>';
@@ -1091,17 +1562,54 @@
             if (movie.cried) tagsDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 13px; gap: 1px; padding: 5px 14px 5px 10px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="var(--mint-light)" stroke="var(--mint-light)" stroke-width="1" style="margin-right:4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
             if (movie.burned) tagsDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 13px; color: #ff6b6b; border-color: #ff6b6b; box-shadow: 0 0 8px rgba(255,107,107,0.3);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg> Сгорела</div>`;
             
-            if (tagsDetails) watchedDetails += `<div style="display:flex; gap:6px; margin-top:4px; flex-wrap: wrap; justify-content: center;">${tagsDetails}</div>`;
+          
+            if (tagsDetails) watchedDetails += `<div style="display:flex; flex-direction: column; align-items: center; gap:6px; margin-top:4px;">${tagsDetails}</div>`;
             const watchedDateHTML = watchedDetails ? `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px;">${watchedDetails}</div>` : '';
 
-            const idBadge = `<span class="outline-badge">ID №${movie.id || 0}</span>`;
-            const typeLabel = `<span class="content-type-badge">${escapeHTML(movie.type || 'Игра')}</span>`;
+
+
+
+
+
+
+            const idBadge = (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) ? `<span class="outline-badge">ID: ${movie.steamAppId}</span>` : '';
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
-            const cleanOverview = escapeHTML(movie.overview || '');
+            
             const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
 
-            let displayStudios = movie.studios && movie.studios !== "Нет данных" ? movie.studios : "";
-            const studiosHTML = displayStudios ? `<div class="movie-studios-list">${escapeHTML(displayStudios)}</div>` : '';
+
+            const hasReview = movie.reviewText && movie.reviewText.trim() !== ""; 
+
+            const cleanReview = hasReview ? escapeHTML(movie.reviewText).replace(/\n/g, '<br>') : "";
+            const cleanOverview = escapeHTML(movie.overview || 'Описание утеряно во времени...').replace(/&amp;quot;/g, '&quot;');
+
+            let tabsHTML = `<div class="list-tabs-container">`;
+            if (hasReview) {
+
+                tabsHTML += `<button class="list-tab-btn active" onclick="switchListTab(event, this, 'review')">✨ Отзыв</button>`;
+            }
+			
+            tabsHTML += `<button class="list-tab-btn ${!hasReview ? 'active' : ''}" onclick="switchListTab(event, this, 'overview')">📖 Описание</button>`;
+            tabsHTML += `</div>`;
+
+            let reviewBlock = hasReview ? `
+                <div class="movie-content-block content-review" style="display: block;">
+                    <div class="movie-review-wrapper" onclick="toggleTextExpand(event, this)" title="Нажмите, чтобы развернуть/свернуть">
+                        <div class="movie-review-text">«${cleanReview}»</div>
+                    </div>
+                </div>` : '';
+
+
+            let overviewBlock = `
+                <div class="movie-content-block content-overview" style="display: ${hasReview ? 'none' : 'block'};">
+                    <div class="movie-overview-wrapper" style="margin-top: 4px;" onclick="toggleTextExpand(event, this)" title="Нажмите, чтобы развернуть/свернуть">
+                        <div class="movie-overview-text">${cleanOverview}</div>
+                    </div>
+                </div>`;
+            
+
+           
+
 
             let steamButtonHTML = '';
             if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
@@ -1110,8 +1618,17 @@
 
             let tgButtonHTML = '';
             if (movie.postUrl) {
-                tgButtonHTML = `<a href="${movie.postUrl}" target="_blank" class="tg-link-btn" onclick="event.stopPropagation();"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> ТГ ПОСТ</a>`;
+                tgButtonHTML += `<a href="${movie.postUrl}" target="_blank" class="tg-link-btn" onclick="event.stopPropagation();" title="Открыть основной пост"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> ТГ ПОСТ</a>`;
             }
+            if (movie.reviewUrl) {
+                
+                tgButtonHTML += `<a href="${movie.reviewUrl}" target="_blank" class="tg-link-btn" style="margin-top: 4px;" onclick="event.stopPropagation();" title="Читать отзыв в Telegram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> ТГ ПОСТ</a>`;
+            }
+
+            const playIcon = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+            let tgRecButtonHTML = getMediaButtonHtml(movie, 'tgRecordUrl', 'ТГ ЗАПИСЬ', 'tg-rec', playIcon, 'table');
+            let boostyButtonHTML = getMediaButtonHtml(movie, 'boostyUrl', 'BOOSTY', 'boosty', playIcon, 'table');
+            let ytButtonHTML = getMediaButtonHtml(movie, 'youtubeUrl', 'YOUTUBE', 'yt', playIcon, 'table');
 
             const userColor = stringToColor(cleanNick);
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') 
@@ -1119,6 +1636,30 @@
                 : `<div class="req-avatar" style="background-color: ${userColor}; border-color: ${userColor};">${getInitials(cleanNick)}</div>`;
 
             const auctionHTML = movie.isAuction ? `<div style="color: var(--warm-star); font-size: 11px; text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-top: 8px;">✦ Аукцион ✦</div>` : '';
+
+			
+            const datePriceText = movie.datePriceUpdated ? movie.datePriceUpdated.split(' ')[0] : 'неизвестно';
+            const priceText = movie.price && movie.price !== "Неизвестно" ? movie.price : "Цена скрыта";
+            
+            let tablePriceBadgesMarkup = '';
+            if (priceText !== "Цена скрыта") {
+                const prices = priceText.split('/').map(p => p.trim());
+                
+                tablePriceBadgesMarkup = prices.map(p => `<span class="price-badge" style="display: block; width: 75%; max-width: 120px; margin: 0 auto 4px auto; padding: 6px 4px; font-size: 14px; cursor: default; box-sizing: border-box;">${escapeHTML(p)}</span>`).join('');
+            } else {
+                tablePriceBadgesMarkup = `<span class="price-badge" style="display: block; width: 75%; max-width: 120px; margin: 0 auto 4px auto; opacity: 0.6; padding: 6px 4px; font-size: 14px; cursor: default; box-sizing: border-box;">Нет цены</span>`;
+            }
+            
+            const priceColumnHTML = `
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%;">
+                    <div style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 8px; text-align: center;">Обновлено:<br><span style="color: var(--mint-light); font-size: 12px;">${datePriceText}</span></div>
+                    <div style="width: 100%;">
+                        ${tablePriceBadgesMarkup}
+                    </div>
+                </div>
+            `;
+            
+
 
             tr.innerHTML = `
                 <td><div class="poster-wrapper"><img src="${posterUrl}" onerror="handlePosterError(this)" alt=""></div></td>
@@ -1129,18 +1670,20 @@
                             <div class="movie-meta-box">
                                 <span class="movie-year">${movie.year || '----'}</span>
                                 <button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 12.9V17.1C16 20.6 14.6 22 11.1 22H6.9C3.4 22 2 20.6 2 17.1V12.9C2 9.4 3.4 8 6.9 8H11.1C14.6 8 16 9.4 16 12.9Z"/><path d="M22 6.9V11.1C22 14.6 20.6 16 17.1 16H16V12.9C16 9.4 14.6 8 11.1 8H8V6.9C8 3.4 9.4 2 12.9 2H17.1C20.6 2 22 3.4 22 6.9Z"/></svg>
                                 </button>
                             </div>
                         </div>
-                        <div class="badges-container">${typeLabel} ${idBadge}</div>
+                        <div class="badges-container">${idBadge}</div>
                         <div class="movie-genres">${escapeHTML(movie.genres || '')}</div>
-                        ${studiosHTML}
-                        <div class="movie-overview-wrapper"><div class="movie-overview-text">${cleanOverview}</div></div>
+                        ${tabsHTML}
+                        ${reviewBlock}
+                        ${overviewBlock}
                     </div>
                 </td>
                 <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center;"><div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">${avatarMarkup}<span class="req-name">${cleanNick}</span></div>${movie.dateRequested ? `<div class="date-badge">${movie.dateRequested.split(' ')[0]}</div>` : ''}${auctionHTML}</div></td>
-                <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; height: 100%;">${steamButtonHTML}${tgButtonHTML}</div></td>
+                <td style="vertical-align: top;">${priceColumnHTML}</td>
+                <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; height: 100%;">${steamButtonHTML}${tgButtonHTML}${tgRecButtonHTML}${boostyButtonHTML}${ytButtonHTML}</div></td>
                 <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center;">${statusText}${watchedDateHTML}</div></td>
             `;
             tbody.appendChild(tr);
@@ -1234,6 +1777,17 @@
                 </a>
             ` : '';
 
+            let tgReviewBtnMarkup = movie.reviewUrl ? `
+                <a href="${movie.reviewUrl}" target="_blank" class="card-tg-btn" onclick="event.stopPropagation();" title="Открыть отзыв в Telegram">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </a>
+            ` : '';
+
+            const playIconGrid = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+            let ytGridBtn = getMediaButtonHtml(movie, 'youtubeUrl', 'YOUTUBE', 'yt', playIconGrid, 'grid');
+            let boostyGridBtn = getMediaButtonHtml(movie, 'boostyUrl', 'BOOSTY', 'boosty', playIconGrid, 'grid');
+            let tgRecGridBtn = getMediaButtonHtml(movie, 'tgRecordUrl', 'ТГ ЗАПИСЬ', 'tg', playIconGrid, 'grid');
+
             let gridSteamBtn = '';
             if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
                 gridSteamBtn = `
@@ -1250,13 +1804,18 @@
                 <div class="card-top">
                     <img src="${posterUrl}" class="card-poster" onerror="handlePosterError(this)" alt="">
                     ${bannedDotMarkup}
-                    <button class="${copyBtnClass}" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать название">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
-                    </button>
-                    ${tgBtnMarkup}
+                    <div class="card-actions-col">
+                        <button class="${copyBtnClass}" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать название">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 12.9V17.1C16 20.6 14.6 22 11.1 22H6.9C3.4 22 2 20.6 2 17.1V12.9C2 9.4 3.4 8 6.9 8H11.1C14.6 8 16 9.4 16 12.9Z"/><path d="M22 6.9V11.1C22 14.6 20.6 16 17.1 16H16V12.9C16 9.4 14.6 8 11.1 8H8V6.9C8 3.4 9.4 2 12.9 2H17.1C20.6 2 22 3.4 22 6.9Z"/></svg>
+                        </button>
+                        ${ytGridBtn}
+                        ${boostyGridBtn}
+                        ${tgRecGridBtn}
+                        ${tgBtnMarkup}
+						${tgReviewBtnMarkup}
+                    </div>
                     <div class="card-overlay">
-                        <div class="card-badges-top">
-                            <div class="card-type-badge">${escapeHTML(movie.type || 'Игра')}</div>
+                        <div class="card-badges-top" style="justify-content: flex-end;">
                             ${statusMarkup}
                         </div>
                         <div class="card-bottom-badges">${bottomBadges}</div>
@@ -1296,11 +1855,13 @@
     function autoResizeTitles() {
         setTimeout(() => {
             document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
-                let currentSize = 24; 
+                
+                let currentSize = window.innerWidth >= 2560 ? 30 : 24; 
                 titleEl.style.fontSize = currentSize + "px"; 
                 titleEl.style.whiteSpace = 'nowrap'; 
                 titleEl.style.display = 'block';
-                let minSize = 18;
+
+                let minSize = window.innerWidth >= 2560 ? 20 : 18;
                 
                 while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > minSize) { 
                     currentSize -= 1; 
@@ -1412,9 +1973,9 @@
         }, 10);
         
         let badgesHtml = '';
-        let displayType = escapeHTML(movie.type || 'Игра');
-        badgesHtml += `<span class="outline-badge">${displayType}</span>`;
-        badgesHtml += `<span class="outline-badge">ID №${movie.id || 0}</span>`;
+        if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
+            badgesHtml += `<span class="outline-badge">ID: ${movie.steamAppId}</span>`;
+        }
         
         if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
             badgesHtml += `
@@ -1426,11 +1987,23 @@
         
         if (movie.postUrl) {
             badgesHtml += `
-            <a href="${movie.postUrl}" target="_blank" class="outline-badge tg-modal-badge" onclick="event.stopPropagation();">
+            <a href="${movie.postUrl}" target="_blank" class="outline-badge tg-modal-badge" onclick="event.stopPropagation();" title="Перейти к посту">
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 ТГ ПОСТ
             </a>`;
         }
+        if (movie.reviewUrl) {
+            badgesHtml += `
+            <a href="${movie.reviewUrl}" target="_blank" class="outline-badge tg-modal-badge" onclick="event.stopPropagation();" title="Перейти к отзыву">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                ТГ ПОСТ
+            </a>`;
+        }
+
+        const playIconModal = `<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+        badgesHtml += getMediaButtonHtml(movie, 'youtubeUrl', 'YOUTUBE', 'yt', playIconModal, 'modal');
+        badgesHtml += getMediaButtonHtml(movie, 'boostyUrl', 'BOOSTY', 'boosty', playIconModal, 'modal');
+        badgesHtml += getMediaButtonHtml(movie, 'tgRecordUrl', 'ТГ ЗАПИСЬ', 'tg-rec', playIconModal, 'modal');
 
         document.getElementById('modalBadges').innerHTML = badgesHtml;
         
@@ -1445,8 +2018,63 @@
         }
         document.getElementById('modalGenres').innerHTML = genresHtml;
 
-        document.getElementById('modalOverview').textContent = movie.overview || 'Данные об игре утеряны...';
+
+        const reviewBlock = document.getElementById('modalReviewBlock');
+        if (movie.reviewText && movie.reviewText.trim() !== "") {
+            reviewBlock.style.display = 'block';
+            reviewBlock.querySelector('.modal-review-text').innerHTML = escapeHTML(movie.reviewText).replace(/\n/g, '<br>');
+        } else {
+            reviewBlock.style.display = 'none';
+        }
         
+
+        const overviewText = movie.overview || 'Данные об игре утеряны...';
+        document.getElementById('modalOverview').innerHTML = escapeHTML(overviewText).replace(/\n/g, '<br>');
+
+
+        const mediaCol = document.getElementById('modalMediaCol');
+        const screenshotsWrapper = document.getElementById('modalScreenshotsWrapper');
+        const trailersWrapper = document.getElementById('modalTrailersWrapper');
+        const screenshotsContainer = document.getElementById('modalScreenshots');
+        const trailersContainer = document.getElementById('modalTrailers');
+
+        modalMediaItems = []; 
+
+        let screenshotsHtml = '';
+        if (movie.screenshots && Array.isArray(movie.screenshots) && movie.screenshots.length > 0) {
+            movie.screenshots.forEach(src => {
+                const index = modalMediaItems.length;
+                modalMediaItems.push({ type: 'image', src: src });
+                screenshotsHtml += `<img src="${src}" class="media-thumb" onclick="openLightbox(${index})" alt="Скриншот">`;
+            });
+            screenshotsContainer.innerHTML = screenshotsHtml;
+            screenshotsWrapper.style.display = 'block';
+        } else {
+            screenshotsWrapper.style.display = 'none';
+        }
+
+        let trailersHtml = '';
+        if (movie.trailers && Array.isArray(movie.trailers) && movie.trailers.length > 0) {
+
+            const bgImg = movie.backdrop && !movie.backdrop.includes('via.placeholder') ? movie.backdrop : fallbackBackdropUrl;
+            movie.trailers.forEach(src => {
+                const index = modalMediaItems.length;
+                modalMediaItems.push({ type: 'video', src: src });
+                trailersHtml += `<div class="media-thumb video-thumb" style="background-image: url('${bgImg}')" onclick="openLightbox(${index})" title="Смотреть трейлер"></div>`;
+            });
+            trailersContainer.innerHTML = trailersHtml;
+            trailersWrapper.style.display = 'block';
+        } else {
+            trailersWrapper.style.display = 'none';
+        }
+
+        mediaCol.style.display = modalMediaItems.length > 0 ? 'block' : 'none';
+        
+		
+		
+		
+		
+		
         const dateReqEl = document.getElementById('modalDateReq');
         if (movie.dateRequested) {
              dateReqEl.innerHTML = `<div class="modal-grid-box">${movie.dateRequested.split(' ')[0]}</div>`;
@@ -1565,7 +2193,7 @@
             modalPriceBadgesMarkup = `<span class="price-badge" style="flex: 0 0 auto; opacity: 0.6; padding: 6px 14px; font-size: 15px; cursor: default;">Нет цены</span>`;
         }
         
-        priceEl.innerHTML = `<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; margin-top: 4px;">${modalPriceBadgesMarkup}</div>`;
+        priceEl.innerHTML = `<div class="modal-prices-wrapper">${modalPriceBadgesMarkup}</div>`;
         
 
         if (priceText.includes('~')) {
@@ -1588,10 +2216,92 @@
         if (arg === true || (arg && arg.target && arg.target.id === 'movieModal')) {
             document.getElementById('movieModal').classList.remove('active'); 
             document.body.style.overflow = ''; 
+            
+            document.querySelectorAll('.video-item').forEach(video => {
+                video.pause();
+                video.removeAttribute('src'); 
+                video.load();
+				closeLightbox();
+            });
         }
     }
     
     loadMovies();
+	
+	
+	
+	
 </script>
+
+
+
+<script>
+    const canvas = document.createElement('canvas');
+    canvas.id = 'starsCanvas';
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.zIndex = '-1'; 
+    canvas.style.pointerEvents = 'none';
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let width, height, stars = [];
+
+    function initStars() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        stars = [];
+        
+        const numStars = Math.floor((width * height) / 4000); 
+        for (let i = 0; i < numStars; i++) {
+            stars.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 1.5 + 0.3, 
+                velocity: Math.random() * 0.4 + 0.1, 
+                alpha: Math.random(), 
+                twinkleSpeed: (Math.random() * 0.02) + 0.005, 
+                fadeDir: Math.random() > 0.5 ? 1 : -1 
+            });
+        }
+    }
+
+    function drawStars() {
+        ctx.clearRect(0, 0, width, height);
+        
+        stars.forEach(star => {
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+            ctx.fill();
+            
+            star.y -= star.velocity;
+            
+            if (star.y < 0) {
+                star.y = height;
+                star.x = Math.random() * width;
+            }
+
+            star.alpha += star.twinkleSpeed * star.fadeDir;
+            if (star.alpha <= 0.1) {
+                star.alpha = 0.1;
+                star.fadeDir = 1;
+            } else if (star.alpha >= 1) {
+                star.alpha = 1;
+                star.fadeDir = -1;
+            }
+        });
+        requestAnimationFrame(drawStars);
+    }
+    
+    initStars();
+    drawStars();
+    window.addEventListener('resize', initStars);
+</script>
+
+
 </body>
 </html>
