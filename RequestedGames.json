@@ -490,7 +490,7 @@
       "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/391720/library_600x900_2x.jpg",
       "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/391720/page_bg_raw.jpg?t=1771008004",
       "steamAppId": "391720",
-      "price": "$12,59 / ~1 051 ₽ / 279 ₴ / 2 650 ₸",
+      "price": "$12.59 / ~1,051 ₽ / 279 ₴ / 2,650 ₸",
       "isFree": "false",
       "metacriticScore": "73",
       "metacriticUrl": "https://www.metacritic.com/game/pc/layers-of-fear?ftag=MCD-06-10aaa1f",
@@ -505,8 +505,19 @@
       "burned": false,
       "isAuction": false,
       "dateWatched": "23.03.2026",
-      "datePriceUpdated": "22.08.2026",
-      "postUrl": "https://t.me/cherteyart/530"
+      "datePriceUpdated": "03.10.2026",
+      "postUrl": "https://t.me/cherteyart/530",
+      "screenshots": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/391720/ss_bd15c3e75837957b903ecf27145963b4a14d809e.1920x1080.jpg?t=1771008004",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/391720/ss_ee4ebde0459e58cbc0eb53802a55e14596a3760b.1920x1080.jpg?t=1771008004",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/391720/ss_6b9805ded2a4a3d160ee241fda1868139c59d8bb.1920x1080.jpg?t=1771008004",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/391720/ss_c7fbc8c76e0adb4fc1531665840d8dc7031eff4b.1920x1080.jpg?t=1771008004",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/391720/ss_01f4489c53e09505495f3de24bf9809e5aa3456c.1920x1080.jpg?t=1771008004",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/391720/ss_008e00782daa1fd5abb3ed8883d063c68915e695.1920x1080.jpg?t=1771008004"
+      ],
+      "trailers": [
+        "https://video.akamai.steamstatic.com/store_trailers/391720/41641/a2dc5cd2e57f28bdb6a59249a400340ff0260cdd/1750524187/hls_264_master.m3u8?t=1447377696"
+      ]
     },
     {
       "title": "Shady Part of Me",
