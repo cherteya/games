@@ -472,8 +472,8 @@
       "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/8870/library_600x900_2x.jpg",
       "backdrop": "https://store.akamai.steamstatic.com/images/storepagebackground/app/8870?t=1728673518",
       "steamAppId": "8870",
-      "price": "$4.49 / ~390 ₽ / 97 ₴ / 975 ₸",
-      "datePriceUpdated": "03.09.2026",
+      "price": "$4.49 / ~375 ₽ / 97 ₴ / 975 ₸",
+      "datePriceUpdated": "03.10.2026",
       "isFree": "false",
       "metacriticScore": "94",
       "metacriticUrl": "https://www.metacritic.com/game/pc/bioshock-infinite?ftag=MCD-06-10aaa1f",
@@ -487,7 +487,23 @@
       "burned": false,
       "isAuction": false,
       "difficulty": "",
-      "dateWatched": "03.09.2026"
+      "dateWatched": "03.09.2026",
+      "screenshots": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_26e2d983948edfb911db3e0d2c3679900b4ef9fa.1920x1080.jpg?t=1728673518",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_c6f3fbf3e9f4cb1777462150203a7174608dfcd9.1920x1080.jpg?t=1728673518",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_dc76723504ce89c1ed1f66fd468682ba76548c32.1920x1080.jpg?t=1728673518",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_37f25110f8d76335ddbc29a381bc6961e209acf6.1920x1080.jpg?t=1728673518",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_d45294620026ff41f7e6b8610c6d60e13645fbf3.1920x1080.jpg?t=1728673518",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_fd6f5de55332f6c3cd119a01a9e017e840765c0e.1920x1080.jpg?t=1728673518",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_3a364ffdcd2c1eeb3957435c624fc7c383d8cb69.1920x1080.jpg?t=1728673518",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_4616da02724c2beaa8afc74a501929d27a65542a.1920x1080.jpg?t=1728673518",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/8870/ss_e98deaf0e334206b84c2462276aee98107fa20d0.1920x1080.jpg?t=1728673518"
+      ],
+      "trailers": [
+        "https://video.akamai.steamstatic.com/store_trailers/8870/10985/fc40c909896effa47d2a316fbb75c4303a114cc3/1750484159/hls_264_master.m3u8?t=1447357639",
+        "https://video.akamai.steamstatic.com/store_trailers/8870/10479/806132269c009d9d602079e347cc563740f26b63/1750484154/hls_264_master.m3u8?t=1447357360",
+        "https://video.akamai.steamstatic.com/store_trailers/8870/10662/135853d79f52785074edde3e7af08bcb3ae4af1d/1750484158/hls_264_master.m3u8?t=1447357456"
+      ]
     }
   ],
   "MadMan1408": [],
