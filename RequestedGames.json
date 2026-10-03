@@ -17,7 +17,7 @@
       "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/424840/library_600x900_2x.jpg",
       "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/424840/61b12d0ab0f1b312f863e33776b58050837fcf38/page_bg_raw.jpg?t=1773135169",
       "steamAppId": "424840",
-      "price": "$19,79 / 1 429 ₽ / 649 ₴ / 5 999 ₸",
+      "price": "$4.94 / 357 ₽ / 162 ₴ / 1,499 ₸",
       "isFree": "false",
       "metacriticScore": "81",
       "metacriticUrl": "https://www.metacritic.com/game/pc/little-nightmares?ftag=MCD-06-10aaa1f",
@@ -32,7 +32,25 @@
       "burned": false,
       "isAuction": false,
       "dateWatched": "31.10.2025",
-      "datePriceUpdated": "22.08.2026"
+      "datePriceUpdated": "03.10.2026",
+      "screenshots": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/424840/8942672a817424d426e65ade0253e428a3f449ee/ss_8942672a817424d426e65ade0253e428a3f449ee.1920x1080.jpg?t=1773135169",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/424840/659c0e9407e6886ed3e27320db598274c0e352a2/ss_659c0e9407e6886ed3e27320db598274c0e352a2.1920x1080.jpg?t=1773135169",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/424840/24d7518ab72df4608de04f4ad4bc04ee479e3911/ss_24d7518ab72df4608de04f4ad4bc04ee479e3911.1920x1080.jpg?t=1773135169",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/424840/351e2a93274cadae4952a1d05847c9a4ea723129/ss_351e2a93274cadae4952a1d05847c9a4ea723129.1920x1080.jpg?t=1773135169",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/424840/f44ce606d6d5cb2c2d04c32488c3c751bfb3747c/ss_f44ce606d6d5cb2c2d04c32488c3c751bfb3747c.1920x1080.jpg?t=1773135169",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/424840/9e419d670f0e7887e06180f5333e3582b3b41c8e/ss_9e419d670f0e7887e06180f5333e3582b3b41c8e.1920x1080.jpg?t=1773135169",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/424840/c4f1d9bc136530748c244f6ff217c58472e86f66/ss_c4f1d9bc136530748c244f6ff217c58472e86f66.1920x1080.jpg?t=1773135169",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/424840/fb2d90eee30e81b055f105f2250cd4db4ebd2224/ss_fb2d90eee30e81b055f105f2250cd4db4ebd2224.1920x1080.jpg?t=1773135169",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/424840/18d77bf3b77f97bcf614f6b8716775b04b0c0b90/ss_18d77bf3b77f97bcf614f6b8716775b04b0c0b90.1920x1080.jpg?t=1773135169",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/424840/5eb2cbdb54a15773baa3d97df21434c1116cefae/ss_5eb2cbdb54a15773baa3d97df21434c1116cefae.1920x1080.jpg?t=1773135169"
+      ],
+      "trailers": [
+        "https://video.akamai.steamstatic.com/store_trailers/424840/127254/7ce709c8815248f5d6729efcedca0cd26d2eada1/1750529308/hls_264_master.m3u8?t=1507652098",
+        "https://video.akamai.steamstatic.com/store_trailers/424840/99864/a027b8bf067c3d43e541390d300fcfc4a14389e9/1750529306/hls_264_master.m3u8?t=1493296044",
+        "https://video.akamai.steamstatic.com/store_trailers/424840/86896/b3bbb54811d147c17f29bbb942fa0f8f43958551/1750529209/hls_264_master.m3u8?t=1484668783",
+        "https://video.akamai.steamstatic.com/store_trailers/424840/67636/4d0c6a662f500ef8569a7a3672be3729de125b4d/1750529199/hls_264_master.m3u8?t=1484705360"
+      ]
     },
     {
       "title": "Little Nightmares II",
