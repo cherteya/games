@@ -630,7 +630,7 @@
       "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/2863640/library_600x900_2x.jpg",
       "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2863640/page_bg_raw.jpg?t=1768295345",
       "steamAppId": "2863640",
-      "price": "$14,49 / 1 100 ₽ / 600 ₴ / 7 600 ₸",
+      "price": "$6.52 / 495 ₽ / 270 ₴ / 3,420 ₸",
       "isFree": "false",
       "metacriticScore": "79",
       "metacriticUrl": "https://www.metacritic.com/game/pc/the-midnight-walk?ftag=MCD-06-10aaa1f",
@@ -645,8 +645,19 @@
       "burned": false,
       "isAuction": false,
       "dateWatched": "12.03.2026",
-      "datePriceUpdated": "22.08.2026",
-      "postUrl": "https://t.me/cherteyart/511"
+      "datePriceUpdated": "03.10.2026",
+      "postUrl": "https://t.me/cherteyart/511",
+      "screenshots": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2863640/ss_f777ffd192373ef00a5d863436b521380bbbee37.1920x1080.jpg?t=1768295345",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2863640/ss_f7faf1d663763b3a37ec51f9a3a0e1ee7c55c2ab.1920x1080.jpg?t=1768295345",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2863640/ss_f28547d5cbd6bc26411de9806099ad4833eea36b.1920x1080.jpg?t=1768295345",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2863640/ss_80e873fa9f710e63c87f819582238da281ca20b4.1920x1080.jpg?t=1768295345",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2863640/ss_3251a1166b7a6c4d50c955a6b3987d2cbcd9a66d.1920x1080.jpg?t=1768295345"
+      ],
+      "trailers": [
+        "https://video.akamai.steamstatic.com/store_trailers/2863640/884576/e68c8db8f3fe499da19b454026aa830e113852ab/1750820773/hls_264_master.m3u8?t=1746712447",
+        "https://video.akamai.steamstatic.com/store_trailers/2863640/848767894/a649dd3c26fecaad867d99ab4e62d229d1630ede/1750820774/hls_264_master.m3u8?t=1750084303"
+      ]
     },
     {
       "id": 16,
