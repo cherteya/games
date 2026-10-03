@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "cherteya",
-    "lastUpdated": "03.10.2026 08:41",
+    "lastUpdated": "03.10.2026 08:42",
     "isOnlineBtnVisible": true
   },
   "cherteya": [
@@ -133,7 +133,7 @@
       "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/268050/library_600x900_2x.jpg",
       "backdrop": "https://store.akamai.steamstatic.com/images/storepagebackground/app/268050?t=1750783780",
       "steamAppId": "268050",
-      "price": "$19,99 / ~1 669 ₽ / 520 ₴ / 6 710 ₸",
+      "price": "$4.99 / ~417 ₽ / 130 ₴ / 1,677 ₸",
       "isFree": "false",
       "metacriticScore": "68",
       "metacriticUrl": "https://www.metacritic.com/game/pc/the-evil-within?ftag=MCD-06-10aaa1f",
@@ -148,7 +148,25 @@
       "burned": true,
       "isAuction": false,
       "dateWatched": "08.07.2026",
-      "datePriceUpdated": "22.08.2026"
+      "datePriceUpdated": "03.10.2026",
+      "screenshots": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/268050/ss_1322e5344c6bdfc04571418252d12e8dfe0dbf03.1920x1080.jpg?t=1750783780",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/268050/ss_c24855357d250b23a1912ed85fc126451e188284.1920x1080.jpg?t=1750783780",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/268050/ss_fa65fd3c1d5ee8dedf67f0ad1b2df828c33ecc99.1920x1080.jpg?t=1750783780",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/268050/ss_86018e7dcb5f785aa9b8cfe4ecb75fbec52953ba.1920x1080.jpg?t=1750783780",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/268050/ss_a46ff1aaa4a4b24cd6bc0c44d78b171a7484c5bb.1920x1080.jpg?t=1750783780",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/268050/ss_d41229c79c20148d15e701cee64f9c73352de644.1920x1080.jpg?t=1750783780",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/268050/ss_c8492181d8a1894a03199411c5be1484d67fdaef.1920x1080.jpg?t=1750783780",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/268050/ss_458a0e1b716b097937d0a599b0bf37a118021a51.1920x1080.jpg?t=1750783780",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/268050/ss_1a9f96188105794239ba04bea0e96783125a144b.1920x1080.jpg?t=1750783780",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/268050/ss_bb0857b8cffc70fbfc561dca7daa316c973dba9e.1920x1080.jpg?t=1750783780"
+      ],
+      "trailers": [
+        "https://video.akamai.steamstatic.com/store_trailers/268050/26277/a68ecd56544af4cd4b76170a91bdbcb37f88c185/1750499143/hls_264_master.m3u8?t=1447364179",
+        "https://video.akamai.steamstatic.com/store_trailers/268050/26276/03e38bbe00dc1d4945760ffdaa7311cdd731584e/1750499120/hls_264_master.m3u8?t=1447364179",
+        "https://video.akamai.steamstatic.com/store_trailers/268050/24606/495dcc8dac97851dad72b4be8fc4f0f99654ded9/1750499120/hls_264_master.m3u8?t=1447363436",
+        "https://video.akamai.steamstatic.com/store_trailers/268050/24602/d19b62c86459e66dafd8eb3f5a4bcb32eea9797a/1750499118/hls_264_master.m3u8?t=1447363434"
+      ]
     },
     {
       "title": "ORDER 13",
